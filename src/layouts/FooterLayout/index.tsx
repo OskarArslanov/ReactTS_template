@@ -1,6 +1,12 @@
+import { FC } from "react";
 import styles from "./styles.module.css";
 
-const FooterLayout = () => {
-  return <div className={styles.FooterLayout_Container}>123</div>;
+interface FooterLayoutProps {
+  children: JSX.Element;
+}
+const FooterLayout: FC<FooterLayoutProps> = (props) => {
+  return (
+    <footer className={styles.FooterLayout_Container}>{props.children}</footer>
+  );
 };
 export default FooterLayout;

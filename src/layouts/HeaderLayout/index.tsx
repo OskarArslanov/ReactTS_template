@@ -1,6 +1,12 @@
+import { FC } from "react";
 import styles from "./styles.module.css";
 
-const HeaderLayout = () => {
-  return <div className={styles.HeaderLayout_Container}>123</div>;
+interface HeaderLayoutProps {
+  children: JSX.Element;
+}
+const HeaderLayout: FC<HeaderLayoutProps> = (props) => {
+  return (
+    <header className={styles.HeaderLayout_Container}>{props.children}</header>
+  );
 };
 export default HeaderLayout;
