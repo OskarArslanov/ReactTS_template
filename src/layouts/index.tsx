@@ -7,14 +7,14 @@ const AppLayout = () => {
   return (
     <div className={styles.AppLayout_Container}>
       <HeaderLayout>
-        <div>header</div>
+        <div>heade12r</div>
       </HeaderLayout>
       <BodyLayout>
         <div>body</div>
       </BodyLayout>
-      <FooterLayout>
+      {/* <FooterLayout>
         <div>footer</div>
-      </FooterLayout>
+      </FooterLayout> */}
     </div>
   );
 };
