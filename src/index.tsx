@@ -2,8 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { ConfigProvider } from "antd";
-import ruRU from "antd/es/locale/ru_RU";
 import App from "./App";
 import Dashboard from "./pages/Dashboard";
 import Reports from "./pages/Reports";
@@ -34,8 +32,6 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <ConfigProvider locale={ruRU}>
-      <RouterProvider router={router} />
-    </ConfigProvider>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
