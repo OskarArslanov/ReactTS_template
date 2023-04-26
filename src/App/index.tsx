@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import BodyContainer from "./BodyContainer";
 import FooterContainer from "./FooterContainer";
 import HeaderContainer from "./HeaderContainer";
@@ -6,15 +7,11 @@ import styles from "./styles.module.css";
 const App = () => {
   return (
     <div className={styles.App_Container}>
-      <HeaderContainer>
-        <div>header</div>
-      </HeaderContainer>
+      <HeaderContainer>header</HeaderContainer>
       <BodyContainer>
-        <div>body</div>
+        <Outlet />
       </BodyContainer>
-      <FooterContainer>
-        <div>footer</div>
-      </FooterContainer>
+      <FooterContainer>footer</FooterContainer>
     </div>
   );
 };
