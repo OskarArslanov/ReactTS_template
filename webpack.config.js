@@ -1,49 +1,56 @@
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-let mode = "development";
-if (process.env.NODE_ENV === "production") {
-  mode = "production";
-}
+const isDevelopment = process.env.NODE_ENV !== "production";
 
 module.exports = {
-  mode,
   entry: "./src/index.tsx",
-  devtool: "source-map",
-  devServer: {
-    port: 3000,
-    open: true,
-    hot: true,
-    historyApiFallback: true,
-    client: {
-      overlay: false,
-    },
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "*",
-      "Access-Control-Allow-Headers": "*",
-    },
+  mode: isDevelopment ? "development" : "production",
+  devtool: isDevelopment ? "inline-source-map" : "source-map",
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: "Hot Module Replacement",
-    }),
-  ],
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: isDevelopment ? "[name].js" : "[name].[contenthash].js",
+  },
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        use: "ts-loader",
-        exclude: /node_modules/,
+        test: /\.[jt]sx?$/,
+        loader: "esbuild-loader",
+        options: {
+          target: "es2015",
+        },
+      },
+      {
+        test: /\.css$/i,
+        use: [
+          "style-loader",
+          "css-loader",
+          {
+            loader: "esbuild-loader",
+            options: {
+              minify: true,
+            },
+          },
+        ],
       },
     ],
   },
-  resolve: {
-    extensions: [".tsx", ".ts", ".js"],
-  },
-  output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
-    clean: true,
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: isDevelopment ? "[name].css" : "[name].[contenthash].css",
+      chunkFilename: isDevelopment ? "[id].css" : "[id].[contenthash].css",
+    }),
+  ],
+  devServer: {
+    compress: true,
+    port: 3000,
+    hot: true,
+    client: {
+      overlay: false,
+    },
   },
 };
