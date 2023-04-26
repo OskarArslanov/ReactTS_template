@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 
@@ -14,6 +15,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: isDevelopment ? "[name].js" : "[name].[contenthash].js",
+    publicPath: "/",
   },
   module: {
     rules: [
@@ -44,8 +46,13 @@ module.exports = {
       filename: isDevelopment ? "[name].css" : "[name].[contenthash].css",
       chunkFilename: isDevelopment ? "[id].css" : "[id].[contenthash].css",
     }),
+    new HtmlWebpackPlugin({
+      inject: true,
+      template: "./public/index.html",
+    }),
   ],
   devServer: {
+    historyApiFallback: true,
     compress: true,
     port: 3000,
     hot: true,

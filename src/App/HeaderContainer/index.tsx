@@ -1,10 +1,7 @@
-import { FC } from "react";
+import { FC, PropsWithChildren } from "react";
 import styles from "./styles.module.css";
 
-interface HeaderContainerProps {
-  children: JSX.Element;
-}
-const HeaderContainer: FC<HeaderContainerProps> = (props) => {
-  return <header className={styles.HeaderContainer}>{props.children}</header>;
+const HeaderContainer: FC<PropsWithChildren> = (props) => {
+  return <div className={styles.HeaderContainer}>{props.children}</div>;
 };
 export default HeaderContainer;

@@ -17,7 +17,14 @@
     "sourceMap": true,
     "plugins": [
       { "name": "typescript-plugin-css-modules" },
-    ]
+    ],
+    "baseUrl": "/",
+    "paths": {
+      "@/pages": ["pages/*"],
+      "@/components": ["components/*"],
+      "@/types": ["types/*"],
+      "@/utils": ["utils/*"],
+    }
   },
-  "include": ["src/*.tsx", "src/types", "src/App", "src/components", "src/utils"]
+  "include": ["src", "src/types", "src/App", "src/components", "src/utils", "src/pages"]
 }

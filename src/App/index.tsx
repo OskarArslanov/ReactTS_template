@@ -1,9 +1,7 @@
-import { BrowserRouter, Route } from "react-router-dom";
 import BodyContainer from "./BodyContainer";
 import FooterContainer from "./FooterContainer";
 import HeaderContainer from "./HeaderContainer";
 import styles from "./styles.module.css";
-import Main from "../pages/main";
 
 const App = () => {
   return (
@@ -12,9 +10,7 @@ const App = () => {
         <div>header</div>
       </HeaderContainer>
       <BodyContainer>
-        <BrowserRouter>
-          <Route path="/main" element={<Main />} />
-        </BrowserRouter>
+        <div>body</div>
       </BodyContainer>
       <FooterContainer>
         <div>footer</div>

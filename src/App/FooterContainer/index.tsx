@@ -1,10 +1,7 @@
-import { FC } from "react";
+import { FC, PropsWithChildren } from "react";
 import styles from "./styles.module.css";
 
-interface FooterContainerProps {
-  children: JSX.Element;
-}
-const FooterContainer: FC<FooterContainerProps> = (props) => {
-  return <footer className={styles.FooterContainer}>{props.children}</footer>;
+const FooterContainer: FC<PropsWithChildren> = (props) => {
+  return <div className={styles.FooterContainer}>{props.children}</div>;
 };
 export default FooterContainer;
