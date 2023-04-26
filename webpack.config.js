@@ -29,7 +29,14 @@ module.exports = {
         test: /\.css$/i,
         use: [
           "style-loader",
-          "css-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: {
+                localIdentName: "[local]__[hash:base64:5]",
+              },
+            },
+          },
           {
             loader: "esbuild-loader",
             options: {
@@ -42,8 +49,8 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: isDevelopment ? "[name].css" : "[name].[contenthash].css",
-      chunkFilename: isDevelopment ? "[id].css" : "[id].[contenthash].css",
+      filename: "[name].[contenthash].css",
+      chunkFilename: "[id].[contenthash].css",
     }),
     new HtmlWebpackPlugin({
       inject: true,
