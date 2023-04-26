@@ -7,7 +7,6 @@ import ruRU from "antd/es/locale/ru_RU";
 import App from "./App";
 import Dashboard from "./pages/Dashboard";
 import Reports from "./pages/Reports";
-import "@ant-design/flowchart/dist/index.css";
 
 const router = createBrowserRouter([
   {
