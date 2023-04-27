@@ -1,0 +1,10 @@
+.Settings {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: white;
+  justify-content: space-between;
+}
+
+.Settings_Title {
+}
