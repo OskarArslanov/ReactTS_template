@@ -1,5 +1,5 @@
 import SettingOutlined from "@ant-design/icons/lib/icons/SettingOutlined";
-import { Select } from "antd";
+import { Button, Select } from "antd";
 import styles from "./styles.module.css";
 
 const Settings = () => {
@@ -18,8 +18,15 @@ const Settings = () => {
           label: province.title,
           value: province.value,
         }))}
+        style={{ backgroundColor: "transparent", color: "white" }}
+        bordered={false}
       />
-      <SettingOutlined />
+      <Button
+        type="ghost"
+        shape="circle"
+        style={{ borderColor: "transparent" }}
+        icon={<SettingOutlined style={{ fontSize: "20px", color: "white" }} />}
+      />
     </div>
   );
 };
