@@ -5,6 +5,7 @@ import HeaderContainer from "./HeaderContainer";
 import styles from "./styles.module.css";
 import Logo from "../assets/Logo.tsx";
 import Settings from "./HeaderContainer/Settings";
+import MenuContainer from "./MenuContainer";
 
 const App = () => {
   return (
@@ -14,9 +15,12 @@ const App = () => {
         <Settings />
       </HeaderContainer>
       <BodyContainer>
-        <Outlet />
+        <MenuContainer />
+        <div className={styles.MainLayout}>
+          <Outlet />
+        </div>
       </BodyContainer>
-      <FooterContainer>footer</FooterContainer>
+      <FooterContainer />
     </div>
   );
 };
