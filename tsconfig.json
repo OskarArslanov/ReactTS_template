@@ -18,13 +18,13 @@
     "plugins": [
       { "name": "typescript-plugin-css-modules" },
     ],
-    "baseUrl": "/",
+    "baseUrl": "/src/",
     "paths": {
-      "@/pages": ["pages/*"],
-      "@/components": ["components/*"],
-      "@/types": ["types/*"],
-      "@/utils": ["utils/*"],
+      "@pages": ["pages"],
+      "@components": ["components"],
+      "@types": ["types"],
+      "@utils": ["utils"],
     }
   },
-  "include": ["src", "src/types", "src/App", "src/components", "src/utils", "src/pages"]
+  "include": ["src/"]
 }

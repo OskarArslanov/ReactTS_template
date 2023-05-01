@@ -7,6 +7,9 @@ import App from "./App";
 import Dashboard from "./pages/Dashboard";
 import Reports from "./pages/Reports";
 import "@ant-design/flowchart/dist/index.css";
+import Analytics from "./pages/Analytics";
+import Gasoline from "./pages/Gasoline";
+import Agro from "./pages/Agro";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +25,21 @@ const router = createBrowserRouter([
       {
         path: "reports",
         element: <Reports />,
+        loader: undefined,
+      },
+      {
+        path: "analytics",
+        element: <Analytics />,
+        loader: undefined,
+      },
+      {
+        path: "gasoline",
+        element: <Gasoline />,
+        loader: undefined,
+      },
+      {
+        path: "agro",
+        element: <Agro />,
         loader: undefined,
       },
     ],

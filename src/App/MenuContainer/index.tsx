@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import {
   FormOutlined,
   LineChartOutlined,
@@ -6,6 +6,7 @@ import {
 } from "@ant-design/icons";
 import { Menu } from "antd";
 import type { MenuProps } from "antd";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./styles.module.css";
 
 type MenuItem = Required<MenuProps>["items"][number];
@@ -27,16 +28,31 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem("Дашборд", "1", <LineChartOutlined />),
-  getItem("Отчеты", "2", <FormOutlined />),
-  getItem("Аналитика мониторинга", "3", <MonitorOutlined />),
-  getItem("Топливная аналитика", "4", <LineChartOutlined />),
-  getItem("Агро аналитика", "5", <LineChartOutlined />),
+  getItem(
+    <Link to="dashboard">Дашборд</Link>,
+    "dashboard",
+    <LineChartOutlined />
+  ),
+  getItem(<Link to="reports">Отчеты</Link>, "reports", <FormOutlined />),
+  getItem(
+    <Link to="analytics">Аналитика мониторинга</Link>,
+    "analytics",
+    <MonitorOutlined />
+  ),
+  getItem(
+    <Link to="gasoline">Топливная аналитика</Link>,
+    "gasoline4",
+    <LineChartOutlined />
+  ),
+  getItem(<Link to="agro">Агро аналитика</Link>, "agro", <LineChartOutlined />),
 ];
 
 const MenuContainer = () => {
   const [collapsed, setCollapsed] = useState(true);
-
+  const location = useLocation();
+  const currentMenuTab = useMemo(() => {
+    return location.pathname.split("/")[1];
+  }, [location]);
   return (
     <nav
       className={styles.MenuContainer}
@@ -44,8 +60,8 @@ const MenuContainer = () => {
       onMouseLeave={() => setCollapsed(true)}
     >
       <Menu
-        defaultSelectedKeys={["1"]}
-        defaultOpenKeys={["sub1"]}
+        defaultSelectedKeys={[currentMenuTab]}
+        selectedKeys={[currentMenuTab]}
         mode="inline"
         theme="dark"
         inlineCollapsed={collapsed}
