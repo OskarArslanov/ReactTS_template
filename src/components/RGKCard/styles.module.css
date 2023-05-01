@@ -1,0 +1,12 @@
+.RGKCard {
+  width: 100%;
+}
+
+.RGKCard .ant-table {
+  overflow-y: auto;
+}
+
+.RGKCard .ant-card-head-title {
+  font-size: 20px;
+  display: block;
+}

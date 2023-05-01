@@ -5,14 +5,14 @@ export interface TwoColumnValueType {
   type: string;
   nameValue: { name: string; value: number }[];
 }
-interface RGKTwoColumnTableProps {
+interface RGKTwoColumnProps {
   dataPos?: "left" | "middle" | "right";
   colors?: string[];
-  data: TwoColumnValueType[];
+  data?: TwoColumnValueType[];
   marginRatio?: number;
 }
-const RGKTwoColumnTable: FC<RGKTwoColumnTableProps> = (props) => {
-  const adoptDataToAntd = props.data.map((baseData) => {
+const RGKTwoColumn: FC<RGKTwoColumnProps> = (props) => {
+  const adoptDataToAntd = props.data?.map((baseData) => {
     const dataForType = baseData.nameValue.map((base) => ({
       name: base.name,
       value: base.value,
@@ -21,8 +21,9 @@ const RGKTwoColumnTable: FC<RGKTwoColumnTableProps> = (props) => {
     return dataForType;
   });
   let concatData: any = [];
-  if (adoptDataToAntd.length)
+  if (adoptDataToAntd?.length) {
     concatData = adoptDataToAntd.reduce((a, b) => a.concat(b));
+  }
   const config = {
     data: concatData,
     isGroup: true,
@@ -31,16 +32,17 @@ const RGKTwoColumnTable: FC<RGKTwoColumnTableProps> = (props) => {
     seriesField: "name",
     color: props.colors,
     marginRatio: props.marginRatio || 0.1,
+    dodgePadding: 2,
     label: {
-      // 'top', 'middle', 'bottom'
-      position: props.dataPos,
+      position: props.dataPos || "middle",
       layout: [
+        // 柱形图数据标签位置自动调整
         {
           type: "interval-adjust-position",
-        },
+        }, // 数据标签防遮挡
         {
           type: "interval-hide-overlap",
-        },
+        }, // 数据标签文颜色自动调整
         {
           type: "adjust-color",
         },
@@ -50,4 +52,4 @@ const RGKTwoColumnTable: FC<RGKTwoColumnTableProps> = (props) => {
   return <Column {...config} />;
 };
 
-export default RGKTwoColumnTable;
+export default RGKTwoColumn;

@@ -5,13 +5,14 @@ export interface OneColumnValueType {
   type: string;
   sales: number;
 }
-interface RGKOneColumnTableProps {
+interface RGKOneColumnProps {
   dataPos?: "left" | "middle" | "right";
-  data: OneColumnValueType[];
+  data?: OneColumnValueType[];
+  valueName: string;
 }
-const RGKOneColumnTable: FC<RGKOneColumnTableProps> = (props) => {
+const RGKOneColumn: FC<RGKOneColumnProps> = (props) => {
   const config = {
-    data: props.data,
+    data: props.data || [],
     xField: "type",
     yField: "sales",
     label: {
@@ -29,14 +30,14 @@ const RGKOneColumnTable: FC<RGKOneColumnTableProps> = (props) => {
     },
     meta: {
       type: {
-        alias: "类别",
+        alias: "Тон",
       },
       sales: {
-        alias: "销售额",
+        alias: props.valueName,
       },
     },
   };
   return <Column {...config} />;
 };
 
-export default RGKOneColumnTable;
+export default RGKOneColumn;

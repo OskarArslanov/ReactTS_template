@@ -1,5 +1,18 @@
 .Dashboard {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
+  width: 100%;
 }
+
+.Dashboard_SmallCards {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.Dashboard_BigCards {
+  display: flex;
+  gap: 20px;
+}
+

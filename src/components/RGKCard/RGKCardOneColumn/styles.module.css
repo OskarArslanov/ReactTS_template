@@ -1,0 +1,21 @@
+.RGKCardOneColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-family: "Roboto";
+  font-style: normal;
+}
+
+.RGKCardOneColumn_Text1 {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.RGKCardOneColumn_Text2 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.85);
+}
