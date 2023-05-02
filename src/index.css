@@ -11,6 +11,10 @@ body {
   --color-gray_light: rgba(0, 0, 0, 0.25);
   --color-red: #ff4d4f;
   --color-orange: #faad14;
+  --color-purple_dark: #001529;
+  --color-white: white;
+  --color-blue: #57AEFE;
+  --color-purple_dark_opposite: var(--color-white);
   --color-primary: var(--color-black);
   --color-secondary: var(--color-gray);
   --color-danger: var(--color-red);
