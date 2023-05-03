@@ -1,0 +1,10 @@
+.RGKCardOneColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.RGKCardOneColumn_Selectors {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}

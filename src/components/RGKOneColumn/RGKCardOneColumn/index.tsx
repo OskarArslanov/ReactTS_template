@@ -1,7 +1,7 @@
 import { FC } from "react";
 import styles from "./styles.module.css";
-import RGKCard from "../RGKCard";
-import RGKOneColumn, { OneColumnValueType } from "../RGKOneColumn";
+import RGKCard from "../../RGKCard";
+import RGKOneColumn, { OneColumnValueType } from "..";
 
 interface RGKCardOneColumnProps {
   title: string;

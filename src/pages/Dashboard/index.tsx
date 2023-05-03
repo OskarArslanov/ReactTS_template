@@ -7,11 +7,11 @@ import {
 import { OneColumnValueType } from "../../components/RGKOneColumn";
 import { TwoColumnValueType } from "../../components/RGKTwoColumn";
 import styles from "./styles.module.css";
-import RGKCardOneColumn from "../../components/RGKCardOneColumn";
-import RGKCardTable from "../../components/RGKCardTable";
-import RGKCardTwoColumn from "../../components/RGKCardTwoColumn";
-import RGKCardTwoColumnProgress from "../../components/RGKCardTwoColumnProgress";
+import RGKCardOneColumn from "../../components/RGKOneColumn/RGKCardOneColumn";
+import RGKCardTwoColumn from "../../components/RGKTwoColumn/RGKCardTwoColumn";
 import RGKGroupCards from "../../components/RGKGroupCards";
+import RGKCardTwoColumnProgress from "../../components/RGKTwoColumn/RGKCardTwoColumnProgress";
+import RGKCardTable from "../../components/RGKTable/RGKCardTable";
 
 const MOCK_ONECOLUMN_1: OneColumnValueType[] = [
   { sales: 0, type: "Янв" },

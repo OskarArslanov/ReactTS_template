@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { Progress } from "antd";
 import styles from "./styles.module.css";
-import RGKCard from "../RGKCard";
-import RGKTwoColumn, { TwoColumnValueType } from "../RGKTwoColumn";
+import RGKTwoColumn, { TwoColumnValueType } from "..";
+import RGKCard from "../../RGKCard";
 
 interface RGKCardTwoColumnProgressProps {
   title: string;

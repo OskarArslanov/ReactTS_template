@@ -1,7 +1,7 @@
 import { FC } from "react";
-import RGKTable from "../RGKTable";
-import RGKCard from "../RGKCard";
 import styles from "./styles.module.css";
+import RGKTable from "..";
+import RGKCard from "../../RGKCard";
 
 interface RGKCardTableProps {
   title: string;

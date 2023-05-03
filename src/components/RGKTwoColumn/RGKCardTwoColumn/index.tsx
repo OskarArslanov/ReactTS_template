@@ -1,7 +1,7 @@
 import { FC } from "react";
 import styles from "./styles.module.css";
-import RGKCard from "../RGKCard";
-import RGKTwoColumn, { TwoColumnValueType } from "../RGKTwoColumn";
+import RGKCard from "../../RGKCard";
+import RGKTwoColumn, { TwoColumnValueType } from "..";
 
 interface RGKCardTwoColumnProps {
   title: string;

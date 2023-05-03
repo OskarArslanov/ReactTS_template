@@ -1,0 +1,4 @@
+.RGKCardLine {
+  display: flex;
+  flex-direction: column;
+}
