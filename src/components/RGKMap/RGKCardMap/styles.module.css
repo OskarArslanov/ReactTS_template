@@ -6,9 +6,10 @@
 .RGKCardMap_Body {
   display: flex;
   justify-content: space-between;
+  gap: 20px;
 }
 .RGKCardMap_Map {
-  width: 400px;
+  width: 100%;
   height: 440px;
 }
 
@@ -21,4 +22,19 @@
   flex-direction: column;
   gap: 10px;
   list-style: none;
+}
+
+@media (max-width: 1200px) {
+  .RGKCardMap_Body {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .RGKCardMap_Map {
+    display: flex;
+    align-self: center;
+    width: 100vw;
+    height: 440px;
+  }
 }
