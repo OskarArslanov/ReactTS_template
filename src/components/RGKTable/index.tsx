@@ -1,4 +1,6 @@
 import { Table } from "antd";
+import { FC } from "react";
+import styles from "./styles.module.css";
 
 const dataSource = [
   {
@@ -33,8 +35,22 @@ const columns = [
   },
 ];
 
-const RGKTable = () => {
-  return <Table dataSource={dataSource} columns={columns} />;
+interface RGKTableProps {
+  pagination: boolean;
+  scroll: { x: number; y: number };
+}
+const RGKTable: FC<RGKTableProps> = (props) => {
+  return (
+    <div className={styles.RGKTable}>
+      <Table
+        dataSource={dataSource}
+        columns={columns}
+        pagination={props.pagination ? undefined : false}
+        scroll={props.scroll}
+        style={{ maxHeight: "none" }}
+      />
+    </div>
+  );
 };
 
 export default RGKTable;

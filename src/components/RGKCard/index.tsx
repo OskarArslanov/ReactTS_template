@@ -22,10 +22,12 @@ const RGKCard: FC<RGKCardProps> = (props) => {
       actions={props.actions}
       className={`${props.className} ${styles.RGKCard}`}
       headStyle={{
-        fontWeight: 500,
+        fontWeight: 700,
         fontSize: "16px",
         lineHeight: "24px",
+        maxHeight: 48,
       }}
+      bodyStyle={{ padding: "12px 24px", height: "100%" }}
     >
       {props.children}
     </Card>

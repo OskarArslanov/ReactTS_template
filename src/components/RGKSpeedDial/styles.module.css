@@ -14,10 +14,6 @@
   border-color: var(--color-blue);
 }
 
-.RGKSpeedDial_MenuButton:hover {
-  transform: rotate(45deg);
-}
-
 .RGKSpeedDial_ItemList {
   padding: 0;
   margin: 0;

@@ -1,5 +1,6 @@
 import { Column } from "@ant-design/plots";
 import { FC } from "react";
+import styles from "./styles.module.css";
 
 export interface OneColumnValueType {
   type: string;
@@ -9,6 +10,8 @@ interface RGKOneColumnProps {
   dataPos?: "left" | "middle" | "right";
   data?: OneColumnValueType[];
   valueName: string;
+  isBig?: boolean;
+  height?: number;
 }
 const RGKOneColumn: FC<RGKOneColumnProps> = (props) => {
   const config = {
@@ -37,7 +40,12 @@ const RGKOneColumn: FC<RGKOneColumnProps> = (props) => {
       },
     },
   };
-  return <Column {...config} />;
+  return (
+    <div className={styles.RGKOneColumn}>
+      <Column {...config} height={props.height} />
+    </div>
+    // width={props.isBig ? 530 : 230}
+  );
 };
 
 export default RGKOneColumn;

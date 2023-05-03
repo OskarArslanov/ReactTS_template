@@ -21,7 +21,7 @@ body {
   --color-disable: var(--color-gray_light);
   --color-warning: var(--color-orange);
   --color-mark: var(--color-black_dark);
-  --text-bold: 500;
+  --text-bold: 700;
 }
 
 code {

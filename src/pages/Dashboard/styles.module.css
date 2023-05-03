@@ -1,18 +1,21 @@
 .Dashboard {
   display: flex;
-  flex-direction: column;
   gap: 20px;
   width: 100%;
+  position: relative;
+  max-width: 100%;
 }
 
-.Dashboard_SmallCards {
-  display: flex;
-  gap: 20px;
-  justify-content: space-between;
+.Dashboard > div {
+  max-width: 49.5%;
 }
 
-.Dashboard_BigCards {
-  display: flex;
-  gap: 20px;
-}
+@media (max-width: 1200px) {
+  .Dashboard {
+    flex-wrap: wrap;
+  }
 
+  .Dashboard > div {
+    max-width: none;
+  }
+}

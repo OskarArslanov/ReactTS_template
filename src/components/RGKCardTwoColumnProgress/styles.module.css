@@ -1,0 +1,30 @@
+.RGKCardTwoColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.RGKCardTwoColumn_DataValues {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.RGKCardTwoColumn_DataValues_Container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.RGKCardTwoColumn_Text1 {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.RGKCardTwoColumn_Text2 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.85);
+}

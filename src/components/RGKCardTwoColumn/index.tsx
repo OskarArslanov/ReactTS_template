@@ -1,13 +1,14 @@
 import { FC } from "react";
-import RGKCard from "..";
-import RGKTwoColumn, { TwoColumnValueType } from "../../RGKTwoColumn";
 import styles from "./styles.module.css";
+import RGKCard from "../RGKCard";
+import RGKTwoColumn, { TwoColumnValueType } from "../RGKTwoColumn";
 
 interface RGKCardTwoColumnProps {
   title: string;
   data?: TwoColumnValueType[];
   href?: string;
   hrefText?: string;
+  height?: number;
 }
 
 const RGKCardTwoColumn: FC<RGKCardTwoColumnProps> = (props) => {
@@ -37,7 +38,7 @@ const RGKCardTwoColumn: FC<RGKCardTwoColumnProps> = (props) => {
           </span>
         </div>
       </div>
-      <RGKTwoColumn data={props.data} />
+      <RGKTwoColumn data={props.data} height={props.height} />
     </RGKCard>
   );
 };

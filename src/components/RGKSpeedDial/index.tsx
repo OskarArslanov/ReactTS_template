@@ -33,11 +33,7 @@ const RGKSpeedDial: FC<RGKSpeedDialProps> = (props) => {
   };
 
   return (
-    <div
-      className={styles.RGKSpeedDial}
-      onMouseEnter={toggleOpen}
-      onMouseLeave={toggleOpen}
-    >
+    <div className={styles.RGKSpeedDial}>
       {isOpen && (
         <ul className={styles.RGKSpeedDial_ItemList}>
           {props.items.map((item) => {
@@ -47,7 +43,11 @@ const RGKSpeedDial: FC<RGKSpeedDialProps> = (props) => {
                 `RGKSpeedDial_Item__${isSelected ? "selected" : "non_selected"}`
               ];
             return (
-              <Link to={item.href} onTouchEnd={toggleOpen} key={item.name}>
+              <Link
+                to={item.href}
+                key={item.name}
+                onClick={() => setIsOpen(false)}
+              >
                 <Button
                   icon={item.icon}
                   shape="round"
@@ -64,6 +64,7 @@ const RGKSpeedDial: FC<RGKSpeedDialProps> = (props) => {
         type="primary"
         shape="circle"
         icon={<PlusOutlined />}
+        style={{ transform: isOpen ? "rotate(45deg)" : "rotate(0deg)" }}
         size={props.menuButtonSize}
         onClick={toggleOpen}
         className={styles.RGKSpeedDial_MenuButton}

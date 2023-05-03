@@ -1,9 +1,6 @@
 .RGKCardOneColumn {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  font-family: "Roboto";
-  font-style: normal;
 }
 
 .RGKCardOneColumn_Text1 {
