@@ -1,5 +1,7 @@
 import { RGKLineType } from "../../components/RGKLine";
 import RGKCardLine from "../../components/RGKLine/RGKCardLine";
+import { RGKMapType } from "../../components/RGKMap";
+import RGKCardMap from "../../components/RGKMap/RGKCardMap";
 import { OneColumnValueType } from "../../components/RGKOneColumn";
 import RGKCardOneColumnSelector from "../../components/RGKOneColumn/RGKCardOneColumnSelector";
 import { RGKPieType } from "../../components/RGKPie";
@@ -81,6 +83,29 @@ const MOCK_ONECOLUMN: OneColumnValueType[] = [
   { sales: 5, type: "Июн" },
 ];
 
+const MOCK_MAP: RGKMapType[] = [
+  {
+    name: "car1",
+    status: "active",
+    coordinates: [55.751574, 37.573856],
+  },
+  {
+    name: "car2",
+    status: "error",
+    coordinates: [55.741574, 37.573856],
+  },
+  {
+    name: "car3",
+    status: "active",
+    coordinates: [55.731574, 37.573856],
+  },
+  {
+    name: "car4",
+    status: "offline",
+    coordinates: [55.721574, 37.573856],
+  },
+];
+
 const Analytics = () => {
   return (
     <div className={styles.Analytics}>
@@ -101,6 +126,7 @@ const Analytics = () => {
         ]}
         placeholder2="Выберите тип ТС"
       />
+      <RGKCardMap title="Карта с машинами автопарка" data={MOCK_MAP} />
     </div>
   );
 };

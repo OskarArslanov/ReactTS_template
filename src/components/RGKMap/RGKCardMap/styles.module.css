@@ -1,0 +1,24 @@
+.RGKCardMap {
+  display: flex;
+  flex-direction: column;
+}
+
+.RGKCardMap_Body {
+  display: flex;
+  justify-content: space-between;
+}
+.RGKCardMap_Map {
+  width: 600px;
+  height: 300px;
+}
+
+.RGKCardMap_ItemList {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}

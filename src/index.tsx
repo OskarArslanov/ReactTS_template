@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import "antd/dist/antd.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { YMaps } from "@pbe/react-yandex-maps";
 import App from "./App";
 import Dashboard from "./pages/Dashboard";
 import Reports from "./pages/Reports";
@@ -52,6 +53,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <YMaps>
+      <RouterProvider router={router} />
+    </YMaps>
   </React.StrictMode>
 );
