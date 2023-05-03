@@ -109,24 +109,31 @@ const MOCK_MAP: RGKMapType[] = [
 const Analytics = () => {
   return (
     <div className={styles.Analytics}>
-      <RGKCardLine data={MOCK_LINE} title="Эффективность расхода топлива" />
-      <RGKCardPie data={MOCK_PIE} title="Распределение расходов на транспорт" />
-      <RGKCardOneColumnSelector
-        title="Отчет план/факт"
-        valueName="Расход"
-        data={MOCK_ONECOLUMN}
-        values1={[
-          { id: 1, value: "Подразделение 1" },
-          { id: 2, value: "Подразделение 2" },
-        ]}
-        placeholder1="Выберите подразделение"
-        values2={[
-          { id: 1, value: "ТС тип 1" },
-          { id: 2, value: "ТС тип 2" },
-        ]}
-        placeholder2="Выберите тип ТС"
-      />
-      <RGKCardMap title="Карта с машинами автопарка" data={MOCK_MAP} />
+      <div className={styles.Analytics_Cards}>
+        <RGKCardLine data={MOCK_LINE} title="Эффективность расхода топлива" />
+        <RGKCardPie
+          data={MOCK_PIE}
+          title="Распределение расходов на транспорт"
+        />
+      </div>
+      <div className={styles.Analytics_Cards}>
+        <RGKCardOneColumnSelector
+          title="Отчет план/факт"
+          valueName="Расход"
+          data={MOCK_ONECOLUMN}
+          values1={[
+            { id: 1, value: "Подразделение 1" },
+            { id: 2, value: "Подразделение 2" },
+          ]}
+          placeholder1="Выберите подразделение"
+          values2={[
+            { id: 1, value: "ТС тип 1" },
+            { id: 2, value: "ТС тип 2" },
+          ]}
+          placeholder2="Выберите тип ТС"
+        />
+        <RGKCardMap title="Карта с машинами автопарка" data={MOCK_MAP} />
+      </div>
     </div>
   );
 };
