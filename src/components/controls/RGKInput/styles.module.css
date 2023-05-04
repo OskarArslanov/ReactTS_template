@@ -1,0 +1,13 @@
+.RGKInput {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.RGKInput__valid {
+  border-color: greenyellow;
+}
+
+.RGKInput__invalid {
+  border-color: red;
+}

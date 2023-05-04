@@ -1,8 +1,11 @@
 import SettingOutlined from "@ant-design/icons/lib/icons/SettingOutlined";
 import { Button, Select } from "antd";
+import { useState } from "react";
 import styles from "./styles.module.css";
+import RGKSettingsModal from "../../../components/RGKModals/RGKSettingsModal";
 
 const Settings = () => {
+  const [open, setOpen] = useState(false);
   const records = [
     { value: "tkdar", title: "tkdar" },
     { value: "tkdar1", title: "tkdar1" },
@@ -11,7 +14,6 @@ const Settings = () => {
   ];
   return (
     <div className={styles.Settings}>
-      <span>Настройки</span>
       <Select
         defaultValue={records[0]}
         options={records.map((province) => ({
@@ -26,7 +28,9 @@ const Settings = () => {
         shape="circle"
         style={{ borderColor: "transparent" }}
         icon={<SettingOutlined style={{ fontSize: "20px", color: "white" }} />}
+        onClick={() => setOpen(true)}
       />
+      <RGKSettingsModal open={open} onClose={setOpen} />
     </div>
   );
 };
