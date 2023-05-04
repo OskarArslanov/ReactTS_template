@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { CSSProperties, FC } from "react";
 import styles from "./styles.module.css";
 import RGKCard from "../../RGKCard";
 import RGKTwoColumn, { TwoColumnValueType } from "..";
@@ -9,6 +9,7 @@ interface RGKCardTwoColumnProps {
   href?: string;
   hrefText?: string;
   height?: number;
+  style?: CSSProperties;
 }
 
 const RGKCardTwoColumn: FC<RGKCardTwoColumnProps> = (props) => {
@@ -19,6 +20,7 @@ const RGKCardTwoColumn: FC<RGKCardTwoColumnProps> = (props) => {
       title={props.title}
       href={props.href}
       hrefText={props.hrefText}
+      style={props.style}
     >
       <div className={styles.RGKCardTwoColumn_DataValues}>
         <div className={styles.RGKCardTwoColumn_DataValues_Container}>

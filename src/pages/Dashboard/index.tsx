@@ -1,15 +1,8 @@
-import {
-  DownloadOutlined,
-  EditOutlined,
-  ShareAltOutlined,
-  MoreOutlined,
-} from "@ant-design/icons";
 import { OneColumnValueType } from "../../components/RGKOneColumn";
 import { TwoColumnValueType } from "../../components/RGKTwoColumn";
 import styles from "./styles.module.css";
 import RGKCardOneColumn from "../../components/RGKOneColumn/RGKCardOneColumn";
 import RGKCardTwoColumn from "../../components/RGKTwoColumn/RGKCardTwoColumn";
-import RGKGroupCards from "../../components/RGKGroupCards";
 import RGKCardTwoColumnProgress from "../../components/RGKTwoColumn/RGKCardTwoColumnProgress";
 import RGKCardTable from "../../components/RGKTable/RGKCardTable";
 
@@ -70,62 +63,52 @@ const MOCK_TWOCOLUMN_1: TwoColumnValueType[] = [
 const Dashboard = () => {
   return (
     <div className={styles.Dashboard}>
-      <RGKGroupCards
-        smallCards={[
-          <RGKCardOneColumn
-            key="Расход топлива"
-            title="Расход топлива"
-            text1="В этом месяце"
-            text2="567 тонн"
-            hrefText="More"
-            valueName="тонн"
-            data={MOCK_ONECOLUMN_1}
-            height={150}
-          />,
-          <RGKCardOneColumn
-            key="Общий пробег"
-            title="Общий пробег"
-            text1="В этом месяце"
-            text2="459.821 км"
-            valueName="км"
-            data={MOCK_ONECOLUMN_1}
-            height={150}
-          />,
-        ]}
-        bigCard={
-          <RGKCardTwoColumnProgress
-            title="Отчет план/факт"
-            hrefText="More"
-            data={MOCK_TWOCOLUMN_1}
-            height={160}
-          />
-        }
-      />
-      <RGKGroupCards
-        smallCards={[
-          <RGKCardTwoColumn
-            key="Транспорт онлайн"
-            title="Транспорт онлайн"
-            data={MOCK_TWOCOLUMN_1}
-            height={160}
-          />,
-          <RGKCardTable
-            scroll={{ x: 1000, y: 120 }}
-            key="GPS пробег всего автопарка по месяцам"
-            title="GPS пробег всего автопарка по месяцам"
-            hrefText="More"
-            actions={[
-              <DownloadOutlined />,
-              <EditOutlined />,
-              <ShareAltOutlined />,
-              <MoreOutlined style={{ transform: "rotate(90deg)" }} />,
-            ]}
-          />,
-        ]}
-        bigCard={
-          <RGKCardTable scroll={{ x: 1000, y: 300 }} title="Отчет план/факт" />
-        }
-      />
+      <div className={styles.Dashboard_SmallCards}>
+        <RGKCardOneColumn
+          key="Расход топлива"
+          title="Расход топлива"
+          text1="В этом месяце"
+          text2="567 тонн"
+          hrefText="More"
+          valueName="тонн"
+          data={MOCK_ONECOLUMN_1}
+          height={150}
+          style={{ maxHeight: "300px" }}
+        />
+        <RGKCardOneColumn
+          key="Общий пробег"
+          title="Общий пробег"
+          text1="В этом месяце"
+          text2="459.821 км"
+          valueName="км"
+          data={MOCK_ONECOLUMN_1}
+          height={150}
+          style={{ maxHeight: "300px" }}
+        />
+        <RGKCardTwoColumn
+          key="Транспорт онлайн"
+          title="Транспорт онлайн"
+          data={MOCK_TWOCOLUMN_1}
+          height={160}
+          style={{ maxHeight: "300px" }}
+        />
+        <RGKCardTable
+          scroll={{ x: 10, y: 170 }}
+          key="GPS пробег всего автопарка по месяцам"
+          title="GPS пробег всего автопарка по месяцам"
+          hrefText="More"
+          style={{ maxHeight: "300px" }}
+        />
+      </div>
+      <div className={styles.Dashboard_LargeCards}>
+        <RGKCardTwoColumnProgress
+          title="Отчет план/факт"
+          hrefText="More"
+          data={MOCK_TWOCOLUMN_1}
+          height={160}
+        />
+        <RGKCardTable title="Отчет план/факт" />
+      </div>
     </div>
   );
 };

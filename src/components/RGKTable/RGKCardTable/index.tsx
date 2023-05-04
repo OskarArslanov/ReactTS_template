@@ -9,7 +9,7 @@ interface RGKCardTableProps {
   hrefText?: string;
   actions?: React.ReactNode[];
   style?: React.CSSProperties;
-  scroll: { x: number; y: number };
+  scroll?: { x: number; y: number };
 }
 
 const RGKCardTable: FC<RGKCardTableProps> = (props) => {

@@ -15,6 +15,12 @@ const dataSource = [
     age: 42,
     address: "10 Downing Street",
   },
+  {
+    key: "3",
+    name: "John",
+    age: 42,
+    address: "10 Downing Street",
+  },
 ];
 
 const columns = [
@@ -37,7 +43,7 @@ const columns = [
 
 interface RGKTableProps {
   pagination: boolean;
-  scroll: { x: number; y: number };
+  scroll?: { x: number; y: number };
 }
 const RGKTable: FC<RGKTableProps> = (props) => {
   return (
@@ -47,7 +53,7 @@ const RGKTable: FC<RGKTableProps> = (props) => {
         columns={columns}
         pagination={props.pagination ? undefined : false}
         scroll={props.scroll}
-        style={{ maxHeight: "none" }}
+        size="middle"
       />
     </div>
   );
