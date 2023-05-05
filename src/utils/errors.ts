@@ -34,7 +34,7 @@ export const handleErrors = (
   }
   const isValid = errors.length === 0;
 
-  if (errors.length) console.log(errors);
+  // if (errors.length) console.log(errors);
   if (isValid) context.clearErrors(name);
   return isValid;
 };
