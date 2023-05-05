@@ -12,8 +12,6 @@ const RGKLoginForm = () => {
     const isUsernameOk = username === "tkdar";
     const isPasswordOk = password === "test_tkdar";
     const isAuthOk = isUsernameOk && isPasswordOk;
-    console.log(data);
-    console.log("Авторизация", isAuthOk);
     if (isAuthOk) {
       localStorage.setItem("rgkAuth", username);
       navigate("/dashboard");
