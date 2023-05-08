@@ -1,0 +1,25 @@
+.RGKStatMain {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.RGKStatMain_Title {
+    /* font-family: 'Roboto'; */
+font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.RGKStatMain_Value {
+  font-size: 40px;
+  line-height: 38px;
+  color: #1890ff;
+}
+
+.RGKStatMain_ValueSecondary {
+  font-size: 14px;
+  line-height: 22px;
+  color: rgba(0, 0, 0, 0.45);
+}

@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 
 interface RGKCardProps {
   size?: "small";
-  title: string;
+  title?: string;
   href?: string;
   hrefText?: string;
   style?: React.CSSProperties;
@@ -22,10 +22,11 @@ const RGKCard: FC<RGKCardProps> = (props) => {
       actions={props.actions}
       className={`${props.className} ${styles.RGKCard}`}
       headStyle={{
-        fontWeight: 700,
+        fontWeight: 500,
         fontSize: "16px",
         lineHeight: "24px",
         maxHeight: 48,
+        display: props.title ? "block" : "none",
       }}
       bodyStyle={{ padding: "12px 24px", height: "100%" }}
     >

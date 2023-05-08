@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+import "./globals.css";
 import "antd/dist/antd.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { YMaps } from "@pbe/react-yandex-maps";

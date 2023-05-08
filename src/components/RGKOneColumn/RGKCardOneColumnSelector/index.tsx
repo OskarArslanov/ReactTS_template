@@ -39,14 +39,12 @@ const RGKCardOneColumnSelector: FC<RGKCardOneColumnSelectorProps> = (props) => {
         <div className={styles.RGKCardOneColumn_Selectors}>
           <Select
             defaultValue={props.defaultValue1}
-            style={{ width: 200 }}
             placeholder={props.placeholder1}
             loading={!props.values1}
             options={props.values1}
           />
           <Select
             defaultValue={props.defaultValue2}
-            style={{ width: 200 }}
             placeholder={props.placeholder2}
             loading={!props.values2}
             options={props.values2}

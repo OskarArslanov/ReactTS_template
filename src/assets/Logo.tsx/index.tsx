@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import logo from "../resources/Logo.png";
+import logo from "../resources/logo-white.svg";
 
 interface SvgProps {
   style?: React.CSSProperties;

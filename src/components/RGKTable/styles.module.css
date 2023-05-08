@@ -2,5 +2,5 @@
 }
 
 .RGKTable th {
-  font-weight: 600 !important;
+  font-weight: var(--text-bold) !important;
 }

@@ -2,16 +2,51 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 100%;
+  position: relative;
 }
 
 .Dashboard_SmallCards {
   display: flex;
-  flex: 0 0 25%;
   gap: 20px;
+}
+
+.Dashboard_SmallCards > div {
+  max-width: 25%;
 }
 
 .Dashboard_LargeCards {
   display: flex;
-  flex: 0 0 50%;
+  flex: 0 0 calc(50% - 10px);
   gap: 20px;
+}
+
+@media (min-width: 620px) and (max-width: 1220px) {
+  .Dashboard_SmallCards {
+    flex-wrap: wrap;
+  }
+
+  .Dashboard_SmallCards > div {
+    flex: 0 0 calc(50% - 10px);
+    max-width: 50%;
+  }
+
+  .Dashboard_LargeCards {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 619px) {
+  .Dashboard_SmallCards {
+    flex-wrap: wrap;
+  }
+
+  .Dashboard_SmallCards > div {
+    max-width: none;
+  }
+
+  .Dashboard_LargeCards {
+    flex-direction: column;
+  }
+
 }

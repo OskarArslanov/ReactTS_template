@@ -1,0 +1,22 @@
+.RGKStatPeriod_Value {
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.RGKStatPeriod_Value__negative {
+  color: var(--color-red);
+}
+
+.RGKStatPeriod_Value__positive {
+  color: var(--color-green);
+}
+
+.RGKStatPeriod_Text__secondary {
+  font-size: 14px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  color: var(--color-gray);
+}

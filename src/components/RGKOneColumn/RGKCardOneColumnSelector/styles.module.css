@@ -8,3 +8,18 @@
   width: 100%;
   justify-content: space-between;
 }
+
+.RGKCardOneColumn_Selectors > div {
+  width: 200px;
+}
+
+@media (max-width: 500px) {
+  .RGKCardOneColumn_Selectors {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .RGKCardOneColumn_Selectors > div {
+    width: 100%;
+  }
+}
