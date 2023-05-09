@@ -16,7 +16,10 @@ const RGKSettingsModal: FC<RGKSettingsModalProps> = (props) => {
       title="Настройки"
       open={props.open}
       onOk={() => props.onClose(false)}
+      destroyOnClose
+      onCancel={() => props.onClose(false)}
       cancelButtonProps={{ style: { display: "none" } }}
+      okButtonProps={{ style: { display: "none" } }}
     >
       <ul className={styles.RGKSettingsModal}>
         <RGKButton text="Кнопка меню 1" />

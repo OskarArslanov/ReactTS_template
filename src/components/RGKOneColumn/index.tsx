@@ -4,20 +4,23 @@ import styles from "./styles.module.css";
 
 export interface OneColumnValueType {
   type: string;
-  sales: number;
+  value: number;
 }
 interface RGKOneColumnProps {
   dataPos?: "left" | "middle" | "right";
   data?: OneColumnValueType[];
-  valueName: string;
   isBig?: boolean;
   height?: number;
+  typeName: string;
+  valueName: string;
+  color?: string;
 }
 const RGKOneColumn: FC<RGKOneColumnProps> = (props) => {
   const config = {
     data: props.data || [],
     xField: "type",
-    yField: "sales",
+    yField: "value",
+    color: props.color || "#57AEFE",
     label: {
       position: props.dataPos || "middle",
       style: {
@@ -33,9 +36,9 @@ const RGKOneColumn: FC<RGKOneColumnProps> = (props) => {
     },
     meta: {
       type: {
-        alias: "Тон",
+        alias: props.typeName,
       },
-      sales: {
+      value: {
         alias: props.valueName,
       },
     },
@@ -44,7 +47,6 @@ const RGKOneColumn: FC<RGKOneColumnProps> = (props) => {
     <div className={styles.RGKOneColumn}>
       <Column {...config} height={props.height} />
     </div>
-    // width={props.isBig ? 530 : 230}
   );
 };
 

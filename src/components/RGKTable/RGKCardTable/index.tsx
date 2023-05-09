@@ -1,6 +1,6 @@
 import { FC } from "react";
 import styles from "./styles.module.css";
-import RGKTable from "..";
+import RGKTable, { RGKTableTitleType } from "..";
 import RGKCard from "../../RGKCard";
 
 interface RGKCardTableProps {
@@ -10,6 +10,8 @@ interface RGKCardTableProps {
   actions?: React.ReactNode[];
   style?: React.CSSProperties;
   scroll?: { x: number; y: number };
+  columns: RGKTableTitleType[];
+  data?: any[];
 }
 
 const RGKCardTable: FC<RGKCardTableProps> = (props) => {
@@ -22,7 +24,12 @@ const RGKCardTable: FC<RGKCardTableProps> = (props) => {
       style={props.style}
       className={styles.RGKCardTable}
     >
-      <RGKTable pagination={false} scroll={props.scroll} />
+      <RGKTable
+        data={props.data}
+        pagination={false}
+        scroll={props.scroll}
+        columns={props.columns}
+      />
     </RGKCard>
   );
 };

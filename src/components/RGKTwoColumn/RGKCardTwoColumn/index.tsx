@@ -10,6 +10,7 @@ interface RGKCardTwoColumnProps {
   hrefText?: string;
   height?: number;
   style?: CSSProperties;
+  colors?: string[];
 }
 
 const RGKCardTwoColumn: FC<RGKCardTwoColumnProps> = (props) => {
@@ -40,7 +41,11 @@ const RGKCardTwoColumn: FC<RGKCardTwoColumnProps> = (props) => {
           </span>
         </div>
       </div>
-      <RGKTwoColumn data={props.data} height={props.height} />
+      <RGKTwoColumn
+        data={props.data}
+        height={props.height}
+        colors={props.colors}
+      />
     </RGKCard>
   );
 };

@@ -10,9 +10,11 @@ interface RGKCardOneColumnProps {
   data?: OneColumnValueType[];
   href?: string;
   hrefText?: string;
+  typeName: string;
   valueName: string;
   height?: number;
   style?: CSSProperties;
+  color?: string;
 }
 
 const RGKCardOneColumn: FC<RGKCardOneColumnProps> = (props) => {
@@ -35,9 +37,11 @@ const RGKCardOneColumn: FC<RGKCardOneColumnProps> = (props) => {
         <span className={styles.RGKCardOneColumn_Text1}>{props.text1}</span>
         <span className={styles.RGKCardOneColumn_Text2}>{props.text2}</span>
         <RGKOneColumn
+          color={props.color}
           data={props.data}
           dataPos="middle"
           valueName={props.valueName}
+          typeName={props.typeName}
           height={props.height}
         />
       </div>

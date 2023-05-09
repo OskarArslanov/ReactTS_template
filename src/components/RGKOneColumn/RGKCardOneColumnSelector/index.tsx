@@ -17,7 +17,9 @@ interface RGKCardOneColumnSelectorProps {
   href?: string;
   hrefText?: string;
   valueName: string;
+  typeName: string;
   height?: number;
+  color?: string;
 }
 
 const RGKCardOneColumnSelector: FC<RGKCardOneColumnSelectorProps> = (props) => {
@@ -51,7 +53,9 @@ const RGKCardOneColumnSelector: FC<RGKCardOneColumnSelectorProps> = (props) => {
           />
         </div>
         <RGKOneColumn
+          color={props.color}
           data={props.data}
+          typeName={props.typeName}
           dataPos="middle"
           valueName={props.valueName}
           height={props.height}

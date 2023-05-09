@@ -10,6 +10,8 @@ interface RGKCardTwoColumnProgressProps {
   href?: string;
   hrefText?: string;
   height?: number;
+  colors?: string[];
+  progressbarColor?: string;
 }
 
 const RGKCardTwoColumnProgress: FC<RGKCardTwoColumnProgressProps> = (props) => {
@@ -41,10 +43,14 @@ const RGKCardTwoColumnProgress: FC<RGKCardTwoColumnProgressProps> = (props) => {
       <Progress
         percent={percentage}
         strokeLinecap="butt"
-        strokeColor="#FFC069"
+        strokeColor={props.progressbarColor}
         showInfo={false}
       />
-      <RGKTwoColumn data={props.data} height={props.height} />
+      <RGKTwoColumn
+        data={props.data}
+        height={props.height}
+        colors={props.colors}
+      />
     </RGKCard>
   );
 };

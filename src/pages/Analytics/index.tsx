@@ -75,12 +75,12 @@ const MOCK_PIE: RGKPieType[] = [
 ];
 
 const MOCK_ONECOLUMN: OneColumnValueType[] = [
-  { sales: 0, type: "Янв" },
-  { sales: 1, type: "Фер" },
-  { sales: 2, type: "Мар" },
-  { sales: 3, type: "Апр" },
-  { sales: 4, type: "Май" },
-  { sales: 5, type: "Июн" },
+  { value: 0, type: "Янв" },
+  { value: 1, type: "Фер" },
+  { value: 2, type: "Мар" },
+  { value: 3, type: "Апр" },
+  { value: 4, type: "Май" },
+  { value: 5, type: "Июн" },
 ];
 
 const MOCK_MAP: RGKMapType[] = [
