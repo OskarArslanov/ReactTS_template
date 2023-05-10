@@ -1,5 +1,6 @@
-import { FC } from "react";
+import { CSSProperties, FC } from "react";
 import { Button } from "antd";
+import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 
 interface RGKButtonProps {
@@ -8,20 +9,24 @@ interface RGKButtonProps {
   text?: string;
   icon?: React.ReactNode;
   onClick?: () => void;
+  href?: string;
+  style?: CSSProperties;
 }
 
 const RGKButton: FC<RGKButtonProps> = (props) => {
-  return (
+  const element = (
     <Button
       type={props.type}
       icon={props.icon}
       htmlType={props.htmlType || "button"}
       className={styles.RGKButton}
       onClick={props.onClick}
+      style={props.style}
     >
       {props.text}
     </Button>
   );
+  return props.href ? <Link to={props.href}>{element}</Link> : element;
 };
 
 export default RGKButton;

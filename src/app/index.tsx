@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import BodyContainer from "./BodyContainer";
 import FooterContainer from "./FooterContainer";
 import HeaderContainer from "./HeaderContainer";
@@ -6,19 +6,31 @@ import styles from "./styles.module.css";
 import Logo from "../assets/Logo.tsx";
 import Settings from "./HeaderContainer/Settings";
 import MenuContainer from "./MenuContainer";
+import { useAuth, usePaths } from "../utils/hooks";
+import RGKButton from "../components/controls/RGKButton";
 
 const App = () => {
+  const auth = useAuth();
+  const basePath = usePaths()[1];
   return (
     <div className={styles.App_Container}>
       <HeaderContainer>
-        <Logo />
-        <Settings />
+        <Link to="/">
+          <Logo />
+        </Link>
+        {auth.token ? (
+          <Settings />
+        ) : (
+          <RGKButton
+            href="/login"
+            text="Войти"
+            style={{ display: basePath === "login" ? "none" : "flex" }}
+          />
+        )}
       </HeaderContainer>
       <BodyContainer>
         <MenuContainer />
-        <div className={styles.MainLayout}>
-          <Outlet />
-        </div>
+        <Outlet />
       </BodyContainer>
       <FooterContainer />
     </div>

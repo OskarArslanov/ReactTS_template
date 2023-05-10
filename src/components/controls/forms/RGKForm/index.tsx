@@ -1,4 +1,4 @@
-import { CSSProperties, FC, useState } from "react";
+import { CSSProperties, FC, useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
 interface RGKFormProps {
@@ -7,6 +7,7 @@ interface RGKFormProps {
   children?: React.ReactNode;
   onSubmit: (data: any) => void;
   onChangeValues?: (data: any) => void;
+  error?: string;
 }
 
 const RGKForm: FC<RGKFormProps> = (props) => {
@@ -19,6 +20,10 @@ const RGKForm: FC<RGKFormProps> = (props) => {
     setError(errorsMessages);
     props.onChangeValues?.(methods.getValues());
   };
+
+  useEffect(() => {
+    setError([props.error]);
+  }, [props.error]);
 
   return (
     <FormProvider {...methods}>

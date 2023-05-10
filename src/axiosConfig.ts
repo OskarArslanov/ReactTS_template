@@ -5,9 +5,11 @@ export const axiosInstance = axios.create({
   headers: { "X-Custom-Header": "foobar" },
 });
 
-// axiosInstance.interceptors.request.use((config) => {
-//   const session = localStorage.getItem("session");
-//   if (!session) return config;
-//   const updatedHeaders = { ...config.headers., Cookie: session };
-//   return { ...config, headers: updatedHeaders };
-// });
+axiosInstance.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+  if (!token) return config;
+  return {
+    ...config,
+    headers: { ...config.headers, Authorization: `Bearer ${token}` },
+  };
+});

@@ -24,3 +24,11 @@ export const usePaths = () => {
 
   return paths;
 };
+
+export const useSecuredRoute = () => {
+  const auth = useAuth();
+  if (!auth.token) {
+    return true;
+  }
+  return false;
+};

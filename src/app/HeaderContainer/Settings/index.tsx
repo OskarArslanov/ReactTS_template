@@ -3,11 +3,9 @@ import { Button, Select } from "antd";
 import { useState } from "react";
 import styles from "./styles.module.css";
 import RGKSettingsModal from "../../../components/RGKModals/RGKSettingsModal";
-import { useAuth } from "../../../utils/hooks";
 
 const Settings = () => {
   const [open, setOpen] = useState(false);
-  const auth = useAuth();
 
   const records = [
     { value: "tkdar", title: "tkdar" },
@@ -17,10 +15,7 @@ const Settings = () => {
   ];
 
   return (
-    <div
-      className={styles.Settings}
-      style={{ display: auth.token ? "flex" : "none" }}
-    >
+    <div className={styles.Settings}>
       <Select
         defaultValue={records[0]}
         options={records.map((province) => ({

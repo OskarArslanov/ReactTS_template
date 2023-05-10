@@ -1,4 +1,6 @@
 import Progress from "antd/lib/progress/progress";
+import { useEffect, useState } from "react";
+import { axiosInstance } from "../../axiosConfig";
 import { OneColumnValueType } from "../../components/RGKOneColumn";
 import { TwoColumnValueType } from "../../components/RGKTwoColumn";
 import styles from "./styles.module.css";
@@ -7,6 +9,7 @@ import RGKCardTwoColumn from "../../components/RGKTwoColumn/RGKCardTwoColumn";
 import RGKCardTwoColumnProgress from "../../components/RGKTwoColumn/RGKCardTwoColumnProgress";
 import RGKCardTable from "../../components/RGKTable/RGKCardTable";
 import { RGKTableTitleType } from "../../components/RGKTable";
+import RGKCircleLoader from "../../components/RGKCircleLoader";
 
 const MOCK_ONECOLUMN_1: OneColumnValueType[] = [
   { value: 560, type: "Янв" },
@@ -232,8 +235,23 @@ const MOCK_LARGETABLE_DATA = [
 ];
 
 const Dashboard = () => {
+  const [data, setData] = useState<any>();
+  console.log(data);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    try {
+      axiosInstance.get("/rgk24/main").then((resp) => setData(resp.data));
+    } catch (err: any) {
+      // ERR: FIXME
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
   return (
     <div className={styles.Dashboard}>
+      <RGKCircleLoader visible={loading} />
       <div className={styles.Dashboard_SmallCards}>
         <RGKCardOneColumn
           key="Расход топлива"

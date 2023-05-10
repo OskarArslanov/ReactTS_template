@@ -4,6 +4,7 @@ import "./globals.css";
 import "antd/dist/antd.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { YMaps } from "@pbe/react-yandex-maps";
+import SecuredRoute from "./utils/secured";
 import Login from "./pages/Login";
 import App from "./app";
 import Dashboard from "./pages/Dashboard";
@@ -21,27 +22,27 @@ const router = createBrowserRouter([
     children: [
       {
         path: "dashboard",
-        element: <Dashboard />,
+        element: <SecuredRoute page={<Dashboard />} />,
         loader: undefined,
       },
       {
         path: "reports",
-        element: <Reports />,
+        element: <SecuredRoute page={<Reports />} />,
         loader: undefined,
       },
       {
         path: "analytics",
-        element: <Analytics />,
+        element: <SecuredRoute page={<Analytics />} />,
         loader: undefined,
       },
       {
         path: "gasoline",
-        element: <Gasoline />,
+        element: <SecuredRoute page={<Gasoline />} />,
         loader: undefined,
       },
       {
         path: "agro",
-        element: <Agro />,
+        element: <SecuredRoute page={<Agro />} />,
         loader: undefined,
       },
       {

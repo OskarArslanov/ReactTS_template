@@ -9,9 +9,9 @@ export const handleErrors = (
 ) => {
   if (!name) return undefined;
   const errors: string[] = [];
+
   const minLengthInvalid =
     !!rules?.minLength && value.length < Number(rules.minLength);
-
   if (minLengthInvalid) {
     const message = `${label} - количество символов должно быть более ${rules.minLength}`;
     errors.push(message);

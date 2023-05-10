@@ -120,6 +120,7 @@ const Analytics = () => {
         <RGKCardOneColumnSelector
           title="Отчет план/факт"
           valueName="Расход"
+          typeName="куб.м."
           data={MOCK_ONECOLUMN}
           values1={[
             { id: 1, value: "Подразделение 1" },
