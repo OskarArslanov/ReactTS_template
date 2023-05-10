@@ -1,9 +1,10 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useState } from "react";
 import { PlusOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import { SizeType } from "antd/es/config-provider/SizeContext";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
+import { useAuth, usePaths } from "../../utils/hooks";
 
 export interface RGKSpeedDialMenuType {
   name: string;
@@ -13,31 +14,25 @@ export interface RGKSpeedDialMenuType {
 interface RGKSpeedDialProps {
   items: RGKSpeedDialMenuType[];
   menuButtonSize: SizeType;
-  defaultValue?: string;
-  value?: string;
 }
 const RGKSpeedDial: FC<RGKSpeedDialProps> = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState<string>();
-
-  useEffect(() => {
-    setSelected(props.defaultValue);
-  }, []);
-
-  useEffect(() => {
-    setSelected(props.value);
-  }, [props.value]);
+  const auth = useAuth();
+  const paths = usePaths();
 
   const toggleOpen = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <div className={styles.RGKSpeedDial}>
+    <div
+      className={styles.RGKSpeedDial}
+      style={{ display: auth.token ? "flex" : "none" }}
+    >
       {isOpen && (
         <ul className={styles.RGKSpeedDial_ItemList}>
           {props.items.map((item) => {
-            const isSelected = item.href === selected;
+            const isSelected = item.href === paths[1];
             const selectedClass =
               styles[
                 `RGKSpeedDial_Item__${isSelected ? "selected" : "non_selected"}`

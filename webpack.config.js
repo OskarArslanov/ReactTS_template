@@ -5,7 +5,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const isDevelopment = process.env.NODE_ENV !== "production";
 
 module.exports = {
-  entry: "./src/index.tsx",
+  // entry: "./src/index.tsx",
+  entry: path.resolve(__dirname, './src/index.tsx'),
   mode: isDevelopment ? "development" : "production",
   devtool: isDevelopment ? "inline-source-map" : "source-map",
   resolve: {

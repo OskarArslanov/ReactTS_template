@@ -29,9 +29,9 @@ const RGKSettingsModal: FC<RGKSettingsModalProps> = (props) => {
           icon={<LogoutOutlined />}
           text="Выйти"
           onClick={() => {
-            localStorage.removeItem("rgkAuth");
+            localStorage.clear();
             props.onClose(false);
-            navigate("/");
+            navigate("/login");
           }}
         />
       </ul>

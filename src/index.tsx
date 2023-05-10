@@ -4,6 +4,7 @@ import "./globals.css";
 import "antd/dist/antd.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { YMaps } from "@pbe/react-yandex-maps";
+import Login from "./pages/Login";
 import App from "./App";
 import Dashboard from "./pages/Dashboard";
 import Reports from "./pages/Reports";
@@ -41,6 +42,11 @@ const router = createBrowserRouter([
       {
         path: "agro",
         element: <Agro />,
+        loader: undefined,
+      },
+      {
+        path: "login",
+        element: <Login />,
         loader: undefined,
       },
     ],

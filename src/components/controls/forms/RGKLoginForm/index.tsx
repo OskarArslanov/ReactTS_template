@@ -1,21 +1,23 @@
 import { useNavigate } from "react-router-dom";
 import { LoginOutlined } from "@ant-design/icons";
-import styles from "./styles.module.css";
+import { axiosInstance } from "../../../../axiosConfig";
 import RGKForm from "../RGKForm";
 import RGKInput from "../../RGKInput";
 import RGKButton from "../../RGKButton";
+import styles from "./styles.module.css";
 
 const RGKLoginForm = () => {
   const navigate = useNavigate();
-  const handleSubmit = (data: any) => {
+  const handleSubmit = async (data: any) => {
     const { username, password } = data;
-    const isUsernameOk = username === "tkdar";
-    const isPasswordOk = password === "test_tkdar";
-    const isAuthOk = isUsernameOk && isPasswordOk;
-    if (isAuthOk) {
-      localStorage.setItem("rgkAuth", username);
-      navigate("/dashboard");
-    }
+    await axiosInstance
+      .post("/login", { login: username, psw: password })
+      .then((resp) => {
+        if (resp) {
+          localStorage.setItem("token", "123");
+          navigate("/dashboard");
+        }
+      });
   };
   return (
     <div className={styles.RGKLoginForm_Container}>
