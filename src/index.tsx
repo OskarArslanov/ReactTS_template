@@ -5,7 +5,7 @@ import "antd/dist/antd.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { YMaps } from "@pbe/react-yandex-maps";
 import Login from "./pages/Login";
-import App from "./App";
+import App from "./app";
 import Dashboard from "./pages/Dashboard";
 import Reports from "./pages/Reports";
 import "@ant-design/flowchart/dist/index.css";
