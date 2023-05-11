@@ -1,12 +1,12 @@
 import { FC } from "react";
 import { Progress } from "antd";
+import { CardTwoColumDataType, TwoColumnValueType } from "dto/card";
 import styles from "./styles.module.css";
-import RGKTwoColumn, { TwoColumnValueType } from "..";
+import RGKTwoColumn from "..";
 import RGKCard from "../../RGKCard";
 
 interface RGKCardTwoColumnProgressProps {
-  title: string;
-  data?: TwoColumnValueType[];
+  data?: CardTwoColumDataType;
   href?: string;
   hrefText?: string;
   height?: number;
@@ -15,30 +15,32 @@ interface RGKCardTwoColumnProgressProps {
 }
 
 const RGKCardTwoColumnProgress: FC<RGKCardTwoColumnProgressProps> = (props) => {
-  const dataValues = props.data?.[props.data.length - 1].nameValue;
-  const value0 = dataValues?.[0].value;
-  const name0 = dataValues?.[0].name;
-  const value1 = dataValues?.[1].value;
-  const name1 = dataValues?.[1].name;
-
-  if (!value0 || !value1) return null;
-  const percentage = (value0 / value1) * 100;
+  const data = props.data?.data;
+  const names: string[] = [];
+  data?.map((item) =>
+    names.includes(item.name) ? item : names.push(item.name)
+  );
+  const lastElements: TwoColumnValueType[] = [];
+  names.map((item) => {
+    const element = data?.findLast((el) => el.name === item);
+    if (element) lastElements.push(element);
+    return item;
+  });
+  const percentage = (lastElements[0].value / lastElements[1].value) * 100;
   return (
     <RGKCard
       className={styles.RGKCardTwoColumn}
-      title={props.title}
+      title={props.data?.title}
       href={props.href}
       hrefText={props.hrefText}
     >
       <div className={styles.RGKCardTwoColumn_DataValues}>
-        <div className={styles.RGKCardTwoColumn_DataValues_Container}>
-          <span className={styles.RGKCardTwoColumn_Text1}>{name0}</span>
-          <span className={styles.RGKCardTwoColumn_Text2}>{value0}</span>
-        </div>
-        <div className={styles.RGKCardTwoColumn_DataValues_Container}>
-          <span className={styles.RGKCardTwoColumn_Text1}>{name1}</span>
-          <span className={styles.RGKCardTwoColumn_Text2}>{value1}</span>
-        </div>
+        {lastElements?.map((item) => (
+          <div className={styles.RGKCardTwoColumn_DataValues_Container}>
+            <span className={styles.RGKCardTwoColumn_Text1}>{item.name}</span>
+            <span className={styles.RGKCardTwoColumn_Text2}>{item.value}</span>
+          </div>
+        ))}
       </div>
       <Progress
         percent={percentage}
@@ -47,7 +49,7 @@ const RGKCardTwoColumnProgress: FC<RGKCardTwoColumnProgressProps> = (props) => {
         showInfo={false}
       />
       <RGKTwoColumn
-        data={props.data}
+        data={props.data?.data}
         height={props.height}
         colors={props.colors}
       />

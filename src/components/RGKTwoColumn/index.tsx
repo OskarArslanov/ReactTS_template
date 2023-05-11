@@ -1,11 +1,8 @@
 import { Column } from "@ant-design/plots";
 import { FC } from "react";
+import { TwoColumnValueType } from "dto/card";
 import styles from "./styles.module.css";
 
-export interface TwoColumnValueType {
-  type: string;
-  nameValue: { name: string; value: number }[];
-}
 interface RGKTwoColumnProps {
   dataPos?: "left" | "middle" | "right";
   colors?: string[];
@@ -15,20 +12,8 @@ interface RGKTwoColumnProps {
   height?: number;
 }
 const RGKTwoColumn: FC<RGKTwoColumnProps> = (props) => {
-  const adoptDataToAntd = props.data?.map((baseData) => {
-    const dataForType = baseData.nameValue.map((base) => ({
-      name: base.name,
-      value: base.value,
-      type: baseData.type,
-    }));
-    return dataForType;
-  });
-  let concatData: any = [];
-  if (adoptDataToAntd?.length) {
-    concatData = adoptDataToAntd.reduce((a, b) => a.concat(b));
-  }
   const config = {
-    data: concatData,
+    data: props.data || [],
     isGroup: true,
     xField: "type",
     yField: "value",
@@ -56,5 +41,4 @@ const RGKTwoColumn: FC<RGKTwoColumnProps> = (props) => {
     </div>
   );
 };
-// width={props.isBig ? 530 : 230}
 export default RGKTwoColumn;

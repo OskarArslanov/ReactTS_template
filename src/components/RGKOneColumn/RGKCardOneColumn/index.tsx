@@ -1,13 +1,11 @@
 import { CSSProperties, FC } from "react";
+import { CardOneColumDataType } from "dto/card";
 import styles from "./styles.module.css";
 import RGKCard from "../../RGKCard";
-import RGKOneColumn, { OneColumnValueType } from "..";
+import RGKOneColumn from "..";
 
 interface RGKCardOneColumnProps {
-  title: string;
-  text1: string;
-  text2: string;
-  data?: OneColumnValueType[];
+  data?: CardOneColumDataType;
   href?: string;
   hrefText?: string;
   typeName: string;
@@ -20,7 +18,7 @@ interface RGKCardOneColumnProps {
 const RGKCardOneColumn: FC<RGKCardOneColumnProps> = (props) => {
   return (
     <RGKCard
-      title={props.title}
+      title={props.data?.title}
       hrefText={props.hrefText}
       href={props.href}
       style={props.style}
@@ -34,11 +32,15 @@ const RGKCardOneColumn: FC<RGKCardOneColumnProps> = (props) => {
           height: "100%",
         }}
       >
-        <span className={styles.RGKCardOneColumn_Text1}>{props.text1}</span>
-        <span className={styles.RGKCardOneColumn_Text2}>{props.text2}</span>
+        <span className={styles.RGKCardOneColumn_Text1}>
+          {props.data?.subTitleName}
+        </span>
+        <span className={styles.RGKCardOneColumn_Text2}>
+          {props.data?.subTitleValue}
+        </span>
         <RGKOneColumn
           color={props.color}
-          data={props.data}
+          data={props.data?.data}
           dataPos="middle"
           valueName={props.valueName}
           typeName={props.typeName}

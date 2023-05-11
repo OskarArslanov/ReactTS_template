@@ -1,11 +1,8 @@
 import { Column } from "@ant-design/plots";
 import { FC } from "react";
+import { OneColumnValueType } from "dto/card";
 import styles from "./styles.module.css";
 
-export interface OneColumnValueType {
-  type: string;
-  value: number;
-}
 interface RGKOneColumnProps {
   dataPos?: "left" | "middle" | "right";
   data?: OneColumnValueType[];

@@ -1,16 +1,24 @@
-export interface AxisDataType {
-  name: string;
-  data: { name: string; color?: string }[];
+export interface OneColumnValueType {
+  type: string;
+  value: string;
 }
 
-export interface ColumnDataType {
-  xAxis: AxisDataType;
-  yAxis: AxisDataType;
+export interface CardOneColumDataType {
+  title: string;
+  data: OneColumnValueType[];
+  subTitleName: string;
+  subTitleValue: string;
 }
 
 export interface TwoColumnValueType {
   type: string;
-  nameValue: { name: string; value: number }[];
+  name: string;
+  value: number;
+}
+
+export interface CardTwoColumDataType {
+  title: string;
+  data: TwoColumnValueType[];
 }
 
 export interface RGKTableTitleType {
@@ -19,15 +27,8 @@ export interface RGKTableTitleType {
   key: string;
 }
 
-export interface RGKSmallTableDataType {
-  key: string | number;
-  operator: string;
-  balance: number;
-}
-
-export interface RGKLargeTableDataType {
-  key: string | number;
-  track: string;
-  distance: number;
-  planKm: number;
+export interface CardTableDataType {
+  title: string;
+  columns: RGKTableTitleType[];
+  data: any[];
 }

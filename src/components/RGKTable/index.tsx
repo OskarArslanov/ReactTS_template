@@ -1,12 +1,8 @@
 import { Table } from "antd";
 import { FC } from "react";
+import { RGKTableTitleType } from "dto/card";
 import styles from "./styles.module.css";
 
-export interface RGKTableTitleType {
-  title: string;
-  dataIndex: string;
-  key: string;
-}
 interface RGKTableProps {
   pagination: boolean;
   scroll?: { x: number; y: number };
