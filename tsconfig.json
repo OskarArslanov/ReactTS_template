@@ -27,6 +27,6 @@
       "@utils/*": ["utils/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "src/assets/*"],
   "exclude": ["node_modules"]
 }

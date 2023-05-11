@@ -3,7 +3,7 @@ import BodyContainer from "./BodyContainer";
 import FooterContainer from "./FooterContainer";
 import HeaderContainer from "./HeaderContainer";
 import styles from "./styles.module.css";
-import Logo from "../assets/Logo.tsx";
+import Logo from "../assets/Logo";
 import Settings from "./HeaderContainer/Settings";
 import MenuContainer from "./MenuContainer";
 import { useAuth, usePaths } from "../utils/hooks";
