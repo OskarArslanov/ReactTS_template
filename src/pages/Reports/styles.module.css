@@ -1,0 +1,28 @@
+.Reports {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: white;
+  width: 100%;
+  padding: 10px 20px;
+  position: relative;
+}
+
+.Reports_Controls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.Reports_Selector {
+  background-color: var(--color-gray_bg);
+  min-width: 300px;
+  width: 100%;
+}
+
+@media (max-width: 660px) {
+  .Reports_Controls {
+    flex-direction: column;
+    gap: 20px;
+  }
+}

@@ -1,31 +1,26 @@
 import SettingOutlined from "@ant-design/icons/lib/icons/SettingOutlined";
-import { Button, Select } from "antd";
 import { useState } from "react";
 import styles from "./styles.module.css";
 import RGKSettingsModal from "../../../components/RGKModals/RGKSettingsModal";
+import RGKSelect, { LabelValue } from "../../../components/controls/RGKSelect";
+import RGKButton from "../../../components/controls/RGKButton";
 
 const Settings = () => {
   const [open, setOpen] = useState(false);
 
-  const records = [
-    { value: "tkdar", title: "tkdar" },
-    { value: "tkdar1", title: "tkdar1" },
-    { value: "tkdar2", title: "tkdar2" },
-    { value: "tkdar3", title: "tkdar3" },
+  const records: LabelValue[] = [
+    { label: "tkdar", value: "tkdar" },
+    { label: "tkdar1", value: "tkdar1" },
   ];
 
   return (
     <div className={styles.Settings}>
-      <Select
+      <RGKSelect
         defaultValue={records[0]}
-        options={records.map((province) => ({
-          label: province.title,
-          value: province.value,
-        }))}
+        values={records}
         style={{ backgroundColor: "transparent", color: "white" }}
-        bordered={false}
       />
-      <Button
+      <RGKButton
         type="ghost"
         shape="circle"
         style={{ borderColor: "transparent" }}

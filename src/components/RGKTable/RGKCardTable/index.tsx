@@ -5,7 +5,6 @@ import RGKTable from "..";
 import RGKCard from "../../RGKCard";
 
 interface RGKCardTableProps {
-  title: string;
   href?: string;
   hrefText?: string;
   actions?: React.ReactNode[];
@@ -17,7 +16,7 @@ interface RGKCardTableProps {
 const RGKCardTable: FC<RGKCardTableProps> = (props) => {
   return (
     <RGKCard
-      title={props.title}
+      title={props.data?.title}
       href={props.href}
       hrefText={props.hrefText}
       actions={props.actions}
@@ -28,7 +27,7 @@ const RGKCardTable: FC<RGKCardTableProps> = (props) => {
         data={props.data?.data}
         pagination={false}
         scroll={props.scroll}
-        columns={props.data?.columns || []}
+        columns={props.data?.columns}
       />
     </RGKCard>
   );

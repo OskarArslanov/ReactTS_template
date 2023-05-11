@@ -22,6 +22,7 @@
   display: flex;
   gap: 10px;
   list-style: none;
+  flex-wrap: wrap;
 }
 
 @media (max-width: 1200px) {

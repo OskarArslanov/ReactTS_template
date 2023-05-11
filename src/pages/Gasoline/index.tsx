@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import RGKStats, { RGKStatsType } from "../../components/RGKStats";
 import styles from "./styles.module.css";
 
@@ -110,16 +111,16 @@ const Gasoline = () => {
       <div className={styles.Gasoline_Part}>
         <div className={styles.Gasoline_Part_Title}>Финансы</div>
         <div className={styles.Gasoline_Part_ItemList}>
-          {MOCK_CARDS_1.map((item) => (
-            <RGKStats data={item} />
+          {MOCK_CARDS_1.map((item, index) => (
+            <RGKStats data={item} key={`${index} ${item.value}`} />
           ))}
         </div>
       </div>
       <div className={styles.Gasoline_Part}>
         <div className={styles.Gasoline_Part_Title}>Продажи</div>
         <div className={styles.Gasoline_Part_ItemList}>
-          {MOCK_CARDS_2.map((item) => (
-            <RGKStats data={item} />
+          {MOCK_CARDS_2.map((item, index) => (
+            <RGKStats data={item} key={`${index} ${item.value}`} />
           ))}
         </div>
       </div>

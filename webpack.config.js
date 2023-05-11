@@ -6,7 +6,7 @@ const isDevelopment = process.env.NODE_ENV !== "production";
 
 module.exports = {
   // entry: "./src/index.tsx",
-  entry: path.resolve(__dirname, './src/index.tsx'),
+  entry: path.resolve(__dirname, "./src/index.tsx"),
   mode: isDevelopment ? "development" : "production",
   devtool: isDevelopment ? "inline-source-map" : "source-map",
   resolve: {
@@ -29,7 +29,7 @@ module.exports = {
       {
         test: /\.css$/,
         include: [/node_modules\/antd/],
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.css$/i,
@@ -75,6 +75,8 @@ module.exports = {
     hot: true,
     client: {
       overlay: false,
+      warnings: false,
+      errors: false,
     },
   },
 };

@@ -11,11 +11,13 @@ interface RGKButtonProps {
   onClick?: () => void;
   href?: string;
   style?: CSSProperties;
+  shape?: "default" | "circle" | "round";
 }
 
 const RGKButton: FC<RGKButtonProps> = (props) => {
   const element = (
     <Button
+      shape={props.shape}
       type={props.type}
       icon={props.icon}
       htmlType={props.htmlType || "button"}

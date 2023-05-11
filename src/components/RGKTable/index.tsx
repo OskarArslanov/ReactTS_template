@@ -6,7 +6,7 @@ import styles from "./styles.module.css";
 interface RGKTableProps {
   pagination: boolean;
   scroll?: { x: number; y: number };
-  columns: RGKTableTitleType[];
+  columns?: RGKTableTitleType[];
   data?: any[];
 }
 const RGKTable: FC<RGKTableProps> = (props) => {

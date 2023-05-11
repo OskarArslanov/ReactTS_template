@@ -35,7 +35,10 @@ const RGKCardTwoColumn: FC<RGKCardTwoColumnProps> = (props) => {
     >
       <div className={styles.RGKCardTwoColumn_DataValues}>
         {lastElements.map((item) => (
-          <div className={styles.RGKCardTwoColumn_DataValues_Container}>
+          <div
+            className={styles.RGKCardTwoColumn_DataValues_Container}
+            key={item.name}
+          >
             <span className={styles.RGKCardTwoColumn_Text1}>{item.name}</span>
             <span className={styles.RGKCardTwoColumn_Text2}>{item.value}</span>
           </div>

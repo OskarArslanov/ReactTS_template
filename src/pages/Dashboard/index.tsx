@@ -93,9 +93,11 @@ const Dashboard = () => {
       dataIndex: item.key,
       key: item.key,
     })),
-    data: smallCards?.[4]?.table.data,
+    data: smallCards?.[4]?.table.data.map((item: any, index: number) => ({
+      ...item,
+      key: index,
+    })),
   };
-
   const bigCard1: CardTwoColumDataType = {
     title: bigCards?.[1]?.title,
     data: bigCards?.[1]?.chart.data?.map((item: any) => {
@@ -114,7 +116,6 @@ const Dashboard = () => {
       <RGKCircleLoader visible={loading} />
       <div className={styles.Dashboard_SmallCards}>
         <RGKCardOneColumn
-          hrefText="More"
           valueName="тонн"
           typeName="мес"
           data={smallCard1}
@@ -133,20 +134,15 @@ const Dashboard = () => {
           height={160}
           style={{ maxHeight: "300px" }}
         />
-        <RGKCardTable
-          data={smallCard4}
-          title="GPS пробег всего автопарка по месяцам"
-          hrefText="More"
-        />
+        <RGKCardTable data={smallCard4} />
       </div>
       <div className={styles.Dashboard_LargeCards}>
         <RGKCardTwoColumnProgress
           progressbarColor="#FFC069"
-          hrefText="More"
           data={bigCard1}
           height={160}
         />
-        <RGKCardTable data={undefined} title="Отчет план/факт" />
+        <RGKCardTable data={undefined} />
       </div>
     </div>
   );
