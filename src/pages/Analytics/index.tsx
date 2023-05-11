@@ -1,8 +1,8 @@
+import { OneColumnValueType } from "dto/card";
 import { RGKLineType } from "../../components/RGKLine";
 import RGKCardLine from "../../components/RGKLine/RGKCardLine";
 import { RGKMapType } from "../../components/RGKMap";
 import RGKCardMap from "../../components/RGKMap/RGKCardMap";
-import { OneColumnValueType } from "../../components/RGKOneColumn";
 import RGKCardOneColumnSelector from "../../components/RGKOneColumn/RGKCardOneColumnSelector";
 import { RGKPieType } from "../../components/RGKPie";
 import RGKCardPie from "../../components/RGKPie/RGKCardPie";
@@ -75,12 +75,12 @@ const MOCK_PIE: RGKPieType[] = [
 ];
 
 const MOCK_ONECOLUMN: OneColumnValueType[] = [
-  { value: 0, type: "Янв" },
-  { value: 1, type: "Фер" },
-  { value: 2, type: "Мар" },
-  { value: 3, type: "Апр" },
-  { value: 4, type: "Май" },
-  { value: 5, type: "Июн" },
+  { value: "0", type: "Янв" },
+  { value: "1", type: "Фер" },
+  { value: "2", type: "Мар" },
+  { value: "3", type: "Апр" },
+  { value: "4", type: "Май" },
+  { value: "5", type: "Июн" },
 ];
 
 const MOCK_MAP: RGKMapType[] = [
