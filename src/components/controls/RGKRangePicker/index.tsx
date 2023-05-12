@@ -28,8 +28,8 @@ const RGKRangePicker: FC<RGKRangePickerProps> = (props) => {
     const startDate: Date = e?.[0]._d;
     const endDate: Date = e?.[1]._d;
 
-    const startTs = startDate.valueOf();
-    const endTs = endDate.valueOf();
+    const startTs = startDate.valueOf() / 1000; // ms to sec
+    const endTs = endDate.valueOf() / 1000; // ms to sec
     props.onChange?.([startTs, endTs]);
   };
 

@@ -75,8 +75,6 @@ module.exports = {
     hot: true,
     client: {
       overlay: false,
-      warnings: false,
-      errors: false,
     },
   },
 };
