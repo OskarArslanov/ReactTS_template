@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { RGKTableTitleType } from "dto/card";
+import { getDataForReport } from "../../utils/dataFromBackendFormatters";
 import RGKSelect from "../../components/controls/RGKSelect";
 import RGKRangePicker from "../../components/controls/RGKRangePicker";
 import styles from "./styles.module.css";
@@ -49,18 +50,8 @@ const Reports = () => {
       try {
         axiosInstance.post("/get_fuel_rep", request).then((response) => {
           const data = response.data;
-          const columns: RGKTableTitleType[] = data.column_name.map(
-            (item: any) => ({
-              title: item.column_name,
-              dataIndex: item.key,
-              key: item.key,
-            })
-          );
-          const rows = data.report_data.map((item: any, index: number) => ({
-            ...item,
-            key: index,
-          }));
-          setReport({ columns, data: rows });
+          const result = getDataForReport(data);
+          setReport(result);
         });
       } catch (err: any) {
         console.log(err);

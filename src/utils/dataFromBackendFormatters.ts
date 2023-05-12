@@ -4,33 +4,12 @@ import {
   CardOneColumDataType,
   CardTableDataType,
   CardTwoColumDataType,
+  RGKTableTitleType,
 } from "dto/card";
 import {
   parseDayMonthYearDateFromBackend,
   parseMonthYearDateFromBackend,
 } from "./dates";
-
-export const getCardDataForTable = (card?: any): CardTableDataType => {
-  const result = {
-    title: card?.title,
-    columns: card?.table.column_name.map((item: any) => {
-      const cols = {
-        title: item.column_name,
-        dataIndex: item.key,
-        key: item.key,
-      };
-      return cols;
-    }),
-    data: card?.table.data.map((item: any, index: number) => {
-      const rows = {
-        ...item,
-        key: index,
-      };
-      return rows;
-    }),
-  };
-  return result;
-};
 
 export const getCardDataForTwoColumn = (card?: any): CardTwoColumDataType => {
   const result = {
@@ -84,4 +63,42 @@ export const getCardDataForTwoColumnWithProgress = (
     }),
   };
   return result;
+};
+
+export const getCardDataForTable = (card?: any): CardTableDataType => {
+  const result = {
+    title: card?.title,
+    columns: card?.table.column_name.map((item: any) => {
+      const cols = {
+        title: item.column_name,
+        dataIndex: item.key,
+        key: item.key,
+      };
+      return cols;
+    }),
+    data: card?.table.data.map((item: any, index: number) => {
+      const rows = {
+        ...item,
+        key: index,
+      };
+      return rows;
+    }),
+  };
+  return result;
+};
+
+export const getDataForReport = (report?: any) => {
+  const columns: RGKTableTitleType[] = report.column_name.map((item: any) => {
+    const result = {
+      title: item.column_name,
+      dataIndex: item.key,
+      key: item.key,
+    };
+    return result;
+  });
+  const data = report.report_data.map((item: any, index: number) => ({
+    ...item,
+    key: index,
+  }));
+  return { columns, data };
 };
