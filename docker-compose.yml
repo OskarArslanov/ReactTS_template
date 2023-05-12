@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: rgk-front
+    image: docker-react-image
+    build:
+      context: .
+    ports:
+      - 4000:3000
