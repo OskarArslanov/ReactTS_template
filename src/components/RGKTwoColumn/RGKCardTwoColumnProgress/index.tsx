@@ -19,7 +19,7 @@ const removeDuplicateNames = (data?: TwoColumnValueType[]) => {
   data?.forEach((item) => {
     result[item.name] = item;
   });
-  return result;
+  return Object.values(result);
 };
 const RGKCardTwoColumnProgress: FC<RGKCardTwoColumnProgressProps> = (props) => {
   const data = props.data?.data;
@@ -36,7 +36,7 @@ const RGKCardTwoColumnProgress: FC<RGKCardTwoColumnProgressProps> = (props) => {
       key={props.data?.title}
     >
       <div className={styles.RGKCardTwoColumn_DataValues}>
-        {Object.values(lastElements)?.map((item) => (
+        {lastElements?.map((item) => (
           <div
             className={styles.RGKCardTwoColumn_DataValues_Container}
             key={item.name}
