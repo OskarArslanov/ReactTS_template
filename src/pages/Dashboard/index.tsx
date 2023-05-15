@@ -26,10 +26,8 @@ const Dashboard = () => {
       setLoading(false);
     }
   }, []);
-
-  if (!data) return null;
-  const smallCards = data.cards;
-  const bigCards = data.big_cards;
+  const smallCards = data?.cards;
+  const bigCards = data?.big_cards;
 
   const smallCard1 = getCardDataForOneColumn(smallCards?.[1]);
   const smallCard2 = getCardDataForOneColumn(smallCards?.[2]);

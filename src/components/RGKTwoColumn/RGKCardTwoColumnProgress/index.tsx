@@ -14,19 +14,19 @@ interface RGKCardTwoColumnProgressProps {
   progressbarColor?: string;
 }
 
+const removeDuplicateNames = (data?: TwoColumnValueType[]) => {
+  const result: Record<string, TwoColumnValueType> = {};
+  data?.forEach((item) => {
+    result[item.name] = item;
+  });
+  return result;
+};
 const RGKCardTwoColumnProgress: FC<RGKCardTwoColumnProgressProps> = (props) => {
   const data = props.data?.data;
-  const names: string[] = [];
-  data?.map((item) =>
-    names.includes(item.name) ? item : names.push(item.name)
-  );
-  const lastElements: TwoColumnValueType[] = [];
-  names.map((item) => {
-    const element = data?.findLast((el) => el.name === item);
-    if (element) lastElements.push(element);
-    return item;
-  });
-  const percentage = (lastElements[0].value / lastElements[1].value) * 100;
+  const lastElements = removeDuplicateNames(data);
+  const val0 = lastElements?.[0]?.value || 0;
+  const val1 = lastElements?.[1]?.value || 1;
+  const percentage = (val0 / val1) * 100;
   return (
     <RGKCard
       className={styles.RGKCardTwoColumn}
@@ -36,7 +36,7 @@ const RGKCardTwoColumnProgress: FC<RGKCardTwoColumnProgressProps> = (props) => {
       key={props.data?.title}
     >
       <div className={styles.RGKCardTwoColumn_DataValues}>
-        {lastElements?.map((item) => (
+        {Object.values(lastElements)?.map((item) => (
           <div
             className={styles.RGKCardTwoColumn_DataValues_Container}
             key={item.name}

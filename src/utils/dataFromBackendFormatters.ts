@@ -6,18 +6,15 @@ import {
   CardTwoColumDataType,
   RGKTableTitleType,
 } from "dto/card";
-import {
-  parseDayMonthYearDateFromBackend,
-  parseMonthYearDateFromBackend,
-} from "./dates";
 
-export const getCardDataForTwoColumn = (card?: any): CardTwoColumDataType => {
-  const result = {
+export const getCardDataForTwoColumn = (card?: any) => {
+  if (!card) return undefined;
+  const result: CardTwoColumDataType = {
     title: card?.title,
     data: card?.chart.data?.map((item: any) => {
       if (!item) return undefined;
       const name = item.name;
-      let type = format(parseDayMonthYearDateFromBackend(item.xField), "d", {
+      let type = format(new Date(item.xField), "d", {
         locale: ru,
       });
       type = type.charAt(0).toUpperCase().concat(type.slice(1));
@@ -28,12 +25,13 @@ export const getCardDataForTwoColumn = (card?: any): CardTwoColumDataType => {
   return result;
 };
 
-export const getCardDataForOneColumn = (card?: any): CardOneColumDataType => {
-  const result = {
+export const getCardDataForOneColumn = (card?: any) => {
+  if (!card) return undefined;
+  const result: CardOneColumDataType = {
     title: card?.title,
     data: card?.chart.data?.map((item: any) => {
       if (!item) return undefined;
-      let type = format(parseMonthYearDateFromBackend(item.xField), "LLL", {
+      let type = format(new Date(item.xField), "LLL", {
         locale: ru,
       });
       type = type.charAt(0).toUpperCase().concat(type.slice(1));
@@ -46,15 +44,14 @@ export const getCardDataForOneColumn = (card?: any): CardOneColumDataType => {
   return result;
 };
 
-export const getCardDataForTwoColumnWithProgress = (
-  card?: any
-): CardTwoColumDataType => {
-  const result = {
+export const getCardDataForTwoColumnWithProgress = (card?: any) => {
+  if (!card) return undefined;
+  const result: CardTwoColumDataType = {
     title: card?.title,
     data: card?.chart.data?.map((item: any) => {
       if (!item) return undefined;
       const name = item.name;
-      let type = format(parseMonthYearDateFromBackend(item.xField), "LLL", {
+      let type = format(new Date(item.xField), "LLL", {
         locale: ru,
       });
       type = type.charAt(0).toUpperCase().concat(type.slice(1));
@@ -65,8 +62,9 @@ export const getCardDataForTwoColumnWithProgress = (
   return result;
 };
 
-export const getCardDataForTable = (card?: any): CardTableDataType => {
-  const result = {
+export const getCardDataForTable = (card?: any) => {
+  if (!card) return undefined;
+  const result: CardTableDataType = {
     title: card?.title,
     columns: card?.table.column_name.map((item: any) => {
       const cols = {
