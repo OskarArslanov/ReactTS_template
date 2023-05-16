@@ -18,7 +18,7 @@ const App = () => {
         <Link to="/">
           <Logo />
         </Link>
-        {auth.token ? (
+        {auth.accessToken ? (
           <Settings />
         ) : (
           <RGKButton

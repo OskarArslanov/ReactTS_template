@@ -2,8 +2,8 @@ import { useMemo } from "react";
 import { useLocation } from "react-router-dom";
 
 const getAuth = () => {
-  const token = localStorage.getItem("token") || undefined;
-  const result = { token };
+  const accessToken = localStorage.getItem("access_token") || undefined;
+  const result = { accessToken };
   return result;
 };
 
@@ -27,7 +27,7 @@ export const usePaths = () => {
 
 export const useSecuredRoute = () => {
   const auth = useAuth();
-  if (!auth.token) {
+  if (!auth.accessToken) {
     return true;
   }
   return false;

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import RGKCircleLoader from "@components/RGKCircleLoader";
 import RGKCardOneColumn from "@components/RGKOneColumn/RGKCardOneColumn";
 import RGKCardTable from "@components/RGKTable/RGKCardTable";
@@ -10,33 +10,24 @@ import {
   getCardDataForTable,
   getCardDataForTwoColumnWithProgress,
 } from "@utils/dataFromBackendFormatters";
-import { axiosInstance } from "axiosConfig";
+import { dashboardStore } from "store/dashboardStore";
+import { observer } from "mobx-react-lite";
 import styles from "./styles.module.css";
 
-const Dashboard = () => {
-  const [data, setData] = useState<any>();
-  const [loading, setLoading] = useState(false);
+const Dashboard = observer(() => {
   useEffect(() => {
-    setLoading(true);
-    try {
-      axiosInstance.get("/rgk24/main").then((resp) => setData(resp.data));
-    } catch (err: any) {
-      // ERR: FIXME
-    } finally {
-      setLoading(false);
-    }
+    dashboardStore.fetchData();
   }, []);
-  const smallCards = data?.cards;
-  const bigCards = data?.big_cards;
-
-  const smallCard1 = getCardDataForOneColumn(smallCards?.[1]);
-  const smallCard2 = getCardDataForOneColumn(smallCards?.[2]);
-  const smallCard3 = getCardDataForTwoColumn(smallCards?.[3]);
-  const smallCard4 = getCardDataForTable(smallCards?.[4]);
-  const bigCard1 = getCardDataForTwoColumnWithProgress(bigCards?.[1]);
+  const smallCards = dashboardStore.smallCards;
+  const bigCards = dashboardStore.largeCards;
+  const smallCard1 = getCardDataForOneColumn(smallCards?.[0]);
+  const smallCard2 = getCardDataForOneColumn(smallCards?.[1]);
+  const smallCard3 = getCardDataForTwoColumn(smallCards?.[2]);
+  const smallCard4 = getCardDataForTable(smallCards?.[3]);
+  const bigCard1 = getCardDataForTwoColumnWithProgress(bigCards?.[0]);
   return (
     <div className={styles.Dashboard}>
-      <RGKCircleLoader visible={loading} />
+      <RGKCircleLoader visible={dashboardStore.loading} />
       <div className={styles.Dashboard_SmallCards}>
         <RGKCardOneColumn
           valueName="тонн"
@@ -69,6 +60,6 @@ const Dashboard = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Dashboard;

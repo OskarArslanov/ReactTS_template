@@ -27,7 +27,7 @@ const RGKSpeedDial: FC<RGKSpeedDialProps> = (props) => {
   return (
     <div
       className={styles.RGKSpeedDial}
-      style={{ display: auth.token ? "flex" : "none" }}
+      style={{ display: auth.accessToken ? "flex" : "none" }}
     >
       {isOpen && (
         <ul className={styles.RGKSpeedDial_ItemList}>

@@ -17,8 +17,10 @@ const Login = () => {
         .post("/login", { login: username, psw: password })
         .then((resp) => {
           setError(undefined);
-          const token = resp.data.access_token;
-          localStorage.setItem("token", token);
+          const accessToken = resp.data.access_token;
+          const refreshToken = resp.data.refresh_token;
+          localStorage.setItem("access_token", accessToken);
+          localStorage.setItem("refresh_token", refreshToken);
           navigate("/dashboard");
         });
     } catch (err: any) {

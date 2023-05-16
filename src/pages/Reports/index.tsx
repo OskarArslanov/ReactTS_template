@@ -1,83 +1,62 @@
 import { useEffect, useState } from "react";
-import { RGKTableTitleType } from "dto/card";
 import RGKCircleLoader from "@components/RGKCircleLoader";
 import RGKTable from "@components/RGKTable";
 import RGKRangePicker from "@components/controls/RGKRangePicker";
 import RGKSelect from "@components/controls/RGKSelect";
-import { getDataForReport } from "@utils/dataFromBackendFormatters";
-import { axiosInstance } from "axiosConfig";
+import { reportsStore } from "store/reportsStore";
+import { observer } from "mobx-react-lite";
 import styles from "./styles.module.css";
 
-const Reports = () => {
-  const [availableReports, setAvailableReports] = useState<any>();
-  const [selected, setSelected] = useState<string>();
-  const [loading, setLoading] = useState(false);
-  const [report, setReport] = useState<{
-    columns: RGKTableTitleType[];
-    data: any[];
-  }>();
+const Reports = observer(() => {
   const [request, setRequest] = useState<{
     report_title?: string;
     data?: any;
   }>();
 
   useEffect(() => {
-    axiosInstance.get("/rgk24/fuel").then((resp: any) => {
-      const response = resp.data.reports;
-      const reports: any[] = [];
-      Object.keys(response).map((item) =>
-        reports.push({ name: item, data: response[item] })
-      );
-      setAvailableReports(reports);
-    });
+    reportsStore.fetchAvailableReports();
   }, []);
 
-  const handleChangeSelect = (e: string) => {
-    setRequest({ ...request, report_title: e });
-    setSelected(e);
-  };
-  const handleChangeDate = async (e: number[]) => {
-    const data = {
-      start_ts: e[0],
-      end_ts: e[1],
-    };
-    setRequest({ ...request, data });
-  };
-
   useEffect(() => {
-    if (request?.report_title && request.data) {
-      setLoading(true);
-      try {
-        axiosInstance.post("/get_fuel_rep", request).then((response) => {
-          const data = response.data;
-          const result = getDataForReport(data);
-          setReport(result);
-        });
-      } catch (err: any) {
-        console.log(err);
-      } finally {
-        setLoading(false);
-      }
-    }
-  }, [request?.report_title, request?.data]);
+    reportsStore.fetchReport(request);
+  }, [request]);
 
   return (
     <div className={styles.Reports}>
-      <RGKCircleLoader visible={loading} />
+      <RGKCircleLoader visible={reportsStore.loading} />
       <div className={styles.Reports_Controls}>
         <RGKSelect
-          values={availableReports?.map((item: any) => ({
+          values={reportsStore.reports?.map((item) => ({
             label: item.name,
             value: item.name,
           }))}
-          onChange={handleChangeSelect}
+          onChange={(e) => {
+            const updatedTitle = e;
+            const updatedRequest = { ...request, report_title: updatedTitle };
+            setRequest(updatedRequest);
+          }}
           className={styles.Reports_Selector}
         />
-        <RGKRangePicker tab={selected} onChange={handleChangeDate} />
+        <RGKRangePicker
+          tab={request?.report_title}
+          onChange={(e) => {
+            const data = {
+              ...request?.data,
+              start_ts: e[0],
+              end_ts: e[1],
+            };
+            const updatedRequest = { ...request, data };
+            setRequest(updatedRequest);
+          }}
+        />
       </div>
-      <RGKTable pagination columns={report?.columns} data={report?.data} />
+      <RGKTable
+        pagination
+        columns={reportsStore.report?.columns}
+        data={reportsStore.report?.data}
+      />
     </div>
   );
-};
+});
 
 export default Reports;

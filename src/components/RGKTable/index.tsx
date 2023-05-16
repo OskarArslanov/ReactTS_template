@@ -1,7 +1,7 @@
 import { Table } from "antd";
 import { FC } from "react";
 import { RGKTableTitleType } from "dto/card";
-import { alphabetSorter, numberSorter } from "@utils/sorters";
+import { alphabetSorter, dateSorter, numberSorter } from "@utils/sorters";
 import styles from "./styles.module.css";
 
 interface RGKTableProps {
@@ -13,13 +13,16 @@ interface RGKTableProps {
 const RGKTable: FC<RGKTableProps> = (props) => {
   const columns = props.columns?.map((item: any) => {
     const rowData = props.data?.[0];
-    const rowDataType = typeof rowData[item.key];
+    const rowDataType = typeof rowData?.[item.key];
     let sorter;
     if (rowDataType === "string") {
       sorter = (a: any, b: any) => alphabetSorter(a[item.key], b[item.key]);
     }
     if (rowDataType === "number") {
       sorter = (a: any, b: any) => numberSorter(a[item.key], b[item.key]);
+    }
+    if (item.title === "Дата") {
+      sorter = (a: any, b: any) => dateSorter(a[item.key], b[item.key], "p");
     }
     const result = {
       ...item,
