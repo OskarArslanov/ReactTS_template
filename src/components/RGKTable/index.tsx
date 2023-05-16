@@ -1,7 +1,7 @@
 import { Table } from "antd";
 import { FC } from "react";
 import { RGKTableTitleType } from "dto/card";
-import { alphabetSorter, numberSorter } from "../../utils/sorters";
+import { alphabetSorter, numberSorter } from "@utils/sorters";
 import styles from "./styles.module.css";
 
 interface RGKTableProps {

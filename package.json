@@ -2,6 +2,10 @@
   "name": "rgk",
   "version": "0.1.0",
   "private": true,
+  "moduleDirectories": [
+    "src",
+    "node_modules"
+  ],
   "dependencies": {
     "@ant-design/charts": "^1.4.2",
     "@ant-design/icons": "^4.8.0",
@@ -32,8 +36,7 @@
   "scripts": {
     "start": "react-scripts start",
     "dev": "NODE_ENV=development webpack-dev-server --mode=development",
-    "prod": "NODE_ENV=production webpack --mode=production",
-    "build": "react-scripts build",
+    "build": "NODE_ENV=production react-scripts build --mode=production",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -59,6 +62,7 @@
     "html-webpack-plugin": "^5.5.1",
     "prettier": "2.8.7",
     "tsconfig-paths": "^4.2.0",
+    "tsconfig-paths-webpack-plugin": "^4.0.1",
     "typescript": "^5.0.4",
     "typescript-plugin-css-modules": "^5.0.1",
     "webpack": "^5.80.0",

@@ -39,7 +39,9 @@ export const getCardDataForOneColumn = (card?: any) => {
       return { type, value };
     }),
     subTitleName: String(Object.keys(card?.report_string?.data)?.[0]),
-    subTitleValue: String(Object.values(card?.report_string?.data)?.[0]),
+    subTitleValue: String(Object.values(card?.report_string?.data)?.[0]).split(
+      "."
+    )?.[0],
   };
   return result;
 };

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { RGKTableTitleType } from "dto/card";
-import { getDataForReport } from "../../utils/dataFromBackendFormatters";
-import RGKSelect from "../../components/controls/RGKSelect";
-import RGKRangePicker from "../../components/controls/RGKRangePicker";
+import RGKCircleLoader from "@components/RGKCircleLoader";
+import RGKTable from "@components/RGKTable";
+import RGKRangePicker from "@components/controls/RGKRangePicker";
+import RGKSelect from "@components/controls/RGKSelect";
+import { getDataForReport } from "@utils/dataFromBackendFormatters";
+import { axiosInstance } from "axiosConfig";
 import styles from "./styles.module.css";
-import { axiosInstance } from "../../axiosConfig";
-import RGKTable from "../../components/RGKTable";
-import RGKCircleLoader from "../../components/RGKCircleLoader";
 
 const Reports = () => {
   const [availableReports, setAvailableReports] = useState<any>();

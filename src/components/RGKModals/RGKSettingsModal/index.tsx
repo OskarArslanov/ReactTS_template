@@ -2,8 +2,8 @@ import { Modal } from "antd";
 import { FC } from "react";
 import { LogoutOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
+import RGKButton from "@components/controls/RGKButton";
 import styles from "./styles.module.css";
-import RGKButton from "../../controls/RGKButton";
 
 interface RGKSettingsModalProps {
   open: boolean;

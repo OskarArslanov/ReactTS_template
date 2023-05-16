@@ -1,11 +1,11 @@
 import { OneColumnValueType } from "dto/card";
-import { RGKLineType } from "../../components/RGKLine";
-import RGKCardLine from "../../components/RGKLine/RGKCardLine";
-import { RGKMapType } from "../../components/RGKMap";
-import RGKCardMap from "../../components/RGKMap/RGKCardMap";
-import RGKCardOneColumnSelector from "../../components/RGKOneColumn/RGKCardOneColumnSelector";
-import { RGKPieType } from "../../components/RGKPie";
-import RGKCardPie from "../../components/RGKPie/RGKCardPie";
+import { RGKLineType } from "@components/RGKLine";
+import RGKCardLine from "@components/RGKLine/RGKCardLine";
+import { RGKMapType } from "@components/RGKMap";
+import RGKCardMap from "@components/RGKMap/RGKCardMap";
+import RGKCardOneColumnSelector from "@components/RGKOneColumn/RGKCardOneColumnSelector";
+import { RGKPieType } from "@components/RGKPie";
+import RGKCardPie from "@components/RGKPie/RGKCardPie";
 import styles from "./styles.module.css";
 
 const MOCK_LINE: RGKLineType[] = [

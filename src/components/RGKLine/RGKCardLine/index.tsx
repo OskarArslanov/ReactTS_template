@@ -1,5 +1,5 @@
 import { FC } from "react";
-import RGKCard from "../../RGKCard";
+import RGKCard from "@components/RGKCard";
 import styles from "./styles.module.css";
 import RGKLine, { RGKLineType } from "..";
 

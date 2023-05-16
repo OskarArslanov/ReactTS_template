@@ -1,8 +1,8 @@
 import { LoginOutlined } from "@ant-design/icons";
 import { FC } from "react";
+import RGKButton from "@components/controls/RGKButton";
+import RGKInput from "@components/controls/RGKInput";
 import RGKForm from "../RGKForm";
-import RGKInput from "../../RGKInput";
-import RGKButton from "../../RGKButton";
 import styles from "./styles.module.css";
 
 interface RGKLoginFormProps {

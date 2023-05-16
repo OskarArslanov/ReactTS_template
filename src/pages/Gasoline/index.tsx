@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import RGKStats, { RGKStatsType } from "../../components/RGKStats";
+import RGKStats, { RGKStatsType } from "@components/RGKStats";
 import styles from "./styles.module.css";
 
 const MOCK_CARDS_1: RGKStatsType[] = [

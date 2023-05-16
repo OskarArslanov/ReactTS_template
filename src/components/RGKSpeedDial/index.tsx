@@ -3,8 +3,8 @@ import { PlusOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import { SizeType } from "antd/es/config-provider/SizeContext";
 import { Link } from "react-router-dom";
+import { useAuth, usePaths } from "@utils/hooks";
 import styles from "./styles.module.css";
-import { useAuth, usePaths } from "../../utils/hooks";
 
 export interface RGKSpeedDialMenuType {
   name: string;

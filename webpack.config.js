@@ -1,15 +1,16 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 
 module.exports = {
-  // entry: "./src/index.tsx",
   entry: path.resolve(__dirname, "./src/index.tsx"),
   mode: isDevelopment ? "development" : "production",
   devtool: isDevelopment ? "inline-source-map" : "source-map",
   resolve: {
+    plugins: [new TsconfigPathsPlugin({ configFile: "tsconfig.json" })],
     extensions: [".ts", ".tsx", ".js", ".jsx"],
   },
   output: {
@@ -57,6 +58,11 @@ module.exports = {
         loader: "file-loader",
       },
     ],
+    parser: {
+      javascript: {
+        url: false,
+      },
+    },
   },
   plugins: [
     new MiniCssExtractPlugin({
@@ -73,6 +79,7 @@ module.exports = {
     compress: true,
     port: 3000,
     hot: true,
+    liveReload: false,
     client: {
       overlay: false,
     },

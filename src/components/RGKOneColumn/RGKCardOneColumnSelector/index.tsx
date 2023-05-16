@@ -1,10 +1,10 @@
 import { FC } from "react";
 import { Select } from "antd";
 import { OneColumnValueType } from "dto/card";
+import RGKCard from "@components/RGKCard";
+import { IdValue } from "@types/idVal";
 import styles from "./styles.module.css";
-import RGKCard from "../../RGKCard";
 import RGKOneColumn from "..";
-import { IdValue } from "../../../types/idVal";
 
 interface RGKCardOneColumnSelectorProps {
   title: string;

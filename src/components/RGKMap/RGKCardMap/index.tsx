@@ -1,9 +1,9 @@
 import { FC, useState } from "react";
 import { Button } from "antd";
 import { CarOutlined } from "@ant-design/icons";
+import RGKCard from "@components/RGKCard";
 import styles from "./styles.module.css";
 import RGKMap, { RGKMapType } from "..";
-import RGKCard from "../../RGKCard";
 
 interface RGKCardMapProps {
   title: string;

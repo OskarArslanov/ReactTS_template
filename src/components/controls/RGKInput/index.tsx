@@ -1,7 +1,7 @@
 import { Input } from "antd";
 import { FC, useState } from "react";
 import { Controller, RegisterOptions, useFormContext } from "react-hook-form";
-import { handleErrors } from "../../../utils/errors";
+import { handleErrors } from "@utils/errors";
 import styles from "./styles.module.css";
 
 interface RGKInputProps {

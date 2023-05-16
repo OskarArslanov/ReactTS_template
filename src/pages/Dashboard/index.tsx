@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import { axiosInstance } from "../../axiosConfig";
-import styles from "./styles.module.css";
-import RGKCardOneColumn from "../../components/RGKOneColumn/RGKCardOneColumn";
-import RGKCardTwoColumn from "../../components/RGKTwoColumn/RGKCardTwoColumn";
-import RGKCardTwoColumnProgress from "../../components/RGKTwoColumn/RGKCardTwoColumnProgress";
-import RGKCardTable from "../../components/RGKTable/RGKCardTable";
-import RGKCircleLoader from "../../components/RGKCircleLoader";
+import RGKCircleLoader from "@components/RGKCircleLoader";
+import RGKCardOneColumn from "@components/RGKOneColumn/RGKCardOneColumn";
+import RGKCardTable from "@components/RGKTable/RGKCardTable";
+import RGKCardTwoColumn from "@components/RGKTwoColumn/RGKCardTwoColumn";
+import RGKCardTwoColumnProgress from "@components/RGKTwoColumn/RGKCardTwoColumnProgress";
 import {
   getCardDataForOneColumn,
-  getCardDataForTable,
   getCardDataForTwoColumn,
+  getCardDataForTable,
   getCardDataForTwoColumnWithProgress,
-} from "../../utils/dataFromBackendFormatters";
+} from "@utils/dataFromBackendFormatters";
+import { axiosInstance } from "axiosConfig";
+import styles from "./styles.module.css";
 
 const Dashboard = () => {
   const [data, setData] = useState<any>();
