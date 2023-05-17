@@ -12,3 +12,9 @@ export const parseDayMonthYearDateFromBackend = (date: string) => {
   const dateFormat = new Date(year, month, day);
   return dateFormat;
 };
+
+export const delay = (ms: number) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+};

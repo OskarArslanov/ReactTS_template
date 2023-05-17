@@ -8,7 +8,7 @@ configure({
 });
 
 const updatePeriod = 2;
-class DashboardStoreObservalble {
+class DashboardStoreObservable {
   smallCards: any[] = [];
 
   largeCards: any[] = [];
@@ -41,4 +41,4 @@ class DashboardStoreObservalble {
   };
 }
 
-export const dashboardStore = new DashboardStoreObservalble();
+export const dashboardStore = new DashboardStoreObservable();

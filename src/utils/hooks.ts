@@ -1,9 +1,10 @@
 import { useMemo } from "react";
 import { useLocation } from "react-router-dom";
 
-const getAuth = () => {
+export const getAuth = () => {
   const accessToken = localStorage.getItem("access_token") || undefined;
-  const result = { accessToken };
+  const refreshToken = localStorage.getItem("refresh_token") || undefined;
+  const result = { accessToken, refreshToken };
   return result;
 };
 

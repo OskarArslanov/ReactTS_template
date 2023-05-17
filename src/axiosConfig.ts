@@ -15,7 +15,27 @@ axiosInstance.interceptors.request.use((config) => {
   };
 });
 
-axiosInstance.interceptors.request.use((config) => {
-  // console.log(config);
-  return config;
-});
+axiosInstance.interceptors.response.use(
+  (response) => response,
+  async (error) => {
+    const { config } = error;
+    const statusCode = error.response.status;
+    if (statusCode === 401) {
+      const refreshToken = localStorage.getItem("refresh_token");
+      let newToken;
+      await axiosInstance
+        .post("/refresh", undefined, {
+          headers: { Authorization: `Bearer ${refreshToken}` },
+        })
+        .then((resp) => {
+          newToken = resp.data.access_token;
+          localStorage.setItem("access_token", newToken);
+        });
+      return axios({
+        ...config,
+        headers: { Authorization: `Bearer ${newToken}` },
+      });
+    }
+    return Promise.reject(error);
+  }
+);
