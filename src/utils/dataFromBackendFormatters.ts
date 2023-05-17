@@ -6,7 +6,6 @@ import {
   CardTwoColumDataType,
   RGKTableTitleType,
 } from "dto/card";
-import { toJS } from "mobx";
 
 export const getCardDataForTwoColumn = (card?: any) => {
   if (!card) return undefined;
@@ -94,12 +93,12 @@ export const getDataForReport = (report?: any) => {
       title: item.column_name,
       dataIndex: item.key,
       key: item.key,
+      type: item.type,
+      format: item.format,
     };
     return result;
   });
-  console.log(toJS(report.column_name));
   const data: any[] = report.report_data.map((item: any, index: number) => {
-    console.log(toJS(item));
     return { ...item, key: index };
   });
   return { columns, data };

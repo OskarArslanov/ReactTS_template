@@ -25,6 +25,8 @@ export interface RGKTableTitleType {
   title: string;
   dataIndex: string;
   key: string;
+  type: string;
+  format?: string;
 }
 
 export interface CardTableDataType {
