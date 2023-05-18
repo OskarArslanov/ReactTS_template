@@ -1,7 +1,8 @@
 import axios from "axios";
 
+const basePath = "http://78.24.223.121:8000";
 export const axiosInstance = axios.create({
-  baseURL: "http://78.24.223.121:8000",
+  baseURL: basePath,
 });
 
 // @ts-ignore
@@ -22,20 +23,17 @@ axiosInstance.interceptors.response.use(
     const statusCode = error.response.status;
     if (statusCode === 401) {
       const refreshToken = localStorage.getItem("refresh_token");
-      let newToken;
-      await axiosInstance
-        .post("/refresh", undefined, {
+      const newToken = (
+        await axios.post(`${basePath}/refresh`, undefined, {
           headers: { Authorization: `Bearer ${refreshToken}` },
         })
-        .then((resp) => {
-          newToken = resp.data.access_token;
-          localStorage.setItem("access_token", newToken);
-        });
+      ).data.access_token;
+      localStorage.setItem("access_token", newToken);
       return axios({
         ...config,
         headers: { Authorization: `Bearer ${newToken}` },
       });
     }
-    return Promise.reject(error);
+    return error;
   }
 );

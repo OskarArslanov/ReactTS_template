@@ -3,7 +3,7 @@ import RGKCircleLoader from "@components/RGKCircleLoader";
 import RGKTable from "@components/RGKTable";
 import RGKRangePicker from "@components/controls/RGKRangePicker";
 import RGKSelect from "@components/controls/RGKSelect";
-import { reportsStore } from "store/reportsStore";
+import { reportsStore } from "@store/reportsStore";
 import { observer } from "mobx-react-lite";
 import styles from "./styles.module.css";
 

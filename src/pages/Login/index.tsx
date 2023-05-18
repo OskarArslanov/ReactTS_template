@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import RGKCircleLoader from "@components/RGKCircleLoader";
 import RGKLoginForm from "@components/controls/forms/RGKLoginForm";
-import { axiosInstance } from "axiosConfig";
+import { axiosInstance } from "@store/axiosConfig";
+import RGKCircleLoader from "@components/RGKCircleLoader";
 import styles from "./styles.module.css";
 
 const Login = () => {

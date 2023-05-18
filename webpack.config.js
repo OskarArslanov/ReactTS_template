@@ -1,17 +1,27 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 
 module.exports = {
-  entry: path.resolve(__dirname, "./src/index.tsx"),
+  entry: path.resolve(__dirname, "src/index.tsx"),
   mode: isDevelopment ? "development" : "production",
   devtool: isDevelopment ? "inline-source-map" : "source-map",
   resolve: {
-    plugins: [new TsconfigPathsPlugin({ configFile: "tsconfig.json" })],
-    extensions: [".ts", ".tsx", ".js", ".jsx"],
+    extensions: [".ts", ".tsx", ".js", ".css"],
+    modules: [
+      path.resolve(__dirname, "node_modules"),
+      path.resolve(__dirname, "src"),
+    ],
+    alias: {
+      "@components": path.resolve(__dirname, "src/components"),
+      "@types": path.resolve(__dirname, "src/types"),
+      "@utils": path.resolve(__dirname, "src/utils"),
+      "@store": path.resolve(__dirname, "src/store"),
+      "@assets": path.resolve(__dirname, "src/assets"),
+      "@pages": path.resolve(__dirname, "src/pages"),
+    },
   },
   output: {
     path: path.resolve(__dirname, "dist"),

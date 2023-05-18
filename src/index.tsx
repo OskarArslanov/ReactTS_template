@@ -59,9 +59,7 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  <React.StrictMode>
-    <YMaps>
-      <RouterProvider router={router} />
-    </YMaps>
-  </React.StrictMode>
+  <YMaps>
+    <RouterProvider router={router} />
+  </YMaps>
 );

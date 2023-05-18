@@ -10,7 +10,7 @@ import {
   getCardDataForTable,
   getCardDataForTwoColumnWithProgress,
 } from "@utils/dataFromBackendFormatters";
-import { dashboardStore } from "store/dashboardStore";
+import { dashboardStore } from "@store/dashboardStore";
 import { observer } from "mobx-react-lite";
 import styles from "./styles.module.css";
 

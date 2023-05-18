@@ -1,15 +1,12 @@
 import { getDataForReport } from "@utils/dataFromBackendFormatters";
-import { axiosInstance } from "axiosConfig";
-import { addMinutes } from "date-fns";
-import isAfter from "date-fns/isAfter";
-import { RGKTableTitleType } from "dto/card";
 import { makeAutoObservable, configure } from "mobx";
+import { RGKTableTitleType } from "@dto/card";
+import { axiosInstance } from "./axiosConfig";
 
 configure({
   enforceActions: "never",
 });
 
-const updatePeriod = 2;
 class ReportsStoreObservable {
   reports: { name: string; data: any }[] = [];
 
@@ -20,26 +17,18 @@ class ReportsStoreObservable {
 
   loading: boolean = false;
 
-  lastUpdate?: Date = undefined;
-
   constructor() {
     makeAutoObservable(this);
   }
 
   fetchAvailableReports = async () => {
     this.loading = true;
-    const isUpdate =
-      this.lastUpdate === undefined ||
-      isAfter(new Date(), addMinutes(this.lastUpdate, updatePeriod));
     try {
-      if (isUpdate) {
-        const response = await axiosInstance.get("/rgk24/fuel");
-        const data = response.data.reports;
-        Object.keys(data).map((item) =>
-          this.reports.push({ name: item, data: data[item] })
-        );
-        this.lastUpdate = new Date();
-      }
+      const response = await axiosInstance.get("/rgk24/fuel");
+      const data = response.data.reports;
+      Object.keys(data).map((item) =>
+        this.reports.push({ name: item, data: data[item] })
+      );
     } catch (err: any) {
       console.log(err);
     } finally {
