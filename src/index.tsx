@@ -3,8 +3,8 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import App from "./App";
-import Dashboard from "./pages/Dashboard";
-import Reports from "./pages/Reports";
+import Chat from "./pages/Chat";
+import Login from "./pages/Login";
 
 const router = createBrowserRouter([
   {
@@ -14,12 +14,12 @@ const router = createBrowserRouter([
     children: [
       {
         path: "dashboard",
-        element: <Dashboard />,
+        element: <Chat />,
         loader: undefined,
       },
       {
         path: "reports",
-        element: <Reports />,
+        element: <Login />,
         loader: undefined,
       },
     ],

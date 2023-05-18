@@ -9,7 +9,14 @@ module.exports = {
   mode: isDevelopment ? "development" : "production",
   devtool: isDevelopment ? "inline-source-map" : "source-map",
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx"],
+    extensions: [".ts", ".tsx", ".js", ".css"],
+    modules: [
+      path.resolve(__dirname, "node_modules"),
+      path.resolve(__dirname, "src"),
+    ],
+    alias: {
+      "@components": path.resolve(__dirname, "components/"),
+    },
   },
   output: {
     path: path.resolve(__dirname, "dist"),
