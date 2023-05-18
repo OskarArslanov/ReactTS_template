@@ -1,5 +1,5 @@
 import { CSSProperties, FC } from "react";
-import { CardOneColumDataType } from "dto/card";
+import { CardOneColumDataType } from "@dto/card";
 import RGKCard from "@components/RGKCard";
 import styles from "./styles.module.css";
 import RGKOneColumn from "..";
@@ -45,6 +45,7 @@ const RGKCardOneColumn: FC<RGKCardOneColumnProps> = (props) => {
           valueName={props.valueName}
           typeName={props.typeName}
           height={props.height}
+          title={props.data?.title}
         />
       </div>
     </RGKCard>

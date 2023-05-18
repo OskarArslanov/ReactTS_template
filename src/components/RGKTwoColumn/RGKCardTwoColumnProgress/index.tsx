@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Progress } from "antd";
-import { CardTwoColumDataType, TwoColumnValueType } from "dto/card";
+import { CardTwoColumDataType, TwoColumnValueType } from "@dto/card";
 import RGKCard from "@components/RGKCard";
 import styles from "./styles.module.css";
 import RGKTwoColumn from "..";
@@ -56,6 +56,8 @@ const RGKCardTwoColumnProgress: FC<RGKCardTwoColumnProgressProps> = (props) => {
         data={props.data?.data}
         height={props.height}
         colors={props.colors}
+        title={props.data?.title}
+        isBig
       />
     </RGKCard>
   );

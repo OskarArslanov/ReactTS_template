@@ -31,11 +31,8 @@
     "serve": "^14.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "dev": "NODE_ENV=development webpack-dev-server",
-    "build": "NODE_ENV=production react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "webpack serve --allowed-hosts all",
+    "build": "NODE_ENV=production webpack build"
   },
   "eslintConfig": {
     "extends": [

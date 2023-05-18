@@ -1,6 +1,7 @@
 import { Column } from "@ant-design/plots";
-import { FC } from "react";
-import { OneColumnValueType } from "dto/card";
+import { FC, useState } from "react";
+import { OneColumnValueType } from "@dto/card";
+import RGKReportTableModal from "@components/RGKModals/RGKReportTableModal";
 import styles from "./styles.module.css";
 
 interface RGKOneColumnProps {
@@ -11,8 +12,12 @@ interface RGKOneColumnProps {
   typeName: string;
   valueName: string;
   color?: string;
+  onPlotClick?: () => void;
+  title?: string;
 }
 const RGKOneColumn: FC<RGKOneColumnProps> = (props) => {
+  const [modal, setModal] = useState(false);
+
   const config = {
     data: props.data || [],
     xField: "type",
@@ -42,7 +47,20 @@ const RGKOneColumn: FC<RGKOneColumnProps> = (props) => {
   };
   return (
     <div className={styles.RGKOneColumn}>
-      <Column {...config} height={props.height} />
+      <Column
+        {...config}
+        height={props.height}
+        onEvent={(chart, event) => {
+          if (event.type === "plot:click") {
+            setModal(true);
+          }
+        }}
+      />
+      <RGKReportTableModal
+        open={modal}
+        onClose={() => setModal(false)}
+        title={props.title}
+      />
     </div>
   );
 };

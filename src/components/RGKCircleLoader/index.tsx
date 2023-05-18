@@ -9,10 +9,10 @@ interface RGKCircleLoaderProps {
 const RGKCircleLoader: FC<RGKCircleLoaderProps> = (props) => {
   return (
     <Spin
-      spinning
+      spinning={props.visible}
       delay={0}
       size="large"
-      style={{ zIndex: 111, display: props.visible ? "flex" : "none" }}
+      style={{ zIndex: 1, display: props.visible ? "flex" : "none" }}
       className={`${styles.RGKCircleLoader} ${
         styles[`RGKCircleLoader__${props.full ? "full" : "relative"}`]
       }`}

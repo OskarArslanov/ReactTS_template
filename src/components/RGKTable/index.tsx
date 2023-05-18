@@ -1,10 +1,11 @@
 import { Table } from "antd";
 import { FC } from "react";
-import { RGKTableTitleType } from "dto/card";
+import { RGKTableTitleType } from "@dto/card";
 import { alphabetSorter, dateSorter, numberSorter } from "@utils/sorters";
 import { toJS } from "mobx";
 import { format } from "date-fns";
 import ru from "date-fns/locale/ru";
+import RGKCircleLoader from "@components/RGKCircleLoader";
 import styles from "./styles.module.css";
 
 interface RGKTableProps {
@@ -12,16 +13,20 @@ interface RGKTableProps {
   scroll?: { x: number; y: number };
   columns?: RGKTableTitleType[];
   data?: any[];
+  loading?: boolean;
 }
 const RGKTable: FC<RGKTableProps> = (props) => {
   const keysToFormat = toJS(
     props.columns
       ?.filter((item) => item.type === "date")
-      .map((item) => ({ key: item.key, format: item.format }))
+      .map((item) => ({
+        key: item.key,
+        format: item.format,
+      }))
   );
   const rows = toJS(
-    props.data?.map((item) => {
-      const updatedRow = { ...item };
+    props.data?.map((item, index) => {
+      const updatedRow = { ...item, key: index };
       if (keysToFormat) {
         keysToFormat.forEach((el) => {
           try {
@@ -53,12 +58,14 @@ const RGKTable: FC<RGKTableProps> = (props) => {
     const result = {
       ...item,
       sorter,
+      dataIndex: item.key,
       sortDirections: ["descend", "ascend"],
     };
     return result;
   });
   return (
     <div className={styles.RGKTable}>
+      <RGKCircleLoader visible={!!props.loading} />
       <Table
         dataSource={rows}
         // @ts-ignore

@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { Select } from "antd";
-import { OneColumnValueType } from "dto/card";
+import { OneColumnValueType } from "@dto/card";
 import RGKCard from "@components/RGKCard";
-import { IdValue } from "@types/idVal";
+import { IdValue } from "@dto/idVal";
 import styles from "./styles.module.css";
 import RGKOneColumn from "..";
 
@@ -60,6 +60,7 @@ const RGKCardOneColumnSelector: FC<RGKCardOneColumnSelectorProps> = (props) => {
           dataPos="middle"
           valueName={props.valueName}
           height={props.height}
+          title={props.title}
         />
       </div>
     </RGKCard>

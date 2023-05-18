@@ -1,6 +1,7 @@
 import { Column } from "@ant-design/plots";
-import { FC } from "react";
-import { TwoColumnValueType } from "dto/card";
+import { FC, useState } from "react";
+import { TwoColumnValueType } from "@dto/card";
+import RGKReportTableModal from "@components/RGKModals/RGKReportTableModal";
 import styles from "./styles.module.css";
 
 interface RGKTwoColumnProps {
@@ -10,8 +11,10 @@ interface RGKTwoColumnProps {
   marginRatio?: number;
   isBig?: boolean;
   height?: number;
+  title?: string;
 }
 const RGKTwoColumn: FC<RGKTwoColumnProps> = (props) => {
+  const [modal, setModal] = useState(false);
   const config = {
     data: props.data || [],
     isGroup: true,
@@ -37,7 +40,20 @@ const RGKTwoColumn: FC<RGKTwoColumnProps> = (props) => {
   };
   return (
     <div className={styles.RGKTwoColumn}>
-      <Column {...config} height={props.height} />
+      <Column
+        {...config}
+        height={props.height}
+        onEvent={(chart, event) => {
+          if (event.type === "plot:click") {
+            setModal(true);
+          }
+        }}
+      />
+      <RGKReportTableModal
+        open={modal}
+        onClose={() => setModal(false)}
+        title={props.title}
+      />
     </div>
   );
 };

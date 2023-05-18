@@ -1,6 +1,6 @@
 import { CSSProperties, FC } from "react";
-import { CardTwoColumDataType, TwoColumnValueType } from "dto/card";
 import RGKCard from "@components/RGKCard";
+import { CardTwoColumDataType, TwoColumnValueType } from "@dto/card";
 import styles from "./styles.module.css";
 import RGKTwoColumn from "..";
 
@@ -16,6 +16,7 @@ interface RGKCardTwoColumnProps {
 const RGKCardTwoColumn: FC<RGKCardTwoColumnProps> = (props) => {
   const data = props.data?.data;
   const names: string[] = [];
+  const title = props.data?.title;
   data?.map((item) =>
     names.includes(item.name) ? item : names.push(item.name)
   );
@@ -28,7 +29,7 @@ const RGKCardTwoColumn: FC<RGKCardTwoColumnProps> = (props) => {
   return (
     <RGKCard
       className={styles.RGKCardTwoColumn}
-      title={props.data?.title}
+      title={title}
       href={props.href}
       hrefText={props.hrefText}
       style={props.style}
@@ -48,6 +49,7 @@ const RGKCardTwoColumn: FC<RGKCardTwoColumnProps> = (props) => {
         data={props.data?.data}
         height={props.height}
         colors={props.colors}
+        title={title}
       />
     </RGKCard>
   );
