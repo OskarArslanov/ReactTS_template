@@ -19,6 +19,7 @@ const Login = () => {
           setError(undefined);
           const accessToken = resp.data.access_token;
           const refreshToken = resp.data.refresh_token;
+          localStorage.setItem("user", username);
           localStorage.setItem("access_token", accessToken);
           localStorage.setItem("refresh_token", refreshToken);
           navigate("/dashboard");

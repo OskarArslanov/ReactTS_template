@@ -8,10 +8,8 @@ import RGKButton from "../../../components/controls/RGKButton";
 const Settings = () => {
   const [open, setOpen] = useState(false);
 
-  const records: LabelValue[] = [
-    { label: "tkdar", value: "tkdar" },
-    { label: "tkdar1", value: "tkdar1" },
-  ];
+  const user = localStorage.getItem("user");
+  const records: LabelValue[] = [{ label: user!, value: user! }];
 
   return (
     <div className={styles.Settings}>
