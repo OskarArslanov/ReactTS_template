@@ -2,6 +2,11 @@
   "name": "rgk",
   "version": "0.1.0",
   "private": true,
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
   "dependencies": {
     "@ant-design/charts": "^1.4.2",
     "@ant-design/icons": "^4.8.0",
@@ -20,6 +25,8 @@
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
+    "file-saver": "^2.0.5",
+    "fs": "^0.0.1-security",
     "millify": "^6.1.0",
     "mobx": "^6.9.0",
     "mobx-react-lite": "^3.4.3",
@@ -46,6 +53,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@types/file-saver": "^2.0.5",
     "@typescript-eslint/eslint-plugin": "^5.59.0",
     "@typescript-eslint/parser": "^5.59.0",
     "esbuild-loader": "^3.0.1",

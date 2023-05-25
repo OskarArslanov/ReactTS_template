@@ -5,7 +5,7 @@ import {
   CardTableDataType,
   CardTwoColumDataType,
   RGKTableTitleType,
-} from "dto/card";
+} from "@dto/card";
 
 export const getCardDataForTwoColumn = (card?: any) => {
   if (!card) return undefined;

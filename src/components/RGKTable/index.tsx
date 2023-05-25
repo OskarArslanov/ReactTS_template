@@ -6,6 +6,9 @@ import { toJS } from "mobx";
 import { format } from "date-fns";
 import ru from "date-fns/locale/ru";
 import RGKCircleLoader from "@components/RGKCircleLoader";
+import DownloadOutlined from "@ant-design/icons/lib/icons/DownloadOutlined";
+import RGKButton from "@components/controls/RGKButton";
+import { downloadXLSFile } from "@utils/fileLoaders";
 import styles from "./styles.module.css";
 
 interface RGKTableProps {
@@ -16,30 +19,36 @@ interface RGKTableProps {
   loading?: boolean;
 }
 const RGKTable: FC<RGKTableProps> = (props) => {
-  const keysToFormat = toJS(
-    props.columns
-      ?.filter((item) => item.type === "date")
-      .map((item) => ({
-        key: item.key,
-        format: item.format,
-      }))
-  );
+  const rowSetup = props.columns?.map((col) => ({
+    key: col.key,
+    type: col.type,
+    format: col.format,
+  }));
+
   const rows = toJS(
     props.data?.map((item, index) => {
       const updatedRow = { ...item, key: index };
-      if (keysToFormat) {
-        keysToFormat.forEach((el) => {
-          try {
-            updatedRow[el.key] = format(new Date(item[el.key]), el.format!, {
+      rowSetup?.forEach((setup) => {
+        if (setup.type === "date") {
+          updatedRow[setup.key] = format(
+            new Date(item[setup.key]),
+            setup.format!,
+            {
               locale: ru,
-            });
-          } catch (err: any) {
-            updatedRow[el.key] = format(new Date(item[el.key]), "P", {
-              locale: ru,
-            });
-          }
-        });
-      }
+            }
+          );
+        }
+        if (setup.type === "action") {
+          const url = updatedRow[setup.key];
+          updatedRow[setup.key] = (
+            <RGKButton
+              style={{ alignSelf: "center" }}
+              icon={<DownloadOutlined />}
+              onClick={() => downloadXLSFile(url)}
+            />
+          );
+        }
+      });
 
       return updatedRow;
     })
