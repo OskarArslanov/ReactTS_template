@@ -1,17 +1,9 @@
 .RGKCircleLoader {
   position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.RGKCircleLoader__full {
-  /* display: fixed;
-  width: 100vw;
-  height: 100vh; */
-}
-
-.RGKCircleLoader__relative {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
 }

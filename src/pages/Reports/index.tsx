@@ -23,7 +23,6 @@ const Reports = observer(() => {
 
   return (
     <div className={styles.Reports}>
-      <RGKCircleLoader visible={reportsStore.loading} />
       <div className={styles.Reports_Controls}>
         <RGKSelect
           values={reportsStore.reports?.map((item) => ({
@@ -50,6 +49,7 @@ const Reports = observer(() => {
           }}
         />
       </div>
+      <RGKCircleLoader visible={reportsStore.loading} />
       <RGKTable
         pagination
         columns={reportsStore.report?.columns}

@@ -3,9 +3,8 @@ import { FC } from "react";
 import { RGKTableTitleType } from "@dto/card";
 import { alphabetSorter, dateSorter, numberSorter } from "@utils/sorters";
 import { toJS } from "mobx";
-import { format } from "date-fns";
+import { addMinutes, format } from "date-fns";
 import ru from "date-fns/locale/ru";
-import RGKCircleLoader from "@components/RGKCircleLoader";
 import DownloadOutlined from "@ant-design/icons/lib/icons/DownloadOutlined";
 import RGKButton from "@components/controls/RGKButton";
 import { downloadXLSFile } from "@utils/fileLoaders";
@@ -16,8 +15,9 @@ interface RGKTableProps {
   scroll?: { x: number; y: number };
   columns?: RGKTableTitleType[];
   data?: any[];
-  loading?: boolean;
 }
+
+const offset = new Date().getTimezoneOffset() + 180;
 const RGKTable: FC<RGKTableProps> = (props) => {
   const rowSetup = props.columns?.map((col) => ({
     key: col.key,
@@ -31,7 +31,7 @@ const RGKTable: FC<RGKTableProps> = (props) => {
       rowSetup?.forEach((setup) => {
         if (setup.type === "date") {
           updatedRow[setup.key] = format(
-            new Date(item[setup.key]),
+            addMinutes(new Date(item[setup.key]), offset),
             setup.format!,
             {
               locale: ru,
@@ -74,7 +74,6 @@ const RGKTable: FC<RGKTableProps> = (props) => {
   });
   return (
     <div className={styles.RGKTable}>
-      <RGKCircleLoader visible={!!props.loading} />
       <Table
         dataSource={rows}
         // @ts-ignore

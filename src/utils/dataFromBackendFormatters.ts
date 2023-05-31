@@ -88,7 +88,7 @@ export const getCardDataForTable = (card?: any) => {
 };
 
 export const getDataForReport = (report?: any) => {
-  const columns: RGKTableTitleType[] = report.column_name.map((item: any) => {
+  const columns: RGKTableTitleType[] = report?.column_name.map((item: any) => {
     const result = {
       title: item.column_name,
       dataIndex: item.key,
@@ -98,7 +98,7 @@ export const getDataForReport = (report?: any) => {
     };
     return result;
   });
-  const data: any[] = report.report_data.map((item: any, index: number) => {
+  const data: any[] = report?.report_data.map((item: any, index: number) => {
     return { ...item, key: index };
   });
   return { columns, data };
