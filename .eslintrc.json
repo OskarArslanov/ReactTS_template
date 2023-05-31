@@ -1,0 +1,8 @@
+{
+  "extends": [
+    "eslint-config-airbnb-base",
+    "airbnb/rules/react",
+    "airbnb-typescript",
+    "plugin:prettier/recommended"
+  ]
+}
