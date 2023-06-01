@@ -5,9 +5,10 @@ import locale from "antd/es/date-picker/locale/ru_RU";
 
 interface RGKRangePickerProps {
   tab?: any;
-  onChange?: (date: number[]) => void;
+  onChange?: (date: number) => void;
+  placeholder?: string;
 }
-const RGKRangePicker: FC<RGKRangePickerProps> = (props) => {
+const RGKDatePicker: FC<RGKRangePickerProps> = (props) => {
   let picker: "year" | "quarter" | "month" | "week" | "time" | "date" = "date";
   let format = "DD.MM.YYYY";
   const name = props.tab?.name;
@@ -25,23 +26,21 @@ const RGKRangePicker: FC<RGKRangePickerProps> = (props) => {
   }
 
   const handleChange = async (e: any) => {
-    const startDate: Date = e?.[0].$d;
-    const endDate: Date = e?.[1].$d;
-    const startTs = startDate.valueOf() / 1000; // ms to sec
-    const endTs = endDate.valueOf() / 1000; // ms to sec
-    props.onChange?.([startTs, endTs]);
+    const date: Date = e?.$d;
+    props.onChange?.(date.getTime());
   };
 
   return (
-    <DatePicker.RangePicker
+    <DatePicker
       // @ts-ignore
       // eslint-disable-next-line no-underscore-dangle
       onChange={handleChange}
       picker={picker}
       locale={locale}
       format={format}
+      placeholder={props.placeholder}
     />
   );
 };
 
-export default RGKRangePicker;
+export default RGKDatePicker;

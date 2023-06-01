@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import RGKCircleLoader from "@components/RGKCircleLoader";
 import RGKTable from "@components/RGKTable";
-import RGKRangePicker from "@components/controls/RGKRangePicker";
+import RGKDatePicker from "@components/controls/RGKDatePicker";
 import RGKSelect from "@components/controls/RGKSelect";
 import { reportsStore } from "@store/reportsStore";
 import { observer } from "mobx-react-lite";
-import { addMinutes, format } from "date-fns";
+import { addMinutes, addSeconds, format } from "date-fns";
 import styles from "./styles.module.css";
 
 const Reports = observer(() => {
@@ -22,7 +22,7 @@ const Reports = observer(() => {
     reportsStore.fetchReport(request);
   }, [request]);
 
-  const offset = new Date().getTimezoneOffset() + 180;
+  const offset = new Date().getTimezoneOffset();
   return (
     <div className={styles.Reports}>
       <div className={styles.Reports_Controls}>
@@ -38,24 +38,39 @@ const Reports = observer(() => {
           }}
           className={styles.Reports_Selector}
         />
-        <RGKRangePicker
-          tab={request?.report_title}
-          onChange={(e) => {
-            const startDay = format(new Date(e[0] * 1000), "yyyy-MM-dd");
-            const endDay = format(new Date(e[1] * 1000), "yyyy-MM-dd");
-            const startPeriod = addMinutes(new Date(startDay), offset);
-            const endPeriod = addMinutes(new Date(endDay), offset + 24 * 60);
-            const startPeriodTS = startPeriod.getTime() / 1000;
-            const endPeriodTS = endPeriod.getTime() / 1000;
-            const data = {
-              ...request?.data,
-              start_ts: startPeriodTS,
-              end_ts: endPeriodTS,
-            };
-            const updatedRequest = { ...request, data };
-            setRequest(updatedRequest);
-          }}
-        />
+        <div className={styles.Reports_Controls_DateRange}>
+          <RGKDatePicker
+            placeholder="Начало периода"
+            tab={request?.report_title}
+            onChange={(e) => {
+              const startDay = format(new Date(e), "yyyy-MM-dd");
+              const startPeriod = addMinutes(new Date(startDay), offset);
+              const startPeriodTS = startPeriod.getTime() / 1000;
+              const data = {
+                ...request?.data,
+                start_ts: startPeriodTS,
+              };
+              const updatedRequest = { ...request, data };
+              setRequest(updatedRequest);
+            }}
+          />
+          <RGKDatePicker
+            placeholder="Конец периода"
+            tab={request?.report_title}
+            onChange={(e) => {
+              const endDay = format(new Date(e), "yyyy-MM-dd");
+              let endPeriod = addMinutes(new Date(endDay), 24 * 60 + offset);
+              endPeriod = addSeconds(endPeriod, -1);
+              const endPeriodTS = endPeriod.getTime() / 1000;
+              const data = {
+                ...request?.data,
+                end_ts: endPeriodTS,
+              };
+              const updatedRequest = { ...request, data };
+              setRequest(updatedRequest);
+            }}
+          />
+        </div>
       </div>
       <RGKCircleLoader visible={reportsStore.loading} />
       <RGKTable

@@ -20,7 +20,7 @@ const RGKSpeedDial: FC<RGKSpeedDialProps> = (props) => {
     <FloatButton.Group
       trigger="click"
       type="primary"
-      style={{ right: 44 }}
+      style={{ right: 44, bottom: 44 }}
       icon={<MenuOutlined />}
     >
       {props.items.map((item) => {

@@ -15,11 +15,28 @@
 .Reports_Selector {
   background-color: var(--color-gray_bg);
   min-width: 300px;
+  border-radius: 5px;
+}
+
+.Reports_Controls_DateRange {
+  max-width: 350px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 
 @media (max-width: 660px) {
   .Reports_Controls {
     flex-direction: column;
     gap: 20px;
+  }
+
+  .Reports_Selector {
+    min-width: none;
+    width: 100%;
+  }
+
+  .Reports_Controls_DateRange {
+    max-width: none;
   }
 }
