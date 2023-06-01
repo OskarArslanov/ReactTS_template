@@ -24,9 +24,8 @@ const RGKCard: FC<RGKCardProps> = (props) => {
       headStyle={{
         fontWeight: 500,
         fontSize: "16px",
-        lineHeight: "24px",
-        maxHeight: 48,
-        display: props.title ? "block" : "none",
+        display: props.title ? "flex" : "none",
+        textAlign: "center",
       }}
       bodyStyle={{ padding: "12px 24px", height: "100%" }}
     >

@@ -1,4 +1,4 @@
-import { OneColumnValueType } from "dto/card";
+import { OneColumnValueType } from "@dto/card";
 import { RGKLineType } from "@components/RGKLine";
 import RGKCardLine from "@components/RGKLine/RGKCardLine";
 import { RGKMapType } from "@components/RGKMap";

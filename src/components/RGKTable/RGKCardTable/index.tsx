@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { CardTableDataType } from "dto/card";
+import { CardTableDataType } from "@dto/card";
 import RGKCard from "@components/RGKCard";
 import styles from "./styles.module.css";
 import RGKTable from "..";

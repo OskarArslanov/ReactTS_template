@@ -25,9 +25,8 @@ const RGKRangePicker: FC<RGKRangePickerProps> = (props) => {
   }
 
   const handleChange = async (e: any) => {
-    const startDate: Date = e?.[0]._d;
-    const endDate: Date = e?.[1]._d;
-
+    const startDate: Date = e?.[0].$d;
+    const endDate: Date = e?.[1].$d;
     const startTs = startDate.valueOf() / 1000; // ms to sec
     const endTs = endDate.valueOf() / 1000; // ms to sec
     props.onChange?.([startTs, endTs]);

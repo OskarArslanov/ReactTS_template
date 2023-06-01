@@ -1,5 +1,5 @@
 import { Table } from "antd";
-import { FC } from "react";
+import { CSSProperties, FC } from "react";
 import { RGKTableTitleType } from "@dto/card";
 import { alphabetSorter, dateSorter, numberSorter } from "@utils/sorters";
 import { toJS } from "mobx";
@@ -8,6 +8,7 @@ import ru from "date-fns/locale/ru";
 import DownloadOutlined from "@ant-design/icons/lib/icons/DownloadOutlined";
 import RGKButton from "@components/controls/RGKButton";
 import { downloadXLSFile } from "@utils/fileLoaders";
+import * as XLSX from "xlsx";
 import styles from "./styles.module.css";
 
 interface RGKTableProps {
@@ -15,10 +16,18 @@ interface RGKTableProps {
   scroll?: { x: number; y: number };
   columns?: RGKTableTitleType[];
   data?: any[];
+  name?: string;
+  style?: CSSProperties;
 }
 
 const offset = new Date().getTimezoneOffset() + 180;
 const RGKTable: FC<RGKTableProps> = (props) => {
+  const exportExcel = async () => {
+    const tableElt = document.getElementById(props.name!);
+    const workbook = XLSX.utils.table_to_book(tableElt);
+    XLSX.writeFile(workbook, `${props.name}.xlsx`);
+  };
+
   const rowSetup = props.columns?.map((col) => ({
     key: col.key,
     type: col.type,
@@ -35,7 +44,7 @@ const RGKTable: FC<RGKTableProps> = (props) => {
             setup.format!,
             {
               locale: ru,
-            }
+            },
           );
         }
         if (setup.type === "action") {
@@ -51,7 +60,7 @@ const RGKTable: FC<RGKTableProps> = (props) => {
       });
 
       return updatedRow;
-    })
+    }),
   );
   const columns = props.columns?.map((item) => {
     let sorter;
@@ -73,8 +82,9 @@ const RGKTable: FC<RGKTableProps> = (props) => {
     return result;
   });
   return (
-    <div className={styles.RGKTable}>
+    <div className={styles.RGKTable} style={props.style}>
       <Table
+        id={props.name}
         dataSource={rows}
         // @ts-ignore
         columns={columns}
@@ -82,6 +92,13 @@ const RGKTable: FC<RGKTableProps> = (props) => {
         scroll={props.scroll}
         size="middle"
       />
+      {!!props.name && !!props.data?.length && (
+        <RGKButton
+          onClick={exportExcel}
+          icon={<DownloadOutlined />}
+          text="Скачать отчет"
+        />
+      )}
     </div>
   );
 };

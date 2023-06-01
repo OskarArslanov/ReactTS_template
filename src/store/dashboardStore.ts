@@ -16,6 +16,12 @@ class DashboardStoreObservable {
     makeAutoObservable(this);
   }
 
+  reset = () => {
+    this.smallCards = [];
+    this.largeCards = [];
+    this.loading = false;
+  };
+
   fetchData = async () => {
     this.loading = true;
     try {

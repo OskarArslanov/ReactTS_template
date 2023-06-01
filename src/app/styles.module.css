@@ -1,6 +1,7 @@
 .App_Container {
   background-color: var(--color-gray_bg);
   height: 100%;
+  max-width: 100%;
   min-height: 100vh;
   position: relative;
 }

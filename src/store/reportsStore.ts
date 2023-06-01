@@ -21,13 +21,19 @@ class ReportsStoreObservable {
     makeAutoObservable(this);
   }
 
+  reset = () => {
+    this.reports = [];
+    this.report = { columns: [], data: [] };
+    this.loading = false;
+  };
+
   fetchAvailableReports = async () => {
     this.loading = true;
     try {
       const response = await axiosInstance.get("/rgk24/fuel");
       const data = response.data.reports;
       Object.keys(data).map((item) =>
-        this.reports.push({ name: item, data: data[item] })
+        this.reports.push({ name: item, data: data[item] }),
       );
     } catch (err: any) {
       console.log(err);

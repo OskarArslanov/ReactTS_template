@@ -1,10 +1,8 @@
-import React, { FC, useState } from "react";
-import { PlusOutlined } from "@ant-design/icons";
-import { Button } from "antd";
-import { SizeType } from "antd/es/config-provider/SizeContext";
-import { Link } from "react-router-dom";
-import { useAuth, usePaths } from "@utils/hooks";
-import styles from "./styles.module.css";
+import React, { FC } from "react";
+import { MenuOutlined } from "@ant-design/icons";
+import { FloatButton } from "antd";
+import { useAuth } from "@utils/hooks";
+import { useNavigate } from "react-router-dom";
 
 export interface RGKSpeedDialMenuType {
   name: string;
@@ -13,58 +11,28 @@ export interface RGKSpeedDialMenuType {
 }
 interface RGKSpeedDialProps {
   items: RGKSpeedDialMenuType[];
-  menuButtonSize: SizeType;
 }
 const RGKSpeedDial: FC<RGKSpeedDialProps> = (props) => {
-  const [isOpen, setIsOpen] = useState(false);
   const auth = useAuth();
-  const paths = usePaths();
-
-  const toggleOpen = () => {
-    setIsOpen(!isOpen);
-  };
-
+  const navigate = useNavigate();
+  if (!auth) return null;
   return (
-    <div
-      className={styles.RGKSpeedDial}
-      style={{ display: auth.accessToken ? "flex" : "none" }}
+    <FloatButton.Group
+      trigger="click"
+      type="primary"
+      style={{ right: 44 }}
+      icon={<MenuOutlined />}
     >
-      {isOpen && (
-        <ul className={styles.RGKSpeedDial_ItemList}>
-          {props.items.map((item) => {
-            const isSelected = item.href === paths[1];
-            const selectedClass =
-              styles[
-                `RGKSpeedDial_Item__${isSelected ? "selected" : "non_selected"}`
-              ];
-            return (
-              <Link
-                to={item.href}
-                key={item.name}
-                onClick={() => setIsOpen(false)}
-              >
-                <Button
-                  icon={item.icon}
-                  shape="round"
-                  className={`${styles.RGKSpeedDial_Item} ${selectedClass}`}
-                >
-                  {item.name}
-                </Button>
-              </Link>
-            );
-          })}
-        </ul>
-      )}
-      <Button
-        type="primary"
-        shape="circle"
-        icon={<PlusOutlined />}
-        style={{ transform: isOpen ? "rotate(45deg)" : "rotate(0deg)" }}
-        size={props.menuButtonSize}
-        onClick={toggleOpen}
-        className={styles.RGKSpeedDial_MenuButton}
-      />
-    </div>
+      {props.items.map((item) => {
+        return (
+          <FloatButton
+            icon={item.icon}
+            key={item.name}
+            onClick={() => navigate(item.href)}
+          />
+        );
+      })}
+    </FloatButton.Group>
   );
 };
 

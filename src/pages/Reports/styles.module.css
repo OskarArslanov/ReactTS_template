@@ -3,21 +3,18 @@
   flex-direction: column;
   gap: 20px;
   background-color: white;
-  width: 100%;
   position: relative;
+  padding: 10px 20px;
 }
 
 .Reports_Controls {
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  padding: 10px 20px;
 }
 
 .Reports_Selector {
   background-color: var(--color-gray_bg);
   min-width: 300px;
-  width: 100%;
 }
 
 @media (max-width: 660px) {
