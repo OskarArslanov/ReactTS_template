@@ -19,7 +19,11 @@ const Reports = observer(() => {
   }, []);
 
   useEffect(() => {
-    reportsStore.fetchReport(request);
+    let isFetch = true;
+    if (request?.data?.start_ts || request?.data?.end_ts) {
+      isFetch = !!request.data.start_ts && !!request.data.end_ts;
+    }
+    if (isFetch) reportsStore.fetchReport(request);
   }, [request]);
 
   const offset = new Date().getTimezoneOffset();

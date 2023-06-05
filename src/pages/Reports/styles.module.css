@@ -32,7 +32,7 @@
   }
 
   .Reports_Selector {
-    min-width: none;
+    min-width: auto;
     width: 100%;
   }
 
