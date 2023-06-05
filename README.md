@@ -1,1 +1,2 @@
-It is one of test tasks for job.
+install dependencies: npm i
+start app: npm run start
