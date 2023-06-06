@@ -89,7 +89,7 @@ module.exports = {
     compress: true,
     port: 3000,
     hot: true,
-    liveReload: false,
+    liveReload: true,
     client: {
       overlay: false,
     },

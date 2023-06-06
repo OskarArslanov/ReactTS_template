@@ -23,11 +23,10 @@ interface RGKTableProps {
 const offset = new Date().getTimezoneOffset() + 180;
 const RGKTable: FC<RGKTableProps> = (props) => {
   const exportExcel = async () => {
-    const tableElt = document.getElementById(props.name!);
+    const tableElt = document.getElementById(`${props.name}__forLoad__hidden`!);
     const workbook = XLSX.utils.table_to_book(tableElt);
     XLSX.writeFile(workbook, `${props.name}.xlsx`);
   };
-
   const rowSetup = props.columns?.map((col) => ({
     key: col.key,
     type: col.type,
@@ -83,6 +82,13 @@ const RGKTable: FC<RGKTableProps> = (props) => {
   });
   return (
     <div className={styles.RGKTable} style={props.style}>
+      {!!props.name && !!props.data?.length && (
+        <RGKButton
+          onClick={exportExcel}
+          icon={<DownloadOutlined />}
+          text="Скачать отчет"
+        />
+      )}
       <Table
         id={props.name}
         dataSource={rows}
@@ -92,13 +98,16 @@ const RGKTable: FC<RGKTableProps> = (props) => {
         scroll={props.scroll}
         size="middle"
       />
-      {!!props.name && !!props.data?.length && (
-        <RGKButton
-          onClick={exportExcel}
-          icon={<DownloadOutlined />}
-          text="Скачать отчет"
-        />
-      )}
+      <Table
+        id={`${props.name}__forLoad__hidden`}
+        dataSource={rows}
+        // @ts-ignore
+        columns={columns}
+        pagination={false}
+        scroll={props.scroll}
+        size="middle"
+        style={{ display: "none" }}
+      />
     </div>
   );
 };
