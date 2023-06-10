@@ -13,7 +13,7 @@ import styles from "./styles.module.css";
 
 interface RGKTableProps {
   pagination: boolean;
-  scroll?: { x: number; y: number };
+  scroll?: { x?: number; y?: number };
   columns?: RGKTableTitleType[];
   data?: any[];
   name?: string;
@@ -61,7 +61,7 @@ const RGKTable: FC<RGKTableProps> = (props) => {
       return updatedRow;
     }),
   );
-  const columns = props.columns?.map((item) => {
+  const columns = props.columns?.map((item, index) => {
     let sorter;
     if (item.type === "string") {
       sorter = (a: any, b: any) => alphabetSorter(a[item.key], b[item.key]);
@@ -78,6 +78,7 @@ const RGKTable: FC<RGKTableProps> = (props) => {
       dataIndex: item.key,
       sortDirections: ["descend", "ascend"],
     };
+    if (index === 0) return { ...result, fixed: "left", width: 100 };
     return result;
   });
   return (

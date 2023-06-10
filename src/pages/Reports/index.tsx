@@ -82,6 +82,7 @@ const Reports = observer(() => {
         columns={reportsStore.report?.columns}
         data={reportsStore.report?.data}
         name={request?.report_title}
+        scroll={{ x: (reportsStore.report.columns.length + 1) * 200 }}
       />
     </div>
   );

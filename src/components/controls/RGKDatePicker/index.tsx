@@ -1,6 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import { DatePicker } from "antd";
 import { FC } from "react";
+import "dayjs/locale/ru";
 import locale from "antd/es/date-picker/locale/ru_RU";
 
 interface RGKRangePickerProps {
