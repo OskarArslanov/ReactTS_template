@@ -18,7 +18,7 @@ const RGKCardTwoColumn: FC<RGKCardTwoColumnProps> = (props) => {
   const names: string[] = [];
   const title = props.data?.title;
   data?.map((item) =>
-    names.includes(item.name) ? item : names.push(item.name)
+    names.includes(item.name) ? item : names.push(item.name),
   );
   const lastElements: TwoColumnValueType[] = [];
   names.map((item) => {

@@ -14,7 +14,7 @@ export const getCardDataForTwoColumn = (card?: any) => {
     data: card?.chart.data?.map((item: any) => {
       if (!item) return undefined;
       const name = item.name;
-      let type = format(new Date(item.xField), "d", {
+      let type = format(new Date(item.xField), "d.MM", {
         locale: ru,
       });
       type = type.charAt(0).toUpperCase().concat(type.slice(1));
@@ -40,7 +40,7 @@ export const getCardDataForOneColumn = (card?: any) => {
     }),
     subTitleName: String(Object.keys(card?.report_string?.data)?.[0]),
     subTitleValue: String(Object.values(card?.report_string?.data)?.[0]).split(
-      "."
+      ".",
     )?.[0],
   };
   return result;

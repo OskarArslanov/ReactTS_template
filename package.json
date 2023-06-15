@@ -43,6 +43,7 @@
     "xlsx": "^0.18.5"
   },
   "scripts": {
+    "dev": "NODE_ENV=development webpack-dev-server --allowed-hosts all",
     "start": "webpack serve --allowed-hosts all",
     "build": "NODE_ENV=production webpack build"
   },

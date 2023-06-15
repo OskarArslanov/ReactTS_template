@@ -26,8 +26,8 @@ const RGKOneColumn: FC<RGKOneColumnProps> = (props) => {
     label: {
       position: props.dataPos || "middle",
       style: {
-        fill: "#FFFFFF",
-        opacity: 0.6,
+        fill: "#000000",
+        opacity: 1,
       },
     },
     xAxis: {

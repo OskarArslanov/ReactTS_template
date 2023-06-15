@@ -16,7 +16,7 @@ const RGKCard: FC<RGKCardProps> = (props) => {
   return (
     <Card
       size={props.size}
-      title={props.title}
+      title={<span style={{ whiteSpace: "break-spaces" }}>{props.title}</span>}
       extra={<a href={props.href}>{props.hrefText}</a>}
       style={props.style}
       actions={props.actions}

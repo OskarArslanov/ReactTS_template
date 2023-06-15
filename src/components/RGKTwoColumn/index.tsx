@@ -25,17 +25,10 @@ const RGKTwoColumn: FC<RGKTwoColumnProps> = (props) => {
     marginRatio: props.marginRatio || 0.1,
     label: {
       position: props.dataPos || "middle",
-      layout: [
-        {
-          type: "interval-adjust-position",
-        },
-        {
-          type: "interval-hide-overlap",
-        },
-        {
-          type: "adjust-color",
-        },
-      ],
+      style: {
+        fill: "#000000",
+        opacity: 1,
+      },
     },
   };
   return (
