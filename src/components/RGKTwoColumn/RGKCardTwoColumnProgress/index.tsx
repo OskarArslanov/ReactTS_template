@@ -42,7 +42,9 @@ const RGKCardTwoColumnProgress: FC<RGKCardTwoColumnProgressProps> = (props) => {
             key={item.name}
           >
             <span className={styles.RGKCardTwoColumn_Text1}>{item.name}</span>
-            <span className={styles.RGKCardTwoColumn_Text2}>{item.value}</span>
+            <span className={styles.RGKCardTwoColumn_Text2}>
+              {Number(item.value).toLocaleString()}
+            </span>
           </div>
         ))}
       </div>

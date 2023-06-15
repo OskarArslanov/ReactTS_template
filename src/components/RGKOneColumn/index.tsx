@@ -27,7 +27,7 @@ const RGKOneColumn: FC<RGKOneColumnProps> = (props) => {
       position: props.dataPos || "middle",
       style: {
         fill: "#000000",
-        opacity: 1,
+        opacity: 0,
       },
     },
     xAxis: {
@@ -42,6 +42,15 @@ const RGKOneColumn: FC<RGKOneColumnProps> = (props) => {
       },
       value: {
         alias: props.valueName,
+      },
+    },
+    tooltip: {
+      showTitle: false,
+      formatter: (data: any) => {
+        return {
+          name: `${data.type}`,
+          value: `${data.value.toLocaleString()}`,
+        };
       },
     },
   };

@@ -27,7 +27,16 @@ const RGKTwoColumn: FC<RGKTwoColumnProps> = (props) => {
       position: props.dataPos || "middle",
       style: {
         fill: "#000000",
-        opacity: 1,
+        opacity: 0,
+      },
+    },
+    tooltip: {
+      showTitle: false,
+      formatter: (data: any) => {
+        return {
+          name: `${data.type}`,
+          value: `${data.value.toLocaleString()}`,
+        };
       },
     },
   };

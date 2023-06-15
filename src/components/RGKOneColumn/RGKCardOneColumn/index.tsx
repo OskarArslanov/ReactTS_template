@@ -36,7 +36,8 @@ const RGKCardOneColumn: FC<RGKCardOneColumnProps> = (props) => {
           {props.data?.subTitleName}
         </span>
         <span className={styles.RGKCardOneColumn_Text2}>
-          {props.data?.subTitleValue}
+          {props.data?.subTitleValue &&
+            Number(props.data?.subTitleValue).toLocaleString()}
         </span>
         <RGKOneColumn
           color={props.color}
