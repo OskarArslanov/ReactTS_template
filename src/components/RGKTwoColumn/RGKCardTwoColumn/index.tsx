@@ -1,6 +1,7 @@
 import { CSSProperties, FC } from "react";
 import RGKCard from "@components/RGKCard";
 import { CardTwoColumDataType, TwoColumnValueType } from "@dto/card";
+import { observer } from "mobx-react-lite";
 import styles from "./styles.module.css";
 import RGKTwoColumn from "..";
 
@@ -13,19 +14,19 @@ interface RGKCardTwoColumnProps {
   colors?: string[];
 }
 
-const RGKCardTwoColumn: FC<RGKCardTwoColumnProps> = (props) => {
+const RGKCardTwoColumn: FC<RGKCardTwoColumnProps> = observer((props) => {
   const data = props.data?.data;
   const names: string[] = [];
   const title = props.data?.title;
-  data?.map((item) =>
-    names.includes(item.name) ? item : names.push(item.name),
-  );
+  data?.forEach((item) => {
+    if (!names.includes(item.name)) names.push(item.name);
+  });
   const lastElements: TwoColumnValueType[] = [];
-  names.map((item) => {
+  names.forEach((item) => {
     const element = data?.findLast((el) => el.name === item);
     if (element) lastElements.push(element);
-    return item;
   });
+
   return (
     <RGKCard
       className={styles.RGKCardTwoColumn}
@@ -48,13 +49,13 @@ const RGKCardTwoColumn: FC<RGKCardTwoColumnProps> = (props) => {
         ))}
       </div>
       <RGKTwoColumn
-        data={props.data?.data}
+        data={data}
         height={props.height}
         colors={props.colors}
         title={title}
       />
     </RGKCard>
   );
-};
+});
 
 export default RGKCardTwoColumn;

@@ -1,5 +1,6 @@
 import { Card } from "antd";
 import { FC } from "react";
+import { observer } from "mobx-react-lite";
 import styles from "./styles.module.css";
 
 interface RGKCardProps {
@@ -12,7 +13,7 @@ interface RGKCardProps {
   actions?: React.ReactNode[];
   className?: string;
 }
-const RGKCard: FC<RGKCardProps> = (props) => {
+const RGKCard: FC<RGKCardProps> = observer((props) => {
   return (
     <Card
       size={props.size}
@@ -32,6 +33,6 @@ const RGKCard: FC<RGKCardProps> = (props) => {
       {props.children}
     </Card>
   );
-};
+});
 
 export default RGKCard;
