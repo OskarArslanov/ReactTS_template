@@ -36,7 +36,7 @@ Sentry.init({
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/rgk24",
     element: <App />,
     loader: undefined,
     children: [
