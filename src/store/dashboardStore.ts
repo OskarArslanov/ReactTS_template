@@ -25,7 +25,7 @@ class DashboardStoreObservable {
   fetchData = async () => {
     this.loading = true;
     try {
-      const data = (await axiosInstance.get("/rgk24/main")).data;
+      const data = (await axiosInstance.get("/main")).data;
       this.largeCards = Object.values(data.big_cards);
       this.smallCards = Object.values(data.cards);
     } catch (err: any) {

@@ -15,14 +15,14 @@ const App = () => {
   return (
     <div className={styles.App_Container}>
       <HeaderContainer>
-        <Link to="/">
+        <Link to="/rgk24">
           <Logo />
         </Link>
         {auth.accessToken ? (
           <Settings />
         ) : (
           <RGKButton
-            href="/login"
+            href="/rgk24/login"
             text="Войти"
             style={{ display: basePath === "login" ? "none" : "flex" }}
           />

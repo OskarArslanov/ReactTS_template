@@ -22,7 +22,7 @@ const Login = () => {
           localStorage.setItem("user", username);
           localStorage.setItem("access_token", accessToken);
           localStorage.setItem("refresh_token", refreshToken);
-          navigate("/dashboard");
+          navigate("/rgk24/dashboard");
         });
     } catch (err: any) {
       setError("Не верный логин или пароль");

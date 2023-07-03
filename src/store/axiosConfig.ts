@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const basePath = "http://78.24.223.121:8000";
+const basePath = "http://78.24.223.121:8000/rgk24";
 export const axiosInstance = axios.create({
   baseURL: basePath,
 });

@@ -30,7 +30,7 @@ class ReportsStoreObservable {
   fetchAvailableReports = async () => {
     this.loading = true;
     try {
-      const response = await axiosInstance.get("/rgk24/fuel");
+      const response = await axiosInstance.get("/fuel");
       const data = response.data.reports;
       Object.keys(data).map((item) =>
         this.reports.push({ name: item, data: data[item] }),

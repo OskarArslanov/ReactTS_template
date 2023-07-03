@@ -24,7 +24,7 @@ const RGKSettingsModal: FC<RGKSettingsModalProps> = (props) => {
   const handleExit = () => {
     resetStores();
     props.onClose(false);
-    navigate("/login");
+    navigate("/rgk24/login");
   };
   return (
     <Modal
