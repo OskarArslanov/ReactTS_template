@@ -27,7 +27,6 @@
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
-<<<<<<< HEAD
     "file-loader": "^6.2.0",
     "file-saver": "^2.0.5",
     "fs": "^0.0.1-security",
@@ -35,9 +34,6 @@
     "mini-css-extract-plugin": "^2.7.6",
     "mobx": "^6.9.0",
     "mobx-react-lite": "^3.4.3",
-=======
-    "mini-css-extract-plugin": "^2.7.5",
->>>>>>> 8c7e392a9dd13d61c2b1fc1eccaa6bfccf827f47
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.44.2",
@@ -47,14 +43,8 @@
     "xlsx": "^0.18.5"
   },
   "scripts": {
-<<<<<<< HEAD
-    "dev": "NODE_ENV=development webpack-dev-server --allowed-hosts all",
-    "start": "webpack serve --allowed-hosts all",
-    "build": "NODE_ENV=production webpack build"
-=======
     "start": "NODE_ENV=development webpack-dev-server",
     "prod": "NODE_ENV=production webpack serve"
->>>>>>> 8c7e392a9dd13d61c2b1fc1eccaa6bfccf827f47
   },
   "eslintConfig": {
     "extends": [
@@ -68,28 +58,17 @@
     "not op_mini all"
   ],
   "devDependencies": {
-<<<<<<< HEAD
     "@types/file-saver": "^2.0.5",
     "@types/xlsx": "^0.0.36",
     "@typescript-eslint/eslint-plugin": "^5.59.8",
     "@typescript-eslint/parser": "^5.59.8",
-=======
-    "@typescript-eslint/eslint-plugin": "^5.59.0",
-    "@typescript-eslint/parser": "^5.59.0",
-    "css-loader": "^6.7.3",
->>>>>>> 8c7e392a9dd13d61c2b1fc1eccaa6bfccf827f47
     "esbuild-loader": "^3.0.1",
     "eslint": "^8.41.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "html-webpack-plugin": "^5.5.1",
-<<<<<<< HEAD
     "prettier": "2.8.8",
-=======
-    "prettier": "2.8.7",
-    "style-loader": "^3.3.2",
->>>>>>> 8c7e392a9dd13d61c2b1fc1eccaa6bfccf827f47
     "typescript": "^5.0.4",
     "typescript-plugin-css-modules": "^5.0.1",
     "webpack": "^5.85.0",
