@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./globals.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+<<<<<<< HEAD
 import { YMaps } from "@pbe/react-yandex-maps";
 import * as Sentry from "@sentry/react";
 import SecuredRoute from "./utils/secured";
@@ -33,6 +34,11 @@ Sentry.init({
   replaysSessionSampleRate: 0.1,
   replaysOnErrorSampleRate: 1.0,
 });
+=======
+import App from "./App";
+import Chat from "./pages/Chat";
+import Login from "./pages/Login";
+>>>>>>> 8c7e392a9dd13d61c2b1fc1eccaa6bfccf827f47
 
 const router = createBrowserRouter([
   {
@@ -42,11 +48,16 @@ const router = createBrowserRouter([
     children: [
       {
         path: "dashboard",
+<<<<<<< HEAD
         element: <SecuredRoute page={<Dashboard />} />,
+=======
+        element: <Chat />,
+>>>>>>> 8c7e392a9dd13d61c2b1fc1eccaa6bfccf827f47
         loader: undefined,
       },
       {
         path: "reports",
+<<<<<<< HEAD
         element: <SecuredRoute page={<Reports />} />,
         loader: undefined,
       },
@@ -67,6 +78,8 @@ const router = createBrowserRouter([
       },
       {
         path: "login",
+=======
+>>>>>>> 8c7e392a9dd13d61c2b1fc1eccaa6bfccf827f47
         element: <Login />,
         loader: undefined,
       },

@@ -15,12 +15,16 @@ module.exports = {
       path.resolve(__dirname, "src"),
     ],
     alias: {
+<<<<<<< HEAD
       "@components": path.resolve(__dirname, "src/components"),
       "@types": path.resolve(__dirname, "src/types"),
       "@utils": path.resolve(__dirname, "src/utils"),
       "@store": path.resolve(__dirname, "src/store"),
       "@assets": path.resolve(__dirname, "src/assets"),
       "@pages": path.resolve(__dirname, "src/pages"),
+=======
+      "@components": path.resolve(__dirname, "components/"),
+>>>>>>> 8c7e392a9dd13d61c2b1fc1eccaa6bfccf827f47
     },
   },
   output: {

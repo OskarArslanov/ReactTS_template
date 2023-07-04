@@ -13,9 +13,16 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "sourceMap": true,
+<<<<<<< HEAD
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "baseUrl": ".",
     "rootDir": ".",
+=======
+    "plugins": [
+      { "name": "typescript-plugin-css-modules" },
+    ],
+    "baseUrl": "src",
+>>>>>>> 8c7e392a9dd13d61c2b1fc1eccaa6bfccf827f47
     "paths": {
       "@pages/*": ["src/pages/*"],
       "@components/*": ["src/components/*"],
@@ -29,6 +36,10 @@
     "noPropertyAccessFromIndexSignature": false,
     "skipDefaultLibCheck": true,
   },
+<<<<<<< HEAD
   "include": ["**/*.ts", "**/*.tsx", "src"],
+=======
+  "include": ["src"],
+>>>>>>> 8c7e392a9dd13d61c2b1fc1eccaa6bfccf827f47
   "exclude": ["node_modules"]
 }

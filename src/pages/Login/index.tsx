@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import RGKLoginForm from "@components/controls/forms/RGKLoginForm";
@@ -37,6 +38,10 @@ const Login = () => {
       <RGKLoginForm onSubmit={handleSubmit} error={error} />
     </div>
   );
+=======
+const Login = () => {
+  return <div>reports</div>;
+>>>>>>> 8c7e392a9dd13d61c2b1fc1eccaa6bfccf827f47
 };
 
 export default Login;
