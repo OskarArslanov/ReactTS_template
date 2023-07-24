@@ -127,7 +127,9 @@ const RGKOneColumn: FC<RGKOneColumnProps> = observer((props) => {
             {...config}
             height={props.height}
             onEvent={(chart, event) => {
-              if (event.type === 'plot:click') {
+              const mouseup = event.type === 'plot:mouseup';
+              if (mouseup) {
+                console.log(event);
                 handlePlotClick(event);
               }
             }}
