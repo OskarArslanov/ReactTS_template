@@ -1,18 +1,18 @@
-import { useEffect } from "react";
-import RGKCircleLoader from "@components/RGKCircleLoader";
-import RGKCardOneColumn from "@components/RGKOneColumn/RGKCardOneColumn";
-import RGKCardTable from "@components/RGKTable/RGKCardTable";
-import RGKCardTwoColumn from "@components/RGKTwoColumn/RGKCardTwoColumn";
-import RGKCardTwoColumnProgress from "@components/RGKTwoColumn/RGKCardTwoColumnProgress";
+import { useEffect } from 'react';
+import RGKCircleLoader from '@components/RGKCircleLoader';
+import RGKCardOneColumn from '@components/RGKOneColumn/RGKCardOneColumn';
+import RGKCardTable from '@components/RGKTable/RGKCardTable';
+import RGKCardTwoColumn from '@components/RGKTwoColumn/RGKCardTwoColumn';
+import RGKCardTwoColumnProgress from '@components/RGKTwoColumn/RGKCardTwoColumnProgress';
 import {
   getCardDataForOneColumn,
   getCardDataForTwoColumn,
   getCardDataForTable,
   getCardDataForTwoColumnWithProgress,
-} from "@utils/dataFromBackendFormatters";
-import { dashboardStore } from "@store/dashboardStore";
-import { observer } from "mobx-react-lite";
-import styles from "./styles.module.css";
+} from '@utils/dataFromBackendFormatters';
+import { dashboardStore } from '@store/dashboardStore';
+import { observer } from 'mobx-react-lite';
+import styles from './styles.module.css';
 
 const Dashboard = observer(() => {
   useEffect(() => {
@@ -34,19 +34,19 @@ const Dashboard = observer(() => {
           typeName="мес"
           data={smallCard1}
           height={150}
-          style={{ maxHeight: "300px" }}
+          style={{ maxHeight: '300px' }}
         />
         <RGKCardOneColumn
           valueName="км"
           typeName="мес"
           data={smallCard2}
           height={150}
-          style={{ maxHeight: "300px" }}
+          style={{ maxHeight: '300px' }}
         />
         <RGKCardTwoColumn
           data={smallCard3}
           height={160}
-          style={{ maxHeight: "300px" }}
+          style={{ maxHeight: '300px' }}
         />
         <RGKCardTable data={smallCard4} />
       </div>

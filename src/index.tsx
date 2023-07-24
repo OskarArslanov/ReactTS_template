@@ -1,23 +1,23 @@
-import ReactDOM from "react-dom/client";
-import "./globals.css";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { YMaps } from "@pbe/react-yandex-maps";
-import * as Sentry from "@sentry/react";
-import Login from "@pages/Login";
-import SecuredRoute from "@utils/secured";
-import Dashboard from "@pages/Dashboard";
-import Reports from "@pages/Reports";
-import Analytics from "@pages/Analytics";
-import Gasoline from "@pages/Gasoline";
-import Agro from "@pages/Agro";
-import App from "./app";
+import ReactDOM from 'react-dom/client';
+import './globals.css';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { YMaps } from '@pbe/react-yandex-maps';
+import * as Sentry from '@sentry/react';
+import Login from '@pages/Login';
+import SecuredRoute from '@utils/secured';
+import Dashboard from '@pages/Dashboard';
+import Reports from '@pages/Reports';
+import Analytics from '@pages/Analytics';
+import Gasoline from '@pages/Gasoline';
+import Agro from '@pages/Agro';
+import App from './app';
 
 Sentry.init({
-  dsn: "https://68f8ec56acd74727a93a393584ffa8c7@o4505001118269440.ingest.sentry.io/4505001120366592",
+  dsn: 'https://68f8ec56acd74727a93a393584ffa8c7@o4505001118269440.ingest.sentry.io/4505001120366592',
   integrations: [
     new Sentry.BrowserTracing({
       // Set `tracePropagationTargets` to control for which URLs distributed tracing should be enabled
-      tracePropagationTargets: ["http://78.24.223.121:4000"],
+      tracePropagationTargets: ['http://78.24.223.121:4000'],
     }),
     new Sentry.Replay(),
   ],
@@ -35,37 +35,37 @@ Sentry.init({
 
 const router = createBrowserRouter([
   {
-    path: "/rgk24",
+    path: '/rgk24',
     element: <App />,
     loader: undefined,
     children: [
       {
-        path: "dashboard",
+        path: 'dashboard',
         element: <SecuredRoute page={<Dashboard />} />,
         loader: undefined,
       },
       {
-        path: "reports",
+        path: 'reports',
         element: <SecuredRoute page={<Reports />} />,
         loader: undefined,
       },
       {
-        path: "analytics",
+        path: 'analytics',
         element: <SecuredRoute page={<Analytics />} />,
         loader: undefined,
       },
       {
-        path: "gasoline",
+        path: 'gasoline',
         element: <SecuredRoute page={<Gasoline />} />,
         loader: undefined,
       },
       {
-        path: "agro",
+        path: 'agro',
         element: <SecuredRoute page={<Agro />} />,
         loader: undefined,
       },
       {
-        path: "login",
+        path: 'login',
         element: <Login />,
         loader: undefined,
       },
@@ -74,7 +74,7 @@ const router = createBrowserRouter([
 ]);
 
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement,
+  document.getElementById('root') as HTMLElement,
 );
 
 root.render(
