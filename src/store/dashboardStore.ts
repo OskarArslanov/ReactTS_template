@@ -1,8 +1,8 @@
-import { makeAutoObservable, configure } from "mobx";
-import { axiosInstance } from "./axiosConfig";
+import { makeAutoObservable, configure } from 'mobx';
+import { axiosInstance } from './axiosConfig';
 
 configure({
-  enforceActions: "never",
+  enforceActions: 'never',
 });
 
 class DashboardStoreObservable {
@@ -10,7 +10,7 @@ class DashboardStoreObservable {
 
   largeCards: any[] = [];
 
-  loading: boolean = false;
+  loading = false;
 
   constructor() {
     makeAutoObservable(this);
@@ -25,7 +25,7 @@ class DashboardStoreObservable {
   fetchData = async () => {
     this.loading = true;
     try {
-      const data = (await axiosInstance.get("/main")).data;
+      const data = (await axiosInstance.get('/main')).data;
       this.largeCards = Object.values(data.big_cards);
       this.smallCards = Object.values(data.cards);
     } catch (err: any) {

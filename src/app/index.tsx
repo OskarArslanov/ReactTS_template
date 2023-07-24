@@ -1,13 +1,13 @@
-import { Link, Outlet } from "react-router-dom";
-import BodyContainer from "./BodyContainer";
-import FooterContainer from "./FooterContainer";
-import HeaderContainer from "./HeaderContainer";
-import styles from "./styles.module.css";
-import Logo from "../assets/Logo";
-import Settings from "./HeaderContainer/Settings";
-import MenuContainer from "./MenuContainer";
-import { useAuth, usePaths } from "../utils/hooks";
-import RGKButton from "../components/controls/RGKButton";
+import { Link, Outlet } from 'react-router-dom';
+import BodyContainer from './BodyContainer';
+import FooterContainer from './FooterContainer';
+import HeaderContainer from './HeaderContainer';
+import styles from './styles.module.css';
+import Logo from '../assets/Logo';
+import Settings from './HeaderContainer/Settings';
+import MenuContainer from './MenuContainer';
+import { useAuth, usePaths } from '../utils/hooks';
+import RGKButton from '../components/controls/RGKButton';
 
 const App = () => {
   const auth = useAuth();
@@ -24,7 +24,7 @@ const App = () => {
           <RGKButton
             href="/rgk24/login"
             text="Войти"
-            style={{ display: basePath === "login" ? "none" : "flex" }}
+            style={{ display: basePath === 'login' ? 'none' : 'flex' }}
           />
         )}
       </HeaderContainer>

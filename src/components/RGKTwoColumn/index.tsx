@@ -1,13 +1,13 @@
-import { Column } from "@ant-design/plots";
-import { FC, useState } from "react";
-import { TwoColumnValueType } from "@dto/card";
-import RGKReportTableModal from "@components/RGKModals/RGKReportTableModal";
-import { dashboardStore } from "@store/dashboardStore";
-import { reportsStore } from "@store/reportsStore";
-import { toJS } from "mobx";
-import { observer } from "mobx-react-lite";
-import { addDays, addMonths, format } from "date-fns";
-import styles from "./styles.module.css";
+import { Column } from '@ant-design/plots';
+import { FC, useState } from 'react';
+import { TwoColumnValueType } from '@dto/card';
+import RGKReportTableModal from '@components/RGKModals/RGKReportTableModal';
+import { dashboardStore } from '@store/dashboardStore';
+import { reportsStore } from '@store/reportsStore';
+import { toJS } from 'mobx';
+import { observer } from 'mobx-react-lite';
+import { addDays, addMonths, format } from 'date-fns';
+import styles from './styles.module.css';
 
 const months: Record<string, number> = {
   Янв: 1,
@@ -25,7 +25,7 @@ const months: Record<string, number> = {
 };
 
 interface RGKTwoColumnProps {
-  dataPos?: "left" | "middle" | "right";
+  dataPos?: 'left' | 'middle' | 'right';
   colors?: string[];
   data?: TwoColumnValueType[];
   marginRatio?: number;
@@ -36,20 +36,20 @@ interface RGKTwoColumnProps {
 const RGKTwoColumn: FC<RGKTwoColumnProps> = observer((props) => {
   const [modal, setModal] = useState<{ state: boolean; title: string }>({
     state: false,
-    title: "",
+    title: '',
   });
   const config = {
     data: props.data || [],
     isGroup: true,
-    xField: "type",
-    yField: "value",
-    seriesField: "name",
+    xField: 'type',
+    yField: 'value',
+    seriesField: 'name',
     color: props.colors,
     marginRatio: props.marginRatio || 0.1,
     label: {
-      position: props.dataPos || "middle",
+      position: props.dataPos || 'middle',
       style: {
-        fill: "#000000",
+        fill: '#000000',
         opacity: 0,
       },
     },
@@ -65,7 +65,7 @@ const RGKTwoColumn: FC<RGKTwoColumnProps> = observer((props) => {
   };
 
   const handlePlotClick = (event: any) => {
-    const date = event.data.data.type.split(".");
+    const date = event.data.data.type.split('.');
 
     const data = toJS(dashboardStore);
     const allCards = data.largeCards.concat(data.smallCards);
@@ -76,8 +76,8 @@ const RGKTwoColumn: FC<RGKTwoColumnProps> = observer((props) => {
       if (!steps.includes(item.type)) steps.push(item.type);
     });
 
-    const month = event.data.data.type.includes(".")
-      ? event.data.data.type.split(".")[0]
+    const month = event.data.data.type.includes('.')
+      ? event.data.data.type.split('.')[0]
       : event.data.data.type;
     const monthId = months[month];
 
@@ -102,7 +102,7 @@ const RGKTwoColumn: FC<RGKTwoColumnProps> = observer((props) => {
     reportsStore.fetchReport(request).then(() => {
       setModal({
         state: true,
-        title: `за ${format(startDate, "dd.MM")} - ${format(endDate, "dd.MM")}`,
+        title: `за ${format(startDate, 'dd.MM')} - ${format(endDate, 'dd.MM')}`,
       });
     });
   };
@@ -114,14 +114,14 @@ const RGKTwoColumn: FC<RGKTwoColumnProps> = observer((props) => {
             {...config}
             height={props.height}
             onEvent={(chart, event) => {
-              if (event.type === "plot:click") {
+              if (event.type === 'plot:click') {
                 handlePlotClick(event);
               }
             }}
           />
           <RGKReportTableModal
             open={modal.state}
-            onClose={() => setModal({ state: false, title: "" })}
+            onClose={() => setModal({ state: false, title: '' })}
             title={`${props.title} ${modal.title}`}
             columns={reportsStore.report.columns}
             rows={reportsStore.report.data}

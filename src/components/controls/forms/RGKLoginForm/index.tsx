@@ -1,9 +1,9 @@
-import { LoginOutlined } from "@ant-design/icons";
-import { FC } from "react";
-import RGKButton from "@components/controls/RGKButton";
-import RGKInput from "@components/controls/RGKInput";
-import RGKForm from "../RGKForm";
-import styles from "./styles.module.css";
+import { LoginOutlined } from '@ant-design/icons';
+import { FC } from 'react';
+import RGKButton from '@components/controls/RGKButton';
+import RGKInput from '@components/controls/RGKInput';
+import RGKForm from '../RGKForm';
+import styles from './styles.module.css';
 
 interface RGKLoginFormProps {
   onSubmit: (data: any) => void;

@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import RGKLoginForm from "@components/controls/forms/RGKLoginForm";
-import { axiosInstance } from "@store/axiosConfig";
-import RGKCircleLoader from "@components/RGKCircleLoader";
-import styles from "./styles.module.css";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import RGKLoginForm from '@components/controls/forms/RGKLoginForm';
+import { axiosInstance } from '@store/axiosConfig';
+import RGKCircleLoader from '@components/RGKCircleLoader';
+import styles from './styles.module.css';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -14,18 +14,18 @@ const Login = () => {
     setLoading(true);
     try {
       await axiosInstance
-        .post("/login", { login: username, psw: password })
+        .post('/login', { login: username, psw: password })
         .then((resp) => {
           setError(undefined);
           const accessToken = resp.data.access_token;
           const refreshToken = resp.data.refresh_token;
-          localStorage.setItem("user", username);
-          localStorage.setItem("access_token", accessToken);
-          localStorage.setItem("refresh_token", refreshToken);
-          navigate("/rgk24/dashboard");
+          localStorage.setItem('user', username);
+          localStorage.setItem('access_token', accessToken);
+          localStorage.setItem('refresh_token', refreshToken);
+          navigate('/rgk24/dashboard');
         });
     } catch (err: any) {
-      setError("Не верный логин или пароль");
+      setError('Не верный логин или пароль');
     } finally {
       setLoading(false);
     }

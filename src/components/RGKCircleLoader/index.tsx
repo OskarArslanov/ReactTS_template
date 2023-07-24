@@ -1,6 +1,6 @@
-import { Spin } from "antd";
-import { FC } from "react";
-import styles from "./styles.module.css";
+import { Spin } from 'antd';
+import { FC } from 'react';
+import styles from './styles.module.css';
 
 interface RGKCircleLoaderProps {
   visible: boolean;

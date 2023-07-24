@@ -4,34 +4,34 @@ import {
   SlidersOutlined,
   RadarChartOutlined,
   AreaChartOutlined,
-} from "@ant-design/icons";
-import { RGKSpeedDialMenuType } from "../../components/RGKSpeedDial";
+} from '@ant-design/icons';
+import { RGKSpeedDialMenuType } from '../../components/RGKSpeedDial';
 
 const MenuTabs: RGKSpeedDialMenuType[] = [
   {
-    name: "Дашборд",
+    name: 'Дашборд',
     icon: <FundProjectionScreenOutlined />,
-    href: "dashboard",
+    href: 'dashboard',
   },
   {
-    name: "Отчеты",
+    name: 'Отчеты',
     icon: <FileTextOutlined />,
-    href: "reports",
+    href: 'reports',
   },
   {
-    name: "Аналитика мониторинга",
+    name: 'Аналитика мониторинга',
     icon: <SlidersOutlined />,
-    href: "analytics",
+    href: 'analytics',
   },
   {
-    name: "Топливная аналитика",
+    name: 'Топливная аналитика',
     icon: <RadarChartOutlined />,
-    href: "gasoline",
+    href: 'gasoline',
   },
   {
-    name: "Агро аналитика",
+    name: 'Агро аналитика',
     icon: <AreaChartOutlined />,
-    href: "agro",
+    href: 'agro',
   },
 ];
 

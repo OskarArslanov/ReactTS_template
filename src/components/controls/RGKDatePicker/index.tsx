@@ -1,8 +1,8 @@
 /* eslint-disable no-underscore-dangle */
-import { DatePicker } from "antd";
-import { FC } from "react";
-import "dayjs/locale/ru";
-import locale from "antd/es/date-picker/locale/ru_RU";
+import { DatePicker } from 'antd';
+import { FC } from 'react';
+import 'dayjs/locale/ru';
+import locale from 'antd/es/date-picker/locale/ru_RU';
 
 interface RGKRangePickerProps {
   tab?: any;
@@ -10,19 +10,19 @@ interface RGKRangePickerProps {
   placeholder?: string;
 }
 const RGKDatePicker: FC<RGKRangePickerProps> = (props) => {
-  let picker: "year" | "quarter" | "month" | "week" | "time" | "date" = "date";
-  let format = "DD.MM.YYYY";
+  let picker: 'year' | 'quarter' | 'month' | 'week' | 'time' | 'date' = 'date';
+  let format = 'DD.MM.YYYY';
   const name = props.tab?.name;
   if (name) {
-    if (name.includes("по неделям")) picker = "week";
-    if (name.includes("по месяцам")) {
-      picker = "month";
-      format = "MM.YYYY";
+    if (name.includes('по неделям')) picker = 'week';
+    if (name.includes('по месяцам')) {
+      picker = 'month';
+      format = 'MM.YYYY';
     }
-    if (name.includes("по кварталам")) picker = "quarter";
-    if (name.includes("по годам")) {
-      picker = "year";
-      format = "YYYY";
+    if (name.includes('по кварталам')) picker = 'quarter';
+    if (name.includes('по годам')) {
+      picker = 'year';
+      format = 'YYYY';
     }
   }
 

@@ -1,9 +1,9 @@
-import { FC, useState } from "react";
-import { Button } from "antd";
-import { CarOutlined } from "@ant-design/icons";
-import RGKCard from "@components/RGKCard";
-import styles from "./styles.module.css";
-import RGKMap, { RGKMapType } from "..";
+import { FC, useState } from 'react';
+import { Button } from 'antd';
+import { CarOutlined } from '@ant-design/icons';
+import RGKCard from '@components/RGKCard';
+import styles from './styles.module.css';
+import RGKMap, { RGKMapType } from '..';
 
 interface RGKCardMapProps {
   title: string;
@@ -26,13 +26,12 @@ const RGKCardMap: FC<RGKCardMapProps> = (props) => {
         />
         <ul className={styles.RGKCardMap_ItemList}>
           {props.data?.map((item) => {
-            let color = "green";
-            if (item.status === "error") color = "red";
-            if (item.status === "offline") color = "gray";
+            let color = 'green';
+            if (item.status === 'error') color = 'red';
+            if (item.status === 'offline') color = 'gray';
             return (
               <Button
                 key={item.name}
-                type="ghost"
                 className={styles.RGKCardMap_Item}
                 style={{ color }}
                 icon={<CarOutlined />}

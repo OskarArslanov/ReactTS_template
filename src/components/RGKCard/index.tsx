@@ -1,10 +1,10 @@
-import { Card } from "antd";
-import { FC } from "react";
-import { observer } from "mobx-react-lite";
-import styles from "./styles.module.css";
+import { Card } from 'antd';
+import { FC } from 'react';
+import { observer } from 'mobx-react-lite';
+import styles from './styles.module.css';
 
 interface RGKCardProps {
-  size?: "small";
+  size?: 'small';
   title?: string;
   href?: string;
   hrefText?: string;
@@ -17,18 +17,18 @@ const RGKCard: FC<RGKCardProps> = observer((props) => {
   return (
     <Card
       size={props.size}
-      title={<span style={{ whiteSpace: "break-spaces" }}>{props.title}</span>}
+      title={<span style={{ whiteSpace: 'break-spaces' }}>{props.title}</span>}
       extra={<a href={props.href}>{props.hrefText}</a>}
       style={props.style}
       actions={props.actions}
       className={`${props.className} ${styles.RGKCard}`}
       headStyle={{
         fontWeight: 500,
-        fontSize: "16px",
-        display: props.title ? "flex" : "none",
-        textAlign: "center",
+        fontSize: '16px',
+        display: props.title ? 'flex' : 'none',
+        textAlign: 'center',
       }}
-      bodyStyle={{ padding: "12px 24px", height: "100%" }}
+      bodyStyle={{ padding: '12px 24px', height: '100%' }}
     >
       {props.children}
     </Card>

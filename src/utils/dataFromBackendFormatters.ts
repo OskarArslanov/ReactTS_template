@@ -1,11 +1,11 @@
-import { format } from "date-fns";
-import { ru } from "date-fns/locale";
+import { format } from 'date-fns';
+import { ru } from 'date-fns/locale';
 import {
   CardOneColumDataType,
   CardTableDataType,
   CardTwoColumDataType,
   RGKTableTitleType,
-} from "@dto/card";
+} from '@dto/card';
 
 export const getCardDataForTwoColumn = (card?: any) => {
   if (!card) return undefined;
@@ -14,7 +14,7 @@ export const getCardDataForTwoColumn = (card?: any) => {
     data: card?.chart.data?.map((item: any) => {
       if (!item) return undefined;
       const name = item.name;
-      let type = format(new Date(item.xField), "d.MM", {
+      let type = format(new Date(item.xField), 'd.MM', {
         locale: ru,
       });
       type = type.charAt(0).toUpperCase().concat(type.slice(1));
@@ -31,16 +31,16 @@ export const getCardDataForOneColumn = (card?: any) => {
     title: card?.title,
     data: card?.chart.data?.map((item: any) => {
       if (!item) return undefined;
-      let type = format(new Date(item.xField), "LLL", {
+      let type = format(new Date(item.xField), 'LLL', {
         locale: ru,
       });
       type = type.charAt(0).toUpperCase().concat(type.slice(1));
-      const value = Number(String(item.yField).split(".")[0]);
+      const value = Number(String(item.yField).split('.')[0]);
       return { type, value };
     }),
     subTitleName: String(Object.keys(card?.report_string?.data)?.[0]),
     subTitleValue: String(Object.values(card?.report_string?.data)?.[0]).split(
-      ".",
+      '.',
     )?.[0],
   };
   return result;
@@ -53,11 +53,11 @@ export const getCardDataForTwoColumnWithProgress = (card?: any) => {
     data: card?.chart.data?.map((item: any) => {
       if (!item) return undefined;
       const name = item.name;
-      let type = format(new Date(item.xField), "LLL", {
+      let type = format(new Date(item.xField), 'LLL', {
         locale: ru,
       });
       type = type.charAt(0).toUpperCase().concat(type.slice(1));
-      const value = Number(String(item.yField).split(".")[0]);
+      const value = Number(String(item.yField).split('.')[0]);
       return { name, type, value };
     }),
   };

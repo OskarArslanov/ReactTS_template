@@ -1,6 +1,6 @@
-import { FC } from "react";
-import { Navigate } from "react-router-dom";
-import { getAuth } from "./hooks";
+import { FC } from 'react';
+import { Navigate } from 'react-router-dom';
+import { getAuth } from './hooks';
 
 interface SecuredRouteProps {
   page: any;

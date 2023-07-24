@@ -1,10 +1,10 @@
-import { FC } from "react";
-import { Select } from "antd";
-import { OneColumnValueType } from "@dto/card";
-import RGKCard from "@components/RGKCard";
-import { IdValue } from "@dto/idVal";
-import styles from "./styles.module.css";
-import RGKOneColumn from "..";
+import { FC } from 'react';
+import { Select } from 'antd';
+import { OneColumnValueType } from '@dto/card';
+import RGKCard from '@components/RGKCard';
+import { IdValue } from '@dto/idVal';
+import styles from './styles.module.css';
+import RGKOneColumn from '..';
 
 interface RGKCardOneColumnSelectorProps {
   title: string;
@@ -33,10 +33,10 @@ const RGKCardOneColumnSelector: FC<RGKCardOneColumnSelectorProps> = (props) => {
     >
       <div
         style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "8px",
-          height: "100%",
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '8px',
+          height: '100%',
         }}
       >
         <div className={styles.RGKCardOneColumn_Selectors}>

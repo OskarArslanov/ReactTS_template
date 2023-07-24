@@ -1,15 +1,15 @@
-import { Table } from "antd";
-import { CSSProperties, FC } from "react";
-import { RGKTableTitleType } from "@dto/card";
-import { alphabetSorter, dateSorter, numberSorter } from "@utils/sorters";
-import { toJS } from "mobx";
-import { addMinutes, format } from "date-fns";
-import ru from "date-fns/locale/ru";
-import DownloadOutlined from "@ant-design/icons/lib/icons/DownloadOutlined";
-import RGKButton from "@components/controls/RGKButton";
-import { downloadXLSFile } from "@utils/fileLoaders";
-import * as XLSX from "xlsx";
-import styles from "./styles.module.css";
+import { Table } from 'antd';
+import { CSSProperties, FC } from 'react';
+import { RGKTableTitleType } from '@dto/card';
+import { alphabetSorter, dateSorter, numberSorter } from '@utils/sorters';
+import { toJS } from 'mobx';
+import { addMinutes, format } from 'date-fns';
+import ru from 'date-fns/locale/ru';
+import DownloadOutlined from '@ant-design/icons/lib/icons/DownloadOutlined';
+import RGKButton from '@components/controls/RGKButton';
+import { downloadXLSFile } from '@utils/fileLoaders';
+import * as XLSX from 'xlsx';
+import styles from './styles.module.css';
 
 interface RGKTableProps {
   pagination: boolean;
@@ -37,7 +37,7 @@ const RGKTable: FC<RGKTableProps> = (props) => {
     props.data?.map((item, index) => {
       const updatedRow = { ...item, key: index };
       rowSetup?.forEach((setup) => {
-        if (setup.type === "date") {
+        if (setup.type === 'date') {
           updatedRow[setup.key] = format(
             addMinutes(new Date(item[setup.key]), offset),
             setup.format!,
@@ -46,11 +46,11 @@ const RGKTable: FC<RGKTableProps> = (props) => {
             },
           );
         }
-        if (setup.type === "action") {
+        if (setup.type === 'action') {
           const url = updatedRow[setup.key];
           updatedRow[setup.key] = (
             <RGKButton
-              style={{ alignSelf: "center" }}
+              style={{ alignSelf: 'center' }}
               icon={<DownloadOutlined />}
               onClick={() => downloadXLSFile(url)}
             />
@@ -63,22 +63,22 @@ const RGKTable: FC<RGKTableProps> = (props) => {
   );
   const columns = props.columns?.map((item, index) => {
     let sorter;
-    if (item.type === "string") {
+    if (item.type === 'string') {
       sorter = (a: any, b: any) => alphabetSorter(a[item.key], b[item.key]);
     }
-    if (item.type === "number") {
+    if (item.type === 'number') {
       sorter = (a: any, b: any) => numberSorter(a[item.key], b[item.key]);
     }
-    if (item.type === "date") {
+    if (item.type === 'date') {
       sorter = (a: any, b: any) => dateSorter(a[item.key], b[item.key]);
     }
     const result = {
       ...item,
       sorter,
       dataIndex: item.key,
-      sortDirections: ["descend", "ascend"],
+      sortDirections: ['descend', 'ascend'],
     };
-    if (index === 0) return { ...result, fixed: "left", width: 100 };
+    if (index === 0) return { ...result, fixed: 'left', width: 100 };
     return result;
   });
   return (
@@ -107,7 +107,7 @@ const RGKTable: FC<RGKTableProps> = (props) => {
         pagination={false}
         scroll={props.scroll}
         size="middle"
-        style={{ display: "none" }}
+        style={{ display: 'none' }}
       />
     </div>
   );

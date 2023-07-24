@@ -1,12 +1,12 @@
-import { axiosInstance } from "@store/axiosConfig";
-import fs from "fs";
+import { axiosInstance } from '@store/axiosConfig';
+import fs from 'fs';
 
 export const downloadXLSFile = async (href: string) => {
   try {
     const response = await axiosInstance.get(href, {
-      responseType: "arraybuffer",
+      responseType: 'arraybuffer',
       headers: {
-        "Content-Type": "Blob",
+        'Content-Type': 'Blob',
       },
     });
 
@@ -14,9 +14,9 @@ export const downloadXLSFile = async (href: string) => {
 
     // If you want to download file automatically using link attribute.
     const url = URL.createObjectURL(new Blob([response.data]));
-    const link = document.createElement("a");
+    const link = document.createElement('a');
     link.href = url;
-    link.setAttribute("download", outputFilename);
+    link.setAttribute('download', outputFilename);
     document.body.appendChild(link);
     link.click();
 

@@ -1,9 +1,9 @@
-import { useMemo } from "react";
-import { useLocation } from "react-router-dom";
+import { useMemo } from 'react';
+import { useLocation } from 'react-router-dom';
 
 export const getAuth = () => {
-  const accessToken = localStorage.getItem("access_token") || undefined;
-  const refreshToken = localStorage.getItem("refresh_token") || undefined;
+  const accessToken = localStorage.getItem('access_token') || undefined;
+  const refreshToken = localStorage.getItem('refresh_token') || undefined;
   const result = { accessToken, refreshToken };
   return result;
 };
@@ -20,7 +20,7 @@ export const useAuth = () => {
 export const usePaths = () => {
   const location = useLocation();
   const paths = useMemo(() => {
-    return location.pathname.split("/");
+    return location.pathname.split('/');
   }, [location]);
 
   return paths;

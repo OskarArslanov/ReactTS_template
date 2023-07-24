@@ -1,7 +1,7 @@
-import { FC } from "react";
-import RGKCard from "@components/RGKCard";
-import RGKPie, { RGKPieType } from "..";
-import styles from "./styles.module.css";
+import { FC } from 'react';
+import RGKCard from '@components/RGKCard';
+import RGKPie, { RGKPieType } from '..';
+import styles from './styles.module.css';
 
 interface RGKCardPieProps {
   title: string;

@@ -1,5 +1,5 @@
-import { CSSProperties, FC, useEffect, useState } from "react";
-import { FormProvider, useForm } from "react-hook-form";
+import { CSSProperties, FC, useEffect, useState } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
 
 interface RGKFormProps {
   className?: string;
@@ -35,7 +35,7 @@ const RGKForm: FC<RGKFormProps> = (props) => {
       >
         {props.children}
         {!!error?.length && (
-          <p style={{ color: "red", fontSize: "12px" }}>{error[0]}</p>
+          <p style={{ color: 'red', fontSize: '12px' }}>{error[0]}</p>
         )}
       </form>
     </FormProvider>

@@ -1,5 +1,5 @@
-import { Select } from "antd";
-import { CSSProperties, FC } from "react";
+import { Select } from 'antd';
+import { CSSProperties, FC } from 'react';
 
 export interface LabelValue {
   label: string;
@@ -19,7 +19,7 @@ const RGKSelect: FC<RGKSelectProps> = (props) => {
   return (
     <label>
       {props.label}
-      {props.required && <span style={{ color: "red" }}>*</span>}
+      {props.required && <span style={{ color: 'red' }}>*</span>}
       <Select
         defaultValue={props.defaultValue}
         value={props.value}

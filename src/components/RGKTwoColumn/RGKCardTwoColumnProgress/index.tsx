@@ -1,9 +1,9 @@
-import { FC } from "react";
-import { Progress } from "antd";
-import { CardTwoColumDataType, TwoColumnValueType } from "@dto/card";
-import RGKCard from "@components/RGKCard";
-import styles from "./styles.module.css";
-import RGKTwoColumn from "..";
+import { FC } from 'react';
+import { Progress } from 'antd';
+import { CardTwoColumDataType, TwoColumnValueType } from '@dto/card';
+import RGKCard from '@components/RGKCard';
+import styles from './styles.module.css';
+import RGKTwoColumn from '..';
 
 interface RGKCardTwoColumnProgressProps {
   data?: CardTwoColumDataType;

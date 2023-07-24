@@ -1,7 +1,7 @@
-import { Modal } from "antd";
-import { FC } from "react";
-import RGKTable from "@components/RGKTable";
-import { RGKTableTitleType } from "@dto/card";
+import { Modal } from 'antd';
+import { FC } from 'react';
+import RGKTable from '@components/RGKTable';
+import { RGKTableTitleType } from '@dto/card';
 
 interface RGKReportTableModalProps {
   open: boolean;
@@ -18,9 +18,9 @@ const RGKReportTableModal: FC<RGKReportTableModalProps> = (props) => {
       onOk={() => props.onClose(false)}
       destroyOnClose
       onCancel={() => props.onClose(false)}
-      cancelButtonProps={{ style: { display: "none" } }}
-      okButtonProps={{ style: { display: "none" } }}
-      bodyStyle={{ position: "relative", width: "100%" }}
+      cancelButtonProps={{ style: { display: 'none' } }}
+      okButtonProps={{ style: { display: 'none' } }}
+      bodyStyle={{ position: 'relative', width: '100%' }}
     >
       <RGKTable pagination columns={props.columns} data={props.rows} />
     </Modal>

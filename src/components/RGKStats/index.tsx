@@ -1,9 +1,9 @@
-import { FC } from "react";
-import { Divider } from "antd";
-import styles from "./styles.module.css";
-import RGKStatMain from "./RGKStatMain";
-import RGKStatPeriod from "./RGKStatPeriod";
-import RGKCard from "../RGKCard";
+import { FC } from 'react';
+import { Divider } from 'antd';
+import styles from './styles.module.css';
+import RGKStatMain from './RGKStatMain';
+import RGKStatPeriod from './RGKStatPeriod';
+import RGKCard from '../RGKCard';
 
 export interface RGKStatsType {
   actions?: React.ReactNode;

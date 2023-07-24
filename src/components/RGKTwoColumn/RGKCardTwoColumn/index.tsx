@@ -1,9 +1,9 @@
-import { CSSProperties, FC } from "react";
-import RGKCard from "@components/RGKCard";
-import { CardTwoColumDataType, TwoColumnValueType } from "@dto/card";
-import { observer } from "mobx-react-lite";
-import styles from "./styles.module.css";
-import RGKTwoColumn from "..";
+import { CSSProperties, FC } from 'react';
+import RGKCard from '@components/RGKCard';
+import { CardTwoColumDataType, TwoColumnValueType } from '@dto/card';
+import { observer } from 'mobx-react-lite';
+import styles from './styles.module.css';
+import RGKTwoColumn from '..';
 
 interface RGKCardTwoColumnProps {
   data?: CardTwoColumDataType;

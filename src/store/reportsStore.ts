@@ -1,10 +1,10 @@
-import { getDataForReport } from "@utils/dataFromBackendFormatters";
-import { makeAutoObservable, configure } from "mobx";
-import { RGKTableTitleType } from "@dto/card";
-import { axiosInstance } from "./axiosConfig";
+import { getDataForReport } from '@utils/dataFromBackendFormatters';
+import { makeAutoObservable, configure } from 'mobx';
+import { RGKTableTitleType } from '@dto/card';
+import { axiosInstance } from './axiosConfig';
 
 configure({
-  enforceActions: "never",
+  enforceActions: 'never',
 });
 
 class ReportsStoreObservable {
@@ -15,7 +15,7 @@ class ReportsStoreObservable {
     data: any[];
   } = { columns: [], data: [] };
 
-  loading: boolean = false;
+  loading = false;
 
   constructor() {
     makeAutoObservable(this);
@@ -30,7 +30,7 @@ class ReportsStoreObservable {
   fetchAvailableReports = async () => {
     this.loading = true;
     try {
-      const response = await axiosInstance.get("/fuel");
+      const response = await axiosInstance.get('/fuel');
       const data = response.data.reports;
       Object.keys(data).map((item) =>
         this.reports.push({ name: item, data: data[item] }),
@@ -46,7 +46,7 @@ class ReportsStoreObservable {
     this.loading = true;
     try {
       if (request?.data && request.report_title) {
-        const response = await axiosInstance.post("/get_fuel_rep", request);
+        const response = await axiosInstance.post('/get_fuel_rep', request);
         const report = getDataForReport(response.data);
         this.report = report;
       }

@@ -1,14 +1,14 @@
-import { Input } from "antd";
-import { FC, useState } from "react";
-import { Controller, RegisterOptions, useFormContext } from "react-hook-form";
-import { handleErrors } from "@utils/errors";
-import styles from "./styles.module.css";
+import { Input } from 'antd';
+import { FC, useState } from 'react';
+import { Controller, RegisterOptions, useFormContext } from 'react-hook-form';
+import { handleErrors } from '@utils/errors';
+import styles from './styles.module.css';
 
 interface RGKInputProps {
   name: string;
   placeholder?: string;
   rules: RegisterOptions;
-  type: "text" | "number" | "password" | "email";
+  type: 'text' | 'number' | 'password' | 'email';
   label?: string;
   required?: boolean;
 }
@@ -22,7 +22,7 @@ const RGKInput: FC<RGKInputProps> = (props) => {
       {props.label ? (
         <span>
           {props.label}
-          {props.rules.required && <span style={{ color: "red" }}>*</span>}
+          {props.rules.required && <span style={{ color: 'red' }}>*</span>}
         </span>
       ) : null}
       <Controller
@@ -34,7 +34,7 @@ const RGKInput: FC<RGKInputProps> = (props) => {
             <Input
               {...field}
               placeholder={props.placeholder}
-              className={styles[`RGKInput__${invalid ? "invalid" : "null"}`]}
+              className={styles[`RGKInput__${invalid ? 'invalid' : 'null'}`]}
               type={props.type}
               onInput={(e) => {
                 // @ts-ignore
@@ -44,7 +44,7 @@ const RGKInput: FC<RGKInputProps> = (props) => {
                   value,
                   props.name,
                   props.label || props.placeholder,
-                  props.rules
+                  props.rules,
                 );
                 setInvalid(!isValid);
               }}

@@ -1,29 +1,31 @@
-import { CSSProperties, FC } from "react";
-import { Button } from "antd";
-import { Link } from "react-router-dom";
-import styles from "./styles.module.css";
+import { CSSProperties, FC } from 'react';
+import { Button } from 'antd';
+import { Link } from 'react-router-dom';
+import styles from './styles.module.css';
 
 interface RGKButtonProps {
-  type?: "link" | "text" | "ghost" | "default" | "primary" | "dashed";
-  htmlType?: "button" | "reset" | "submit";
+  type?: 'link' | 'text' | 'default' | 'primary' | 'dashed';
+  htmlType?: 'button' | 'reset' | 'submit';
   text?: string;
   icon?: React.ReactNode;
   onClick?: () => void;
   href?: string;
   style?: CSSProperties;
-  shape?: "default" | "circle" | "round";
+  shape?: 'default' | 'circle' | 'round';
+  ghost?: boolean;
 }
 
 const RGKButton: FC<RGKButtonProps> = (props) => {
   const element = (
     <Button
       shape={props.shape}
-      type={props.type}
       icon={props.icon}
-      htmlType={props.htmlType || "button"}
+      htmlType={props.htmlType || 'button'}
       className={styles.RGKButton}
       onClick={props.onClick}
       style={props.style}
+      type={props.type || 'default'}
+      ghost={props.ghost}
     >
       {props.text}
     </Button>

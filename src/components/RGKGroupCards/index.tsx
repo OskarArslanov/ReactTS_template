@@ -1,5 +1,5 @@
-import { FC } from "react";
-import styles from "./styles.module.css";
+import { FC } from 'react';
+import styles from './styles.module.css';
 
 interface RGKGroupCardsProps {
   smallCards: React.ReactNode[];

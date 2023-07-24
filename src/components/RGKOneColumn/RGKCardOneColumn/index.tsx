@@ -1,8 +1,8 @@
-import { CSSProperties, FC } from "react";
-import { CardOneColumDataType } from "@dto/card";
-import RGKCard from "@components/RGKCard";
-import styles from "./styles.module.css";
-import RGKOneColumn from "..";
+import { CSSProperties, FC } from 'react';
+import { CardOneColumDataType } from '@dto/card';
+import RGKCard from '@components/RGKCard';
+import styles from './styles.module.css';
+import RGKOneColumn from '..';
 
 interface RGKCardOneColumnProps {
   data?: CardOneColumDataType;
@@ -26,10 +26,10 @@ const RGKCardOneColumn: FC<RGKCardOneColumnProps> = (props) => {
     >
       <div
         style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "8px",
-          height: "100%",
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '8px',
+          height: '100%',
         }}
       >
         <span className={styles.RGKCardOneColumn_Text1}>

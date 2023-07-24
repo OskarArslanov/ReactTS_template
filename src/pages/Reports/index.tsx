@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
-import RGKCircleLoader from "@components/RGKCircleLoader";
-import RGKTable from "@components/RGKTable";
-import RGKDatePicker from "@components/controls/RGKDatePicker";
-import RGKSelect from "@components/controls/RGKSelect";
-import { reportsStore } from "@store/reportsStore";
-import { observer } from "mobx-react-lite";
-import { addMinutes, addSeconds, format } from "date-fns";
-import styles from "./styles.module.css";
+import { useEffect, useState } from 'react';
+import RGKCircleLoader from '@components/RGKCircleLoader';
+import RGKTable from '@components/RGKTable';
+import RGKDatePicker from '@components/controls/RGKDatePicker';
+import RGKSelect from '@components/controls/RGKSelect';
+import { reportsStore } from '@store/reportsStore';
+import { observer } from 'mobx-react-lite';
+import { addMinutes, addSeconds, format } from 'date-fns';
+import styles from './styles.module.css';
 
 const Reports = observer(() => {
   const [request, setRequest] = useState<{
@@ -47,7 +47,7 @@ const Reports = observer(() => {
             placeholder="Начало периода"
             tab={request?.report_title}
             onChange={(e) => {
-              const startDay = format(new Date(e), "yyyy-MM-dd");
+              const startDay = format(new Date(e), 'yyyy-MM-dd');
               const startPeriod = addMinutes(new Date(startDay), offset);
               const startPeriodTS = startPeriod.getTime() / 1000;
               const data = {
@@ -62,7 +62,7 @@ const Reports = observer(() => {
             placeholder="Конец периода"
             tab={request?.report_title}
             onChange={(e) => {
-              const endDay = format(new Date(e), "yyyy-MM-dd");
+              const endDay = format(new Date(e), 'yyyy-MM-dd');
               let endPeriod = addMinutes(new Date(endDay), 24 * 60 + offset);
               endPeriod = addSeconds(endPeriod, -1);
               const endPeriodTS = endPeriod.getTime() / 1000;

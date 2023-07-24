@@ -1,7 +1,7 @@
-import { FC } from "react";
-import { Divider } from "antd";
-import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons";
-import styles from "./styles.module.css";
+import { FC } from 'react';
+import { Divider } from 'antd';
+import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
+import styles from './styles.module.css';
 
 interface RGKStatPeriodProps {
   planName: string;
@@ -21,7 +21,7 @@ const RGKStatPeriod: FC<RGKStatPeriodProps> = (props) => {
         <div
           className={`${styles.RGKStatPeriod_Value} ${
             styles[
-              `RGKStatPeriod_Value__${isPositive ? "positive" : "negative"}`
+              `RGKStatPeriod_Value__${isPositive ? 'positive' : 'negative'}`
             ]
           }`}
         >
@@ -34,7 +34,7 @@ const RGKStatPeriod: FC<RGKStatPeriodProps> = (props) => {
       </div>
       <div
         className={`${styles.RGKStatPeriod_Value} ${
-          styles[`RGKStatPeriod_Value__${isPositive ? "positive" : "negative"}`]
+          styles[`RGKStatPeriod_Value__${isPositive ? 'positive' : 'negative'}`]
         }`}
       >
         {isPositive ? <ArrowUpOutlined /> : <ArrowDownOutlined />}
