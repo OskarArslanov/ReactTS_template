@@ -15,7 +15,7 @@ const months: Record<string, number> = {
   Март: 3,
   Апр: 4,
   Май: 5,
-  Июн: 6,
+  Июнь: 6,
   Июль: 7,
   Авг: 8,
   Сен: 9,
@@ -93,7 +93,6 @@ const RGKOneColumn: FC<RGKOneColumnProps> = observer((props) => {
       ? event.data.data.type.split(".")[0]
       : event.data.data.type;
     const monthId = months[month];
-
     let startDate: Date;
     let endDate: Date;
     if (monthId) {
