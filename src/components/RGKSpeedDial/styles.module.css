@@ -1,0 +1,10 @@
+.RGKSpeedDial {
+  bottom: 84px;
+  right: 64px;
+}
+
+@media screen and (max-width: 768px) {
+  .RGKSpeedDial {
+    right: 32px;
+  }
+}

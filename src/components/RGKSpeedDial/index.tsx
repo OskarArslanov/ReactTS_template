@@ -3,6 +3,7 @@ import { MenuOutlined } from "@ant-design/icons";
 import { FloatButton } from "antd";
 import { useAuth } from "@utils/hooks";
 import { useNavigate } from "react-router-dom";
+import styles from "./styles.module.css";
 
 export interface RGKSpeedDialMenuType {
   name: string;
@@ -20,8 +21,8 @@ const RGKSpeedDial: FC<RGKSpeedDialProps> = (props) => {
     <FloatButton.Group
       trigger="click"
       type="primary"
-      style={{ right: 44, bottom: 44 }}
       icon={<MenuOutlined />}
+      className={styles.RGKSpeedDial}
     >
       {props.items.map((item) => {
         return (
