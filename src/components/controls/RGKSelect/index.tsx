@@ -14,10 +14,11 @@ interface RGKSelectProps {
   required?: boolean;
   className?: string;
   onChange?: (data: string) => void;
+  bordered?: boolean;
 }
 const RGKSelect: FC<RGKSelectProps> = (props) => {
   return (
-    <label>
+    <label style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
       {props.label}
       {props.required && <span style={{ color: 'red' }}>*</span>}
       <Select
@@ -25,7 +26,7 @@ const RGKSelect: FC<RGKSelectProps> = (props) => {
         value={props.value}
         options={props.values}
         style={props.style}
-        bordered={false}
+        bordered={props.bordered}
         onChange={(e) => props.onChange?.(String(e))}
         className={props.className}
       />

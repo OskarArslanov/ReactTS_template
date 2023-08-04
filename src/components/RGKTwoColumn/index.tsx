@@ -32,6 +32,7 @@ interface RGKTwoColumnProps {
   isBig?: boolean;
   height?: number;
   title?: string;
+  clickableCols?: boolean;
 }
 const RGKTwoColumn: FC<RGKTwoColumnProps> = observer((props) => {
   const [modal, setModal] = useState<{ state: boolean; title: string }>({
@@ -65,6 +66,7 @@ const RGKTwoColumn: FC<RGKTwoColumnProps> = observer((props) => {
   };
 
   const handlePlotClick = (event: any) => {
+    if (!props.clickableCols) return;
     const date = event.data.data.type.split('.');
 
     const data = toJS(dashboardStore);

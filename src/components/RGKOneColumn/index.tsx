@@ -34,6 +34,7 @@ interface RGKOneColumnProps {
   color?: string;
   onPlotClick?: () => void;
   title?: string;
+  clickableCols?: boolean;
 }
 const RGKOneColumn: FC<RGKOneColumnProps> = observer((props) => {
   const [modal, setModal] = useState<{ state: boolean; title: string }>({
@@ -78,6 +79,7 @@ const RGKOneColumn: FC<RGKOneColumnProps> = observer((props) => {
   };
 
   const handlePlotClick = (event: any) => {
+    if (!props.clickableCols) return;
     const date = event.data.data.type.split('.');
 
     const data = toJS(dashboardStore);

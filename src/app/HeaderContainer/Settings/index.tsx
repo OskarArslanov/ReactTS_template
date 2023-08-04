@@ -13,7 +13,7 @@ const Settings = () => {
 
   return (
     <div className={styles.Settings}>
-      <RGKSelect defaultValue={records[0]} values={records} />
+      <RGKSelect defaultValue={records[0]} values={records} bordered={false} />
       <RGKButton
         shape="circle"
         ghost

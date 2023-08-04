@@ -53,6 +53,7 @@ const RGKCardTwoColumn: FC<RGKCardTwoColumnProps> = observer((props) => {
         height={props.height}
         colors={props.colors}
         title={title}
+        clickableCols
       />
     </RGKCard>
   );

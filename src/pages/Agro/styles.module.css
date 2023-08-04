@@ -1,0 +1,136 @@
+.Agro {
+  display: flex;
+  flex-direction: column;
+}
+
+.Agro > * {
+  padding: 30px;
+}
+
+.Agro_Actions {
+  display: flex;
+  gap: 10px;
+  background-color: #e7e7e7;
+  border-radius: 25px 25px 0px 0px;
+}
+
+.Agro_Table {
+  background-color: #dbd9d9;
+  border-radius: 0px 0px 25px 25px;
+  box-shadow: inset 0 15px 10px 0px rgba(0, 0, 0, 0.4);
+}
+
+.Agro_Actions_Filter {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.Agro_Actions_ObjectAndRange {
+  display: flex;
+  gap: 10px;
+}
+.Agro_Actions_Object {
+  max-width: 200px;
+  min-width: 200px;
+}
+
+.Agro_Actions_Range {
+  max-width: 200px;
+  min-width: 200px;
+}
+
+.Agro_Actions_GroupAndDifferences {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.Agro_Actions_GroupAndDifferences > * {
+  min-width: 150px;
+  width: auto;
+}
+
+.Agro_Actions_Differences {
+  display: flex;
+  gap: 5px;
+  height: 100%;
+}
+
+.Agro_Actions_SummAndDownload {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.Agro_Actions_Download {
+  max-width: 100px;
+  min-width: 100px;
+}
+
+.Agro_Actions_Download_Controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media screen and (max-width: 1500px) {
+  .Agro_Actions_Group {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .Agro_Actions_Filter {
+    flex-direction: column;
+  }
+
+  .Agro_Actions_GroupAndDifferences {
+    flex-direction: row;
+  }
+  .Agro_Actions_Differences {
+    flex-direction: column;
+  }
+  .Agro_Actions_Object {
+    max-width: none;
+    min-width: 150px;
+  }
+
+  .Agro_Actions_Range {
+    max-width: none;  
+    min-width: 150px;
+  }
+
+  .Agro_Actions_Differences {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 800px) {
+  .Agro_Actions {
+    flex-direction: column;
+  }
+  .Agro_Actions_GroupAndDifferences {
+    flex-direction: column;
+  }
+  .Agro_Actions_Group {
+    flex-direction: row;
+  }
+  .Agro_Actions_Differences {
+    flex-direction: row;
+  }
+
+  .Agro_Actions_SummAndDownload {
+    flex-direction: column;
+  }
+
+  .Agro_Actions_Download {
+    max-width: none;
+  }
+  .Agro_Actions_Download > * {
+    flex-direction: row !important;
+  }
+  
+  .Agro_Actions_Download_Controls {
+    flex-direction: row;
+  }
+}

@@ -47,6 +47,7 @@ const RGKCardOneColumn: FC<RGKCardOneColumnProps> = (props) => {
           typeName={props.typeName}
           height={props.height}
           title={props.data?.title}
+          clickableCols
         />
       </div>
     </RGKCard>

@@ -40,13 +40,7 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/,
-        include: [/node_modules\/antd/],
-        use: ['style-loader', 'css-loader'],
-      },
-      {
         test: /\.css$/i,
-        exclude: /node_modules\/antd/,
         use: [
           'style-loader',
           {

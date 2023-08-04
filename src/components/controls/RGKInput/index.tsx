@@ -1,5 +1,5 @@
 import { Input } from 'antd';
-import { FC, useState } from 'react';
+import { CSSProperties, FC, useState } from 'react';
 import { Controller, RegisterOptions, useFormContext } from 'react-hook-form';
 import { handleErrors } from '@utils/errors';
 import styles from './styles.module.css';
@@ -11,6 +11,7 @@ interface RGKInputProps {
   type: 'text' | 'number' | 'password' | 'email';
   label?: string;
   required?: boolean;
+  style?: CSSProperties;
 }
 
 const RGKInput: FC<RGKInputProps> = (props) => {
@@ -18,7 +19,7 @@ const RGKInput: FC<RGKInputProps> = (props) => {
   const [invalid, setInvalid] = useState<boolean>();
 
   return (
-    <label className={styles.RGKInput}>
+    <label className={styles.RGKInput} style={props.style}>
       {props.label ? (
         <span>
           {props.label}

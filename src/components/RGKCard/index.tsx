@@ -1,5 +1,5 @@
 import { Card } from 'antd';
-import { FC } from 'react';
+import { CSSProperties, FC } from 'react';
 import { observer } from 'mobx-react-lite';
 import styles from './styles.module.css';
 
@@ -8,10 +8,12 @@ interface RGKCardProps {
   title?: string;
   href?: string;
   hrefText?: string;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
   children?: React.ReactNode;
   actions?: React.ReactNode[];
   className?: string;
+  bodyStyle?: CSSProperties;
+  headStyle?: CSSProperties;
 }
 const RGKCard: FC<RGKCardProps> = observer((props) => {
   return (
@@ -21,8 +23,9 @@ const RGKCard: FC<RGKCardProps> = observer((props) => {
       extra={<a href={props.href}>{props.hrefText}</a>}
       style={props.style}
       actions={props.actions}
-      className={`${props.className} ${styles.RGKCard}`}
+      className={`${styles.RGKCard} ${props.className}`}
       headStyle={{
+        ...props.headStyle,
         fontWeight: 500,
         fontSize: '16px',
         display: props.title ? 'flex' : 'none',

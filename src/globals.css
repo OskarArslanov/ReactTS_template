@@ -20,3 +20,22 @@ body {
   --color-mark: var(--color-black_dark);
   --text-bold: 500;
 }
+
+/* @media (min-width: 1400px) { */
+  .hide_L {
+    display: none !important;
+  }
+/* } */
+
+
+@media (min-width: 768px) and (max-width: 1399px) {
+  .hide_M {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .hide_S {
+    display: none !important;
+  }
+}

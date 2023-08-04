@@ -8,6 +8,7 @@ interface RGKRangePickerProps {
   tab?: any;
   onChange?: (date: number) => void;
   placeholder?: string;
+  label?: string;
 }
 const RGKDatePicker: FC<RGKRangePickerProps> = (props) => {
   let picker: 'year' | 'quarter' | 'month' | 'week' | 'time' | 'date' = 'date';
@@ -32,15 +33,18 @@ const RGKDatePicker: FC<RGKRangePickerProps> = (props) => {
   };
 
   return (
-    <DatePicker
-      // @ts-ignore
-      // eslint-disable-next-line no-underscore-dangle
-      onChange={handleChange}
-      picker={picker}
-      locale={locale}
-      format={format}
-      placeholder={props.placeholder}
-    />
+    <label style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+      {props.label && <span>{props.label}</span>}
+      <DatePicker
+        // @ts-ignore
+        // eslint-disable-next-line no-underscore-dangle
+        onChange={handleChange}
+        picker={picker}
+        locale={locale}
+        format={format}
+        placeholder={props.placeholder}
+      />
+    </label>
   );
 };
 
